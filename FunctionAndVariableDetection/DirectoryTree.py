@@ -3,6 +3,12 @@ from Tools import Tree
 
 
 def directory_tree(folder_path):
+    """
+    它将遍历项目文件夹的所有子文件夹和文件，并以目录树形式保存到树中。
+    目录树使用了一些特殊的字符来表示文件夹和文件之间的层次关系。
+    :param folder_path:项目根目录
+    :return:目录树的根节点
+    """
     node = Tree.TreeNode(os.path.basename(folder_path))
 
     files = os.listdir(folder_path)
