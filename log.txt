@@ -1,1 +1,3 @@
-6/29:添加c语言函数的相关评价文件c语言函数.txt到Toos包中
+6/29:
+    StuBoo:
+        修改了Tools，FunctionAndVariableDetection，详情查看描述文件
