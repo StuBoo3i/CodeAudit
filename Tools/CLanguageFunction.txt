@@ -1,5 +1,5 @@
 C风险函数表参考
-函数	严重性	解决方案
+函数  严重性	解决方案
 gets	最危险	使用 fgets（buf, size, stdin）。这几乎总是一个大问题！
 strcpy	很危险	改为使用 strncpy。
 strcat	很危险	改为使用 strncat。
