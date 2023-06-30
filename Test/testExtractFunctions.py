@@ -12,7 +12,7 @@ if __name__ == "__main__":
     directory_tree33 = Tree.read_tree_from_file(RelativePath.relative_path('File/directory_tree.json'))
     # 提取自定义函数和库函数
     custom_functions, library_functions = process_c_files(directory_tree33, 'C:/Users/MZS'
-                                                                                              '/PycharmProjects')
+                                                                            '/PycharmProjects')
 
     print("Custom Functions:")
     print(custom_functions)
