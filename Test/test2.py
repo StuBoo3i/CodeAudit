@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from QTApplication.Main import Ui_MainWindow  # 替换为你的UI模块的导入语句
+from QTApplication.MainWindow import Ui_MainWindow  # 替换为你的UI模块的导入语句
 
 
 class MyMainWindow(QMainWindow):
@@ -11,9 +11,9 @@ class MyMainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MyMainWindow()
     window.show()
     sys.exit(app.exec_())
-

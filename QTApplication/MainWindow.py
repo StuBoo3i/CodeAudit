@@ -9,9 +9,16 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import pyqtSignal
 
 
 class Ui_MainWindow(object):
+    new_tab = pyqtSignal()
+    nothing_open = pyqtSignal()
+
+    def __init__(self):
+        pass
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1242, 710)
@@ -52,16 +59,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.treeWidget = QtWidgets.QTreeWidget(self.tab)
         self.treeWidget.setStyleSheet("QTreeView::branch:closed:has-children\n"
-"{\n"
-"    image: url(./resource/icon/expand-positive.png);/*图标*/\n"
-"    border-image: none;\n"
-"}\n"
-"\n"
-"QTreeView::branch:open:has-children\n"
-"{\n"
-"    image: url(./resource/icon/shrink-positive.png);/*图标*/\n"
-"    border-image: none;\n"
-"}")
+                                      "{\n"
+                                      "    image: url(./resource/icon/expand-positive.png);/*图标*/\n"
+                                      "    border-image: none;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QTreeView::branch:open:has-children\n"
+                                      "{\n"
+                                      "    image: url(./resource/icon/shrink-positive.png);/*图标*/\n"
+                                      "    border-image: none;\n"
+                                      "}")
         self.treeWidget.setObjectName("treeWidget")
         self.horizontalLayout.addWidget(self.treeWidget)
         self.tabWidget_2.addTab(self.tab, "")
@@ -84,16 +91,16 @@ class Ui_MainWindow(object):
         self.tabWidget_2.addTab(self.tab_2, "")
         self.treeWidget_1 = QtWidgets.QTreeWidget(self.splitter_2)
         self.treeWidget_1.setStyleSheet("QTreeView::branch:closed:has-children\n"
-"{\n"
-"    image: url(./resource/icon/expand-positive.png);/*图标*/\n"
-"    border-image: none;\n"
-"}\n"
-"\n"
-"QTreeView::branch:open:has-children\n"
-"{\n"
-"    image: url(./resource/icon/shrink-positive.png);/*图标*/\n"
-"    border-image: none;\n"
-"}")
+                                        "{\n"
+                                        "    image: url(./resource/icon/expand-positive.png);/*图标*/\n"
+                                        "    border-image: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QTreeView::branch:open:has-children\n"
+                                        "{\n"
+                                        "    image: url(./resource/icon/shrink-positive.png);/*图标*/\n"
+                                        "    border-image: none;\n"
+                                        "}")
         self.treeWidget_1.setObjectName("treeWidget_1")
         self.treeWidget_1.header().setDefaultSectionSize(110)
         self.treeWidget_1.header().setHighlightSections(False)
