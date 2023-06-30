@@ -1,3 +1,6 @@
 6/29:
     StuBoo:
-        修改了Tools，FunctionAndVariableDetection，详情查看描述文件
+        修改了Tools、FunctionAndVariableDetection
+6/30:
+    StuBoo:
+        修改了Tools
