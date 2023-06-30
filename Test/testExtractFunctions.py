@@ -1,5 +1,5 @@
 from Tools import RelativePath
-from Tools import Tree, Tree_Function
+from Tools import Tree
 from FunctionAndVariableDetection.extractFunctions import process_c_files
 
 # 提取自定义函数
