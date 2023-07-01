@@ -63,8 +63,8 @@ def create_table4(cursor):
         cursor.execute('''CREATE TABLE function_tree
                                   (id INT AUTO_INCREMENT PRIMARY KEY,
                                    function_id INT,
-                                   pre_function INT,
-                                   sub_function INT)''')
+                                   pre_function VARCHAR(255),
+                                   sub_function VARCHAR(255))''')
         print("表function_tree创建成功！")
     except mysql.connector.Error as err:
         print("表function_tree创建失败: {}".format(err))
