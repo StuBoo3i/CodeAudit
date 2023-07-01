@@ -9,4 +9,5 @@ CreatDatabase
 DatabaseOperation
 数据库操作函数集
 ReadTableAboutCFunction
-读入参考函数
+读入参考函数                          PS：在CreatDatabase、ReadTableAboutCFunction设置数据库账号密码
+                                        后运行即可完成数据库创建和参考函数读入
