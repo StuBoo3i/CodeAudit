@@ -1,7 +1,6 @@
 import re
 
 
-
 def process_c_files(node, file_path):
     """
     对一个树的根节点进行检查，是否是C语言文件，并对其进行迭代循环操作

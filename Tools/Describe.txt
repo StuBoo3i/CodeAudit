@@ -8,3 +8,5 @@ CreatDatabase
 一键式创建数据库
 DatabaseOperation
 数据库操作函数集
+CreatTableAboutCFunction
+一键式创表并读入参考函数

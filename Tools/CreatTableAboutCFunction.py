@@ -1,5 +1,5 @@
 import mysql.connector
-from RelativePath import relative_path
+from Tools.RelativePath import relative_path
 # 连接到数据库
 conn = mysql.connector.connect(
     host="localhost",
