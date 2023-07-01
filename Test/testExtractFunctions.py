@@ -1,6 +1,7 @@
 from Tools import RelativePath
 from Tools import Tree
 from FunctionAndVariableDetection.extractFunctions import process_c_files
+from InvalidFunctionDetection.FunctionInvalidDetection import functionInvalidDetection
 
 # 提取自定义函数
 # custom_functions = extract_functions(c_code)
@@ -20,4 +21,6 @@ if __name__ == "__main__":
     print("Library Functions:")
     print(library_functions)
 
-    Tree.print_directory_tree(directory_tree33)
+    print("无效函数:")
+    print(functionInvalidDetection(directory_tree33, 'C:/Users/MZS'
+                                                     '/PycharmProjects'))

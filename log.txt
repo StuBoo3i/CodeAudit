@@ -4,6 +4,8 @@
 6/30:
     StuBoo:
         修改了Tools
+    thenine10086:
+        修改了FunctionAndVariableDetection，InvalidFunctionDetection
 7/1:
     StuBoo:
         修改了Tools,LeakDetection,Interfaces
