@@ -23,11 +23,18 @@ def use_database(cursor):
 def create_table1(cursor):
     try:
         cursor.execute(
-            "CREATE TABLE scanned_function (id INT AUTO_INCREMENT PRIMARY KEY,  `function` VARCHAR(255), "
-            "`type` VARCHAR(255))")
-        print("表1创建成功！")
+            "CREATE TABLE scanned_function (id INT AUTO_INCREMENT PRIMARY KEY,  "
+            "`function` VARCHAR(255), "
+            "function_text TEXT, "
+            "return_type VARCHAR(255),"
+            "parameter VARCHAR(510),"
+            "parameters INT,"
+            "function_type BOOL)")
+        print("表scanned_function创建成功！")
     except mysql.connector.Error as err:
-        print("表1创建失败: {}".format(err))
+        print("表scanned_function创建失败: {}".format(err))
+
+
 def create_table2(cursor):
     try:
         cursor.execute('''CREATE TABLE c_function
@@ -35,9 +42,10 @@ def create_table2(cursor):
                                    `function` VARCHAR(255),
                                    severity VARCHAR(255),
                                    solution VARCHAR(255))''')
-        print("表2创建成功！")
+        print("表c_function创建成功！")
     except mysql.connector.Error as err:
-        print("表2创建失败: {}".format(err))
+        print("表c_function创建失败: {}".format(err))
+
 
 if __name__ == '__main__':
     # 连接到MySQL数据库
