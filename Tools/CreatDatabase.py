@@ -23,13 +23,18 @@ def use_database(cursor):
 def create_table1(cursor):
     try:
         cursor.execute(
-            "CREATE TABLE scanned_function (id INT AUTO_INCREMENT PRIMARY KEY,  "
-            "`function` VARCHAR(255), "
-            "function_text TEXT, "
+            "CREATE TABLE scanned_function ("
+            "id INT AUTO_INCREMENT PRIMARY KEY,"
+            "`function` VARCHAR(255),"
+            "function_text TEXT,"
             "return_type VARCHAR(255),"
             "parameter VARCHAR(510),"
             "parameters INT,"
-            "function_type BOOL)")
+            "function_type BOOL,"
+            "belong_file VARCHAR(255),"
+            "`start` INT,"
+            "`end` INT)"
+        )
         print("表scanned_function创建成功！")
     except mysql.connector.Error as err:
         print("表scanned_function创建失败: {}".format(err))
