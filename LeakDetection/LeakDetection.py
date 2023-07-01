@@ -1,47 +1,30 @@
-import ctypes
-import gc
+from Interfaces.InvokeDrmemory import invoke_drmemory
+from Interfaces.InvokeGCC import compile_code
+from Interfaces.InvokeCppcheck import invoke_cppcheck
 from Tools.RelativePath import relative_path
 
 
-def leak_detection(dll_path):
-    # 加载动态链接库
-    lib = ctypes.CDLL(relative_path(dll_path))  # 替换为你的动态链接库文件路径
+def Dynamic_leak_detection(source_file, output_file):
+    # 调用示例
+    source_file = relative_path(source_file)
+    output_file = relative_path(output_file)
 
-    # 定义C函数的参数类型
-    lib.func1.argtypes = []
-    lib.func2.argtypes = []
+    # 编译C代码
+    compile_code(source_file, output_file)
 
-    # 定义C函数的返回类型
-    lib.func1.restype = None
-    lib.func2.restype = None
+    # 调用示例
+    output = invoke_drmemory(output_file)
+    return output
 
-    # 设置内存分配和释放的钩子函数
-    def malloc_hook(size):
-        print(f"Allocated memory block of size {size} bytes")
 
-    def free_hook(ptr):
-        print(f"Freed memory block at address {ptr}")
+def Static_leak_detection(c_code_path):
+    cppcheck_output = invoke_cppcheck(relative_path(c_code_path))
 
-    # 注册钩子函数
-    ctypes.c_void_p.in_dll(lib, "malloc")._callbacks.append(malloc_hook)
-    ctypes.c_void_p.in_dll(lib, "free")._callbacks.append(free_hook)
+    # 解析Cppcheck输出，检查是否有内存泄漏
 
-    # 检测内存泄漏
-    def detect_memory_leak(func):
-        # 清除之前的内存分配和释放钩子函数
-        ctypes.c_void_p.in_dll(lib, "malloc")._callbacks = []
-        ctypes.c_void_p.in_dll(lib, "free")._callbacks = []
+    print(cppcheck_output)
 
-        # 注册新的钩子函数
-        ctypes.c_void_p.in_dll(lib, "malloc")._callbacks.append(malloc_hook)
-        ctypes.c_void_p.in_dll(lib, "free")._callbacks.append(free_hook)
-
-        # 调用C函数
-        func()
-
-        # 手动执行垃圾回收以确保所有的钩子函数被调用
-        gc.collect()
-
-    # 调用C函数并检测内存泄漏
-    detect_memory_leak(lib.func1)
-    detect_memory_leak(lib.func2)
+    if "Memory leak" in cppcheck_output:
+        print("Memory leaks detected.")
+    else:
+        print("No memory leaks detected.")
