@@ -8,11 +8,10 @@ def process_c_files(node, file_path):
     :param file_path:文件的绝对路径
     :return:custom_functions, library_functions 自定义函数名（list）,库函数名（list）
     """
-    custom_functions = []
-    library_functions = []
+    functions = []
 
     if node is None:
-        return custom_functions, library_functions
+        return functions
 
     # 传入的绝对路径生成文件路径
     file_name = file_path + '/' + node.name
@@ -21,45 +20,60 @@ def process_c_files(node, file_path):
         with open(file_name, "r") as file:
             content = file.read()
 
-            # 进行自定义函数和库函数的筛选
-            # 这里只是示例，您需要根据具体的筛选条件进行修改
-            custom_functions, library_functions = extract_functions(content)
+            # 进行函数的筛选与处理
+            functions = extract_functions(content, file_name)
 
-    for child_node in node.children:
-        custom, library = process_c_files(child_node, file_name)
-        custom_functions.extend(custom)
-        library_functions.extend(library)
+    for node_child in node.children:
+        functions_child = process_c_files(node_child, file_name)
+        functions.extend(functions_child)
 
-    # 去重操作
-    custom_functions = list(set(custom_functions))
-    library_functions = list(set(library_functions))
-
-    return custom_functions, library_functions
+    return functions
 
 
-def extract_functions(content):
+def extract_functions(content, path):
     """
-    读取文件内容对函数名进行正则匹配
-    :param content:从文件中读取的内容
-    :return:custom_functions, library_functions 自定义函数名（list）,库函数名（list）
+    读取文件内容对函数进行正则匹配，并提取返回类型、函数名、参数列表和函数体
+    :param path: 文件所在的绝对路径
+    :param content: 从文件中读取的内容
+    :return: functions 函数信息（list），每个元素是一个字典包含返回类型、函数名、参数列表和函数体
     """
-    custom_functions = []
-    library_functions = []
+    functions = []
 
-    pattern_custom = r'\b(?:int|void|char|short|long|float|double)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\('
-    pattern_library = r'(?<!\w)([a-zA-Z_][a-zA-Z0-9_]*)\s*\('
+    pattern_definition = r'((?:int|void|char|short|long|float|double)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*{([' \
+                         r'^}]*)})'
 
-    matches_custom = re.findall(pattern_custom, content)
-    matches_library = re.findall(pattern_library, content)
+    matches_definition = re.findall(pattern_definition, content)
 
-    # 自定义中删除main
-    custom_functions = [func for func in matches_custom if func != 'main']
-    for func in matches_library:
-        if func not in custom_functions:
-            library_functions.append(func)
+    for definition in matches_definition:
+        return_type, function_name, params, body = definition
+        return_type = return_type.split()[0]  # 提取返回类型的第一个单词
+        start_line, end_line = find_func_body_lines(content, '{' + body + '}')
+        function_info = {
+            'return_type': return_type.strip(),
+            'function_name': function_name.strip(),
+            'parameters': params.strip(),
+            'body': body.strip(),
+            'path': path,
+            'start': start_line,
+            'end': end_line
+        }
+        functions.append(function_info)
 
-    # 去重操作
-    custom_functions = list(set(custom_functions))
-    library_functions = list(set(library_functions))
+    return functions
 
-    return custom_functions, library_functions
+
+def find_func_body_lines(content, func_body):
+    """
+    查找函数主体在内容中的起止行数
+    :param content: 完整内容字符串
+    :param func_body: 函数主体字符串
+    :return: 起始行号，结束行号
+    """
+    pattern = r"(?<!\w)" + re.escape(func_body.strip()) + r"(?!\w)"
+    match = re.search(pattern, content)
+    if match:
+        start_line = content.count('\n', 0, match.start()) + 1
+        end_line = content.count('\n', 0, match.end())
+        return start_line, end_line
+
+    return -1, -1
