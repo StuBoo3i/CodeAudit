@@ -1,4 +1,5 @@
 import mysql.connector
+import re
 
 
 class SQL:
@@ -18,8 +19,24 @@ class SQL:
         )
         return cnx
 
-    def insert_SQL(self, cnx, cursor, data_list):
-        pass
+    @staticmethod
+    def insert_scan_function(cnx, cursor, data_list):
+        # 使用正则表达式匹配参数
+        pattern = r"\b\w+\s\w+\b"
+        matches = re.findall(pattern, data_list["parameter"])
+
+        # 将匹配到的参数存储到列表中
+        param_list = list(matches)
+
+        insert_query = "INSERT INTO scan_function ( return_type, `function`, parameter, " \
+                       "  function_text, belong_file, `start`, `end`," \
+                       "  parameters, function_type, risk) VALUES " \
+                       "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        data = (data_list['return_type'], data_list['function_name'], param_list, data_list['body'],
+                data_list['path'], data_list['start'], data_list['end'], param_list.__len__(), '0', '0')
+        cursor.execute(insert_query, data)
+        # 提交
+        cnx.commit()
 
     def select_SQL(self, cursor):
         pass

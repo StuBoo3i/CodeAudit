@@ -51,7 +51,7 @@ def extract_functions(content, path):
         function_info = {
             'return_type': return_type.strip(),
             'function_name': function_name.strip(),
-            'parameters': params.strip(),
+            'parameter': params.strip(),
             'body': body.strip(),
             'path': path,
             'start': start_line,
@@ -73,7 +73,7 @@ def find_func_body_lines(content, func_body):
     match = re.search(pattern, content)
     if match:
         start_line = content.count('\n', 0, match.start()) + 1
-        end_line = content.count('\n', 0, match.end())
+        end_line = content.count('\n', 0, match.end()) + 1
         return start_line, end_line
 
     return -1, -1
