@@ -1,10 +1,11 @@
 from Interfaces.InvokeDrmemory import invoke_drmemory
 from Interfaces.InvokeGCC import compile_code
 from Interfaces.InvokeCppcheck import invoke_cppcheck
+from Tools.FileOperation import write_to_file, print_lines
 from Tools.RelativePath import relative_path
 
 
-def Dynamic_leak_detection(source_file, output_file):
+def dynamic_leak_detection(source_file, output_file):
     """
     动态内存泄漏分析
     :param source_file: 源c文件
@@ -23,7 +24,7 @@ def Dynamic_leak_detection(source_file, output_file):
     return output
 
 
-def Static_leak_detection(c_code_path):
+def static_leak_detection(c_code_path):
     """
     静态内存泄漏分析
     :param c_code_path: C语言源码路径
@@ -33,4 +34,14 @@ def Static_leak_detection(c_code_path):
 
     # 解析Cppcheck输出，检查是否有内存泄漏
 
-    print(cppcheck_output)
+    return cppcheck_output
+
+
+def static_position(source_file):
+    """
+    返回静态检测定位
+    :param source_file: 检测源文件路径
+    :return: 问题出现行的list
+    """
+    write_to_file(relative_path('File/result.txt'), static_leak_detection(source_file))
+    return print_lines(relative_path('File/result.txt'), '[memleak]')
