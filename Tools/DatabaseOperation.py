@@ -21,22 +21,36 @@ class SQL:
 
     @staticmethod
     def insert_scan_function(cnx, cursor, data_list):
-        # 使用正则表达式匹配参数
-        pattern = r"\b\w+\s\w+\b"
-        matches = re.findall(pattern, data_list["parameter"])
+        """
+        读入一条函数信息
+        :param cnx: 实例的cnx
+        :param cursor: 实例的cursor
+        :param data_list: 函数信息
+        :return: 是否执行成功,错误返回-1
+        """
+        try:
+            # 使用正则表达式匹配参数
+            pattern = r"\b\w+\s\w+\b"
+            matches = re.findall(pattern, data_list["parameter"])
 
-        # 将匹配到的参数存储到列表中
-        param_list = list(matches)
+            # 将匹配到的参数存储到列表中
+            param_list = list(matches)
 
-        insert_query = "INSERT INTO scan_function ( return_type, `function`, parameter, " \
-                       "  function_text, belong_file, `start`, `end`," \
-                       "  parameters, function_type, risk) VALUES " \
-                       "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        data = (data_list['return_type'], data_list['function_name'], param_list, data_list['body'],
-                data_list['path'], data_list['start'], data_list['end'], param_list.__len__(), '0', '0')
-        cursor.execute(insert_query, data)
-        # 提交
-        cnx.commit()
+            insert_query = "INSERT INTO scan_function ( return_type, `function`, parameter, " \
+                           "  function_text, belong_file, `start`, `end`," \
+                           "  parameters, function_type, risk) VALUES " \
+                           "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            data = (data_list['return_type'], data_list['function_name'], param_list, data_list['body'],
+                    data_list['path'], data_list['start'], data_list['end'], param_list.__len__(), '0', '0')
+            cursor.execute(insert_query, data)
+            # 提交
+            cnx.commit()
+
+            return 0
+
+        except Exception:
+
+            return -1
 
     def select_SQL(self, cursor):
         pass
