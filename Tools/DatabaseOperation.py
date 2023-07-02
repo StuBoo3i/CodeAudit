@@ -10,11 +10,11 @@ class SQL:
         self.cnx = self.__connectSQL__()
         self.cursor = self.cnx.cursor()
 
-    def __connect_SQL__(self):
+    def __connectSQL__(self):
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="100221",
+            password="123456",
             database="code_audit"
         )
         return cnx
@@ -40,7 +40,7 @@ class SQL:
                            "  function_text, belong_file, `start`, `end`," \
                            "  parameters, function_type, risk) VALUES " \
                            "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            data = (data_list['return_type'], data_list['function_name'], param_list, data_list['body'],
+            data = (data_list['return_type'], data_list['function_name'], ' '.join(param_list), data_list['body'],
                     data_list['path'], data_list['start'], data_list['end'], param_list.__len__(), '0', '0')
             cursor.execute(insert_query, data)
             # 提交
@@ -48,9 +48,9 @@ class SQL:
 
             return 0
 
-        except Exception:
+        except Exception as e:
 
-            return -1
+            return e
 
     def select_SQL(self, cursor):
         pass
