@@ -1,3 +1,4 @@
+import re
 from pycparser import c_parser, c_ast
 
 
@@ -120,3 +121,27 @@ def value_scanner(text):
         print(f"Function '{function_name}' not found.")
 
     return result
+
+def analyze_type(text):
+    functions = re.findall(r'\b\w+\s+\w+\([^)]*\)\s*{[^}]*}', text)  # 正则表达式匹配函数定义
+    variables = {}
+
+    for function in functions:
+        name = re.search(r'\b\w+\s+\w+', function).group()  # 获取函数名称
+        variables[name] = {}
+
+        # 提取函数参数
+        parameters = re.findall(r'\b\w+\s+\w+', function[:function.index('{')])
+        for param in parameters:
+            param_type, param_name = param.split()
+            variables[name][param_name] = param_type
+
+        # 提取局部变量
+        local_vars = re.findall(r'\b\w+\s+\w+;', function)
+        for var in local_vars:
+            var_type, var_name = var[:-1].split()
+            variables[name][var_name] = var_type
+
+    return variables
+
+
