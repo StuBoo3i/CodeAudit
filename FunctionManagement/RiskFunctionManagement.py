@@ -12,7 +12,6 @@ def test_static_leak():
         for string in strings:
             # 使用正则表达式提取文本
             pattern = r":\d+:\d+:"
-            # pam = "".join(result)
             matches = re.findall(pattern, string)
             # 提取第一个数字
             if matches:
