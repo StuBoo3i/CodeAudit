@@ -122,7 +122,13 @@ def value_scanner(text):
 
     return result
 
+
 def analyze_type(text):
+    """
+    函数内的变量扫描
+    :param text: 函数文本
+    :return: 变量list
+    """
     functions = re.findall(r'\b\w+\s+\w+\([^)]*\)\s*{[^}]*}', text)  # 正则表达式匹配函数定义
     variables = {}
 
@@ -143,5 +149,3 @@ def analyze_type(text):
             variables[name][var_name] = var_type
 
     return variables
-
-
