@@ -15,6 +15,7 @@
 5、对C语言检测完成内存溢出检测
 "
 
-RiskFunctionManagement.py  风险函数管理，完成了静态函数的内存泄漏分析
+RiskFunctionManagement.py  风险函数管理相关操作，
+                                完成了静态函数的内存泄漏分析,完成了库函数判断,完成了库函数添加函数
 
 
