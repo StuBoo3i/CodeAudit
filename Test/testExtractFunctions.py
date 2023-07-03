@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     print("函数信息:")
     for function in functions:
-        print(function)
-        print()
-    #     print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
-    # mysql.close_SQL(mysql.cursor, mysql.cnx)
+        # print(function)
+        # print()
+        print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
+    mysql.close_SQL(mysql.cursor, mysql.cnx)
