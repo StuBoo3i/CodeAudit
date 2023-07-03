@@ -12,4 +12,16 @@ void func1() {
     //
     free(ptr);
 }
+void func3() {
+    //
+    char* str = malloc(10 * sizeof(char));
+    //
+    //
+}
+void func4() {
+    //
+    char* str = malloc(10 * sizeof(char));
+    //
+    //
+}
 //

@@ -46,8 +46,10 @@ def extract_functions(content, path):
     for definition in matches_definition:
         return_type, function_name, params, body = definition
         return_type = return_type.split()[0]  # 提取返回类型的第一个单词
-        start_line, end_line = find_func_body_lines(content, '{' + body + '}')
-        # body = return_type + ' ' + function_name + '(' + params + ')' + '{' + body + '}'
+        body_text = return_type + ' ' + function_name + '(' + params + ')' + '{' + body + '}'
+        print(body_text)
+        start_line, end_line = find_func_body_lines(content, body_text)
+
         function_info = {
             'return_type': return_type.strip(),
             'function_name': function_name.strip(),
@@ -82,8 +84,8 @@ def find_func_body_lines(content, func_body):
     pattern = r"(?<!\w)" + re.escape(func_body.strip()) + r"(?!\w)"
     match = re.search(pattern, content)
     if match:
-        start_line = content.count('\n', 0, match.start()) + 1
-        end_line = content.count('\n', 0, match.end()) + 1
+        start_line = content.count('\n', 0, match.start())
+        end_line = content.count('\n', 0, match.end())
         return start_line, end_line
 
     return -1, -1

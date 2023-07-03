@@ -1,28 +1,7 @@
-Checking E:\Data\PyCharm\CodeAudit\File\example.c ...
-E:\Data\PyCharm\CodeAudit\File\example.c:1:0: information: Include file: <stdio.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+Checking E:\Data\PyCharm\CodeAudit\File\test.c ...
+E:\Data\PyCharm\CodeAudit\File\test.c:1:0: information: Include file: <stdio.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
 #include <stdio.h>
 ^
-E:\Data\PyCharm\CodeAudit\File\example.c:2:0: information: Include file: <stdlib.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
-#include <stdlib.h>
-^
-E:\Data\PyCharm\CodeAudit\File\example.c:8:1: error: Memory leak: str [memleak]
-}
-^
-E:\Data\PyCharm\CodeAudit\File\example.c:5:11: style: Variable 'str' can be declared as pointer to const [constVariablePointer]
-    char* str = malloc(10 * sizeof(char));
-          ^
-E:\Data\PyCharm\CodeAudit\File\example.c:5:15: style: Variable 'str' is assigned a value that is never used. [unreadVariable]
-    char* str = malloc(10 * sizeof(char));
-              ^
-E:\Data\PyCharm\CodeAudit\File\example.c:5:17: style: Variable 'str' is allocated memory that is never used. [unusedAllocatedMemory]
-    char* str = malloc(10 * sizeof(char));
-                ^
-E:\Data\PyCharm\CodeAudit\File\example.c:11:16: style: Variable 'ptr' is allocated memory that is never used. [unusedAllocatedMemory]
-    int* ptr = malloc(sizeof(int));
-               ^
-E:\Data\PyCharm\CodeAudit\File\example.c:3:0: style: The function 'func2' is never used. [unusedFunction]
-void func2() {
-^
-E:\Data\PyCharm\CodeAudit\File\example.c:9:0: style: The function 'func1' is never used. [unusedFunction]
-void func1() {
+E:\Data\PyCharm\CodeAudit\File\test.c:3:0: style: The function 'add' is never used. [unusedFunction]
+int add(int a, int b) {
 ^
