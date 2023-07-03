@@ -62,6 +62,16 @@ def extract_functions(content, path):
     return functions
 
 
+def function_body(function_info):
+    """
+    重组函数体
+    :param function_info: 函数信息列表
+    :return: 函数体
+    """
+    return function_info['return_type'] + ' ' + function_info['function'] + '(' + function_info[
+        'parameter'] + ')' + '{' + function_info['function_text'] + '}'
+
+
 def find_func_body_lines(content, func_body):
     """
     查找函数主体在内容中的起止行数

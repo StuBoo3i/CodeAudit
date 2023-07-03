@@ -6,6 +6,7 @@ class SQL:
     """
     创建示例后记得关闭游标，调用close_SQL实现
     """
+
     def __init__(self):
         self.cnx = self.__connectSQL__()
         self.cursor = self.cnx.cursor()
@@ -14,7 +15,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="123456",
+            password="100221",
             database="code_audit"
         )
         return cnx
@@ -52,8 +53,35 @@ class SQL:
 
             return e
 
-    def select_SQL(self, cursor):
-        pass
+    @staticmethod
+    def select_scan_function(cursor):
+        # 执行SQL查询
+        query = "SELECT * FROM scan_function"
+        cursor.execute(query)
+
+        # 获取查询结果
+        func_infos = []
+
+        result = cursor.fetchall()
+
+        for ret in result:
+            func_info = {
+                'id': ret[0],
+                'function': ret[1],
+                'function_text': ret[2],
+                'return_type': ret[3],
+                'parameter': ret[4],
+                'parameters': ret[5],
+                'function_type': ret[6],
+                'belong_file': ret[7],
+                'start': ret[8],
+                'end': ret[9],
+                'risk': ret[10]
+            }
+
+            func_infos.append(func_info)
+        # 遍历结果并输出
+        return func_infos
 
     def delete_SQL(self, cnx, cursor):
 
