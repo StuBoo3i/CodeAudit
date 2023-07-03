@@ -4,6 +4,7 @@ from FunctionAndVariableDetection.ExtractFunctions import process_c_files
 from InvalidFunctionDetection.FunctionInvalidDetection import functionInvalidDetection
 from FunctionAndVariableDetection.DirectoryTree import directory_tree
 from Tools.DatabaseOperation import SQL
+
 # 提取自定义函数
 # custom_functions = extract_functions(c_code)
 # print("Custom Functions:")
@@ -19,7 +20,7 @@ if __name__ == "__main__":
     directory_tree33 = Tree.read_tree_from_file(RelativePath.relative_path('File/directory_tree.json'))
     # 提取自定义函数和库函数
     functions = process_c_files(directory_tree33, 'C:/Users/MZS'
-                                                  '/PycharmProjects')
+                                                  '/PycharmProjects/CodeAudit')
 
     # print("无效函数:")
     # print(functionInvalidDetection(directory_tree33, 'C:/Users/MZS'
@@ -27,8 +28,9 @@ if __name__ == "__main__":
 
     mysql = SQL()
 
-
-
     print("函数信息:")
     for function in functions:
-        print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
+        print(function)
+        print()
+    #     print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
+    # mysql.close_SQL(mysql.cursor, mysql.cnx)

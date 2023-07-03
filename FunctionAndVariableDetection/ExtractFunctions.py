@@ -13,18 +13,17 @@ def process_c_files(node, file_path):
     if node is None:
         return functions
 
-    # 传入的绝对路径生成文件路径
-    file_name = file_path + '/' + node.name
-
-    if file_name.endswith(".c"):
-        with open(file_name, "r") as file:
+    if file_path.endswith(".c"):
+        with open(file_path, "r") as file:
             content = file.read()
 
             # 进行函数的筛选与处理
-            functions = extract_functions(content, file_name)
+            functions = extract_functions(content, file_path)
 
     for node_child in node.children:
-        functions_child = process_c_files(node_child, file_name)
+        # 传入的绝对路径生成文件路径
+        file_child_path = file_path + '/' + node_child.name
+        functions_child = process_c_files(node_child, file_child_path)
         functions.extend(functions_child)
 
     return functions
@@ -35,7 +34,7 @@ def extract_functions(content, path):
     读取文件内容对函数进行正则匹配，并提取返回类型、函数名、参数列表和函数体
     :param path: 文件所在的绝对路径
     :param content: 从文件中读取的内容
-    :return: functions 函数信息（list），每个元素是一个字典包含返回类型、函数名、参数列表和函数体
+    :return: functions 函数信息（list），每个元素是一部字典包含返回类型、函数名、参数列表和函数体
     """
     functions = []
 
@@ -48,6 +47,7 @@ def extract_functions(content, path):
         return_type, function_name, params, body = definition
         return_type = return_type.split()[0]  # 提取返回类型的第一个单词
         start_line, end_line = find_func_body_lines(content, '{' + body + '}')
+        # body = return_type + ' ' + function_name + '(' + params + ')' + '{' + body + '}'
         function_info = {
             'return_type': return_type.strip(),
             'function_name': function_name.strip(),
