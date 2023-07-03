@@ -40,16 +40,18 @@ def extract_functions(content, path):
 
     pattern_definition = r'((?:int|void|char|short|long|float|double)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*{([' \
                          r'^}]*)})'
-
+    pattern_definition_body = r'((?:int|void|char|short|long|float|double)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([' \
+                              r'^)]*)\)\s*{([^}]*)})'
     matches_definition = re.findall(pattern_definition, content)
-
+    matches_body = re.findall(pattern_definition_body, content)
+    body_id = 0
     for definition in matches_definition:
         return_type, function_name, params, body = definition
         return_type = return_type.split()[0]  # 提取返回类型的第一个单词
-        body_text = return_type + ' ' + function_name + '(' + params + ')' + '{' + body + '}'
-        print(body_text)
+        body_text = matches_body[body_id][0]
+        # print("+++:" + body_text)
         start_line, end_line = find_func_body_lines(content, body_text)
-
+        body_id += 1
         function_info = {
             'return_type': return_type.strip(),
             'function_name': function_name.strip(),
@@ -71,7 +73,8 @@ def function_body(function_info):
     :return: 函数体
     """
     return function_info['return_type'] + ' ' + function_info['function'] + '(' + function_info[
-        'parameter'] + ')' + '{' + function_info['function_text'] + '}'
+        'parameter'] + ')' + '{' + '\n' + function_info['function_text'] + '\n' + '}'
+
 
 
 def find_func_body_lines(content, func_body):
@@ -81,11 +84,11 @@ def find_func_body_lines(content, func_body):
     :param func_body: 函数主体字符串
     :return: 起始行号，结束行号
     """
-    pattern = r"(?<!\w)" + re.escape(func_body.strip()) + r"(?!\w)"
+    pattern = re.escape(func_body.strip())
     match = re.search(pattern, content)
     if match:
-        start_line = content.count('\n', 0, match.start())
-        end_line = content.count('\n', 0, match.end())
+        start_line = content.count('\n', 0, match.start()) + 1
+        end_line = content.count('\n', 0, match.end()) + 1
         return start_line, end_line
 
     return -1, -1

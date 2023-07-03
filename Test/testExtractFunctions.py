@@ -12,7 +12,8 @@ from Tools.DatabaseOperation import SQL
 
 if __name__ == "__main__":
     # 生成目录树
-    directory_tree1 = directory_tree('E:/Data/PyCharm/CodeAudit')
+    directory_tree1 = directory_tree('C:/Users/MZS'
+                                     '/PycharmProjects/CodeAudit')
 
     # 将目录树写入文件
     Tree.write_tree_to_file(directory_tree1, RelativePath.relative_path('File/directory_tree.json'))
