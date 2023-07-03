@@ -122,6 +122,7 @@ def value_scanner(text):
 
     return result
 
+
 def analyze_type(text):
     """
     函数内的变量扫描
