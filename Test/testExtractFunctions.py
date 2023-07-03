@@ -20,7 +20,7 @@ if __name__ == "__main__":
     directory_tree33 = Tree.read_tree_from_file(RelativePath.relative_path('File/directory_tree.json'))
     # 提取自定义函数和库函数
     functions = process_c_files(directory_tree33, 'C:/Users/MZS'
-                                                  '/PycharmProjects')
+                                                  '/PycharmProjects/CodeAudit')
 
     # print("无效函数:")
     # print(functionInvalidDetection(directory_tree33, 'C:/Users/MZS'
@@ -30,5 +30,7 @@ if __name__ == "__main__":
 
     print("函数信息:")
     for function in functions:
-        print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
-    mysql.close_SQL(mysql.cursor, mysql.cnx)
+        print(function)
+        print()
+    #     print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
+    # mysql.close_SQL(mysql.cursor, mysql.cnx)

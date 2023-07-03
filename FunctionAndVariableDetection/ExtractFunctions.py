@@ -13,18 +13,17 @@ def process_c_files(node, file_path):
     if node is None:
         return functions
 
-    # 传入的绝对路径生成文件路径
-    file_name = file_path + '/' + node.name
-
-    if file_name.endswith(".c"):
-        with open(file_name, "r") as file:
+    if file_path.endswith(".c"):
+        with open(file_path, "r") as file:
             content = file.read()
 
             # 进行函数的筛选与处理
-            functions = extract_functions(content, file_name)
+            functions = extract_functions(content, file_path)
 
     for node_child in node.children:
-        functions_child = process_c_files(node_child, file_name)
+        # 传入的绝对路径生成文件路径
+        file_child_path = file_path + '/' + node_child.name
+        functions_child = process_c_files(node_child, file_child_path)
         functions.extend(functions_child)
 
     return functions
