@@ -3,4 +3,5 @@
 自定义函数"
 "该系统由函数与变量检测子系统调用
 "
-FunctionInvalidDetection.py--无效函数检测
+FunctionInvalidDetection.py--无效函数检测 ####已删除
+InvalidDetection.py 重写了无效函数检测

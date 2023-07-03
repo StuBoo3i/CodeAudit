@@ -17,3 +17,6 @@
 7/3:
     thenine10086:
         修改了Tools, 修改了FunctionAndVariableDetection
+    StuBoo:
+        修改了Tools,FunctionAndVariableDetection,FunctionManagement,GenerateRiskReport,InvalidDetection,LeakDetection
+        截至目前除界面部分与拓展部分之外的逻辑代码已完成

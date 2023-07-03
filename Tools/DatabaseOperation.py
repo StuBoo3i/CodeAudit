@@ -118,7 +118,7 @@ class SQL:
                     'end': ret[9],
                     'risk': ret[10]
                 }
-    
+
                 func_infos.append(func_info)
             # 遍历结果并输出
             return func_infos
@@ -174,11 +174,42 @@ class SQL:
             return e
 
     @staticmethod
-    def update_risk_by_id(cnx, cursor, id):
+    def select_id_by_start(cursor, start):
+        try:
+            # 执行查询语句
+            query = "SELECT id FROM scan_function WHERE `start` = %s"
+            value = (start,)
+            cursor.execute(query, value)
+
+            # 获取查询结果并存入列表
+            result = []
+            for row in cursor:
+                result.append(row)
+            return result
+        except Exception as e:
+            print("不是主人不可以看得啦喵（气急败坏）")
+            return e
+
+    @staticmethod
+    def update_leak_by_id(cnx, cursor, id):
         try:
             # 执行更新操作
             update_query = "UPDATE scan_function SET risk = %s WHERE id = %s"
             update_value = ('-1', id)
+            cursor.execute(update_query, update_value)
+
+            # 提交更改
+            cnx.commit()
+        except Exception as e:
+            print("不是主人不可以帮我换的喵（害羞）")
+            return e
+
+    @staticmethod
+    def update_invalid_by_id(cnx, cursor, id):
+        try:
+            # 执行更新操作
+            update_query = "UPDATE scan_function SET risk = %s WHERE id = %s"
+            update_value = ('-2', id)
             cursor.execute(update_query, update_value)
 
             # 提交更改

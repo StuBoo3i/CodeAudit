@@ -43,5 +43,6 @@ def static_position(source_file):
     :param source_file: 检测源文件路径
     :return: 问题出现行的list
     """
+
     write_to_file(relative_path('File/result.txt'), static_leak_detection(source_file))
     return print_lines(relative_path('File/result.txt'), '[memleak]')
