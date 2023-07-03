@@ -74,7 +74,15 @@ def create_table4(cursor):
         print("表function_tree创建成功！")
     except mysql.connector.Error as err:
         print("表function_tree创建失败: {}".format(err))
-
+def create_table5(cursor):
+    try:
+        cursor.execute('''CREATE TABLE value_of_function
+                                  (id INT AUTO_INCREMENT PRIMARY KEY,
+                                   function_id INT,
+                                   `values` VARCHAR(255))''')
+        print("表value_of_function创建成功！")
+    except mysql.connector.Error as err:
+        print("表value_of_function创建失败: {}".format(err))
 
 if __name__ == '__main__':
     # 连接到MySQL数据库
@@ -90,6 +98,7 @@ if __name__ == '__main__':
     create_table2(cursor)
     create_table3(cursor)
     create_table4(cursor)
+    create_table5(cursor)
     # 关闭游标和连接
     cursor.close()
     cnx.close()
