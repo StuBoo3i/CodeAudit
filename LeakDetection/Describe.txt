@@ -5,4 +5,4 @@
 "该系统由风险
 函数管理子系统调用
 "
-Leakdetection:实现了静态和动态的内存泄漏分析，添加了静态检测结果的list输出static_position
+LeakDetection:实现了静态和动态的内存泄漏分析，添加了静态检测结果的list输出static_position
