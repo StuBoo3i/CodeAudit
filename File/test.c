@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int add(int a, int b) {
-    return a + b;
+    c = a + b - 1;
+    printf(c);
+    return c;
 }
 
 void hello() {
