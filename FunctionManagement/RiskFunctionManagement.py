@@ -1,7 +1,6 @@
+import re
 from Tools.DatabaseOperation import SQL
 from LeakDetection.LeakDetection import static_position
-from FunctionAndVariableDetection.ExtractFunctions import function_body
-import re
 
 
 def test_static_leak():
@@ -27,5 +26,5 @@ def test_static_leak():
                         mysql.updata_risk_by_id(mysql.cnx, mysql.cursor, a)
 
 
-def test_invalid():
+def test_invalid_function():
     pass

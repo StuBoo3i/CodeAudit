@@ -62,7 +62,7 @@ class SQL:
         :param data_list: list
         :return: 无
         """
-        #插入
+        # 插入
         insert_query = "INSERT INTO function_tree ( function_id, pre_function, sub_function) VALUES " \
                        "(%s, %s, %s)"
         data = (data_list[0], data_list[1], data_list[2])
@@ -158,7 +158,6 @@ class SQL:
 
         # 提交更改
         cnx.commit()
-        print("ok")
 
     def delete_SQL(self, cnx, cursor):
         pass
