@@ -17,3 +17,4 @@
 DirectoryTree.py ————目录树相关函数的实现
 ExtractFunctions.py————对于文件目录树.c文件的函数检测
 ValueScanner.py————对函数文本的变量扫描
+FunctionTree.py————生成函数关系树
