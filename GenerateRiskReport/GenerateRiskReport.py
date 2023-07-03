@@ -39,7 +39,8 @@ def report():
 
     # print("统计结果")
     # print("高等风险函数"+high_risk_functions.__len__() + "个\t中等风险函数" + medium_risk_functions.__len__() +
-    #       "个\t低等风险函数" + low_risk_functions.__len__() + "个")
+    #       "个\t低等风险函数" + low_risk_functions.__len__() + "个\t内存泄漏函数" + leaks.__len__() + "个\t未被使用函数"\
+    #               + invallids.__len__() + "个")
     # print("高等风险函数")
     # for high_risk_function in high_risk_functions:
     #     print("函数名:" + high_risk_function['function'] + " 位于" + high_risk_function['belong_file'] +
@@ -61,7 +62,8 @@ def report():
 
     Report += "统计结果\n"
     Report += "高等风险函数"+high_risk_functions.__len__() + "个\t中等风险函数" + medium_risk_functions.__len__() + \
-              "个\t低等风险函数" + low_risk_functions.__len__() + "个\n"
+              "个\t低等风险函数" + low_risk_functions.__len__() + "个\t内存泄漏函数" + leaks.__len__() + "个\t未被使用函数"\
+              + invallids.__len__() + "个\n"
     Report += "高等风险函数\n"
     for high_risk_function in high_risk_functions:
         Report += "函数名:" + high_risk_function['function'] + " 位于" + high_risk_function['belong_file'] + \
