@@ -40,7 +40,7 @@ class SQL:
                            "  function_text, belong_file, `start`, `end`," \
                            "  parameters, function_type, risk) VALUES " \
                            "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            data = (data_list['return_type'], data_list['function_name'], ' '.join(param_list), data_list['body'],
+            data = (data_list['return_type'], data_list['function_name'], ','.join(param_list), data_list['body'],
                     data_list['path'], data_list['start'], data_list['end'], param_list.__len__(), '0', '0')
             cursor.execute(insert_query, data)
             # 提交

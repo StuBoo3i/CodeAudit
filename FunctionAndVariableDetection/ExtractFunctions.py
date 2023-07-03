@@ -35,7 +35,7 @@ def extract_functions(content, path):
     读取文件内容对函数进行正则匹配，并提取返回类型、函数名、参数列表和函数体
     :param path: 文件所在的绝对路径
     :param content: 从文件中读取的内容
-    :return: functions 函数信息（list），每个元素是一个字典包含返回类型、函数名、参数列表和函数体
+    :return: functions 函数信息（list），每个元素是一部字典包含返回类型、函数名、参数列表和函数体
     """
     functions = []
 

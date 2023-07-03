@@ -4,6 +4,7 @@ from FunctionAndVariableDetection.ExtractFunctions import process_c_files
 from InvalidFunctionDetection.FunctionInvalidDetection import functionInvalidDetection
 from FunctionAndVariableDetection.DirectoryTree import directory_tree
 from Tools.DatabaseOperation import SQL
+
 # 提取自定义函数
 # custom_functions = extract_functions(c_code)
 # print("Custom Functions:")
@@ -27,8 +28,7 @@ if __name__ == "__main__":
 
     mysql = SQL()
 
-
-
     print("函数信息:")
     for function in functions:
         print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
+    mysql.close_SQL(mysql.cursor, mysql.cnx)
