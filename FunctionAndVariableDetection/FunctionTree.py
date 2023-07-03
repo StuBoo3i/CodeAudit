@@ -1,4 +1,5 @@
 import re
+from Tools.DatabaseOperation import SQL
 
 
 def generate_predecessors(successors):
@@ -20,6 +21,11 @@ def generate_predecessors(successors):
             else:
                 predecessors[successor_id] = [function_id]
 
+    # 处理无前驱函数的情况
+    for function_id in successors.keys():
+        if function_id not in predecessors:
+            predecessors[function_id] = []
+
     return predecessors
 
 
@@ -30,7 +36,7 @@ def match_function_calls(function_info, function_call):
     :param function_call: 函数调用信息列表，每个元素包含函数名和参数
     :return: True（匹配）或 False（不匹配）
     """
-    function_name = function_info['function_name']
+    function_name = function_info['function']
     parameter_list = function_info['parameter']
 
     if function_call[0] == function_name:
@@ -72,17 +78,53 @@ def extract_function_calls(code):
     return function_calls
 
 
-if __name__ == '__main__':
-    function_info = {'return_type': 'int', 'function_name': 'add', 'parameter': 'int a, int b', 'body': 'c = a + b - '
-                                                                                                        '1;\n    '
-                                                                                                        'printf(c);\n '
-                                                                                                        '   return '
-                                                                                                        'c;',
-                     'path': 'C:/Users/MZS/PycharmProjects/CodeAudit/File/test.c', 'start': 3, 'end': 7}
-    code = """
-    int result = add(2, 3);
-    return 0;
+def func_tree_construct():
     """
-    matchs = extract_function_calls(code)
-    for match in matchs:
-        print(match_function_calls(function_info, match))
+    生成函数关系树
+    :return: 无
+    """
+    mysql = SQL()
+    # 后继函数表
+    successors = {}
+    func_infos = mysql.select_scan_function(mysql.cursor)
+    for func_info in func_infos:
+        matchs = extract_function_calls(func_info['function_text'])
+        id = func_info['id']
+        for match in matchs:
+            list_sub_id = []
+            for func_info_sub in func_infos:
+                if match_function_calls(func_info_sub, match):
+                    # print(id + ':add' + func_info_sub['id'])
+                    list_sub_id.append(func_info_sub['id'])
+                    break
+        successors[id] = list_sub_id
+
+    mysql.close_SQL(mysql.cursor, mysql.cnx)
+    return successors
+
+
+def return_preandsub():
+    """
+    生成前驱函数表与后驱函数表
+    :return:predecessors,前驱函数表，以函数ID为键，前驱函数ID列表为值
+    :return:successors,后驱函数表，以函数ID为键，前驱函数ID列表为值
+    """
+    successors = func_tree_construct()
+    predecessors = generate_predecessors(successors)
+
+    print("后驱函数表：")
+    for function_id, successors_list in successors.items():
+        print(f"函数名: {function_id}")
+        print(f"后驱函数: {successors_list}")
+        print()
+
+    print("前驱函数表：")
+    for function_id, predecessors_list in predecessors.items():
+        print(f"函数名: {function_id}")
+        print(f"前驱函数: {predecessors_list}")
+        print()
+    return predecessors, successors
+
+
+if __name__ == '__main__':
+    return_preandsub()
