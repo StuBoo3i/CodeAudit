@@ -47,6 +47,7 @@ def extract_functions(content, path):
         return_type, function_name, params, body = definition
         return_type = return_type.split()[0]  # 提取返回类型的第一个单词
         start_line, end_line = find_func_body_lines(content, '{' + body + '}')
+        # body = return_type + ' ' + function_name + '(' + params + ')' + '{' + body + '}'
         function_info = {
             'return_type': return_type.strip(),
             'function_name': function_name.strip(),
