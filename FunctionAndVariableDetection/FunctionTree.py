@@ -81,7 +81,7 @@ def extract_function_calls(code):
 def func_tree_construct():
     """
     生成函数关系树
-    :return: 无
+    :return: 后继函数表，以函数ID为键，前驱函数ID列表为值
     """
     mysql = SQL()
     # 后继函数表
@@ -107,15 +107,15 @@ def return_preandsub():
     """
     生成前驱函数表与后驱函数表
     :return:predecessors,前驱函数表，以函数ID为键，前驱函数ID列表为值
-    :return:successors,后驱函数表，以函数ID为键，前驱函数ID列表为值
+    :return:successors,后继函数表，以函数ID为键，前驱函数ID列表为值
     """
     successors = func_tree_construct()
     predecessors = generate_predecessors(successors)
 
-    print("后驱函数表：")
+    print("后继函数表：")
     for function_id, successors_list in successors.items():
         print(f"函数名: {function_id}")
-        print(f"后驱函数: {successors_list}")
+        print(f"后继函数: {successors_list}")
         print()
 
     print("前驱函数表：")
