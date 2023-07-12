@@ -9,12 +9,28 @@
 from PyQt5.QtCore import QModelIndex
 import os
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTreeView, QVBoxLayout, QWidget, QFileSystemModel
+from PyQt5.QtWidgets import  QFileSystemModel,QTableWidgetItem
 from PyQt5.QtCore import QDir
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 from threading import Thread
 
+
+def count_lines(file_path):
+    line_count = 0
+    with open(file_path, 'r') as file:
+        for line in file:
+            line_count += 1
+    return line_count
+
+def calculate_risk_level(line_count):
+    # 根据行数确定风险水平
+    if line_count <= 100:
+        return 'Low'
+    elif line_count <= 500:
+        return 'Medium'
+    else:
+        return 'High'
 
 class Ui_Form(QtWidgets.QWidget):
 
@@ -1315,7 +1331,7 @@ class Ui_Form(QtWidgets.QWidget):
 
     def opendirectory(self):
         folderDialog = QFileDialog.getExistingDirectory(self, '打开文件夹')
-
+        self.lines = 0
         if folderDialog:
             # 获取选中的文件夹路径
             self.folderPath = folderDialog
@@ -1339,7 +1355,12 @@ class Ui_Form(QtWidgets.QWidget):
             if os.path.isdir(path):
                 self.file_system_model = model
                 self.populate_directory_tree(index)
-
+            else:
+                self.tableWidget_2.setRowCount(self.lines+1)
+                self.tableWidget_2.setItem(self.lines,0,QTableWidgetItem(name))
+                self.tableWidget_2.setItem(self.lines,1,QTableWidgetItem(str(count_lines(path))))
+                self.tableWidget_2.setItem(self.lines,2,QTableWidgetItem(calculate_risk_level(count_lines(path))))
+                self.lines = self.lines + 1
 
     def populate_directory_tree(self, parent_index):
             parent_path = self.file_system_model.filePath(parent_index)
@@ -1348,6 +1369,13 @@ class Ui_Form(QtWidgets.QWidget):
                     index = self.file_system_model.index(path)
                     if os.path.isdir(path):
                             self.populate_directory_tree(index)
+                    else:
+                        self.tableWidget_2.setRowCount(self.lines + 1)
+                        self.tableWidget_2.setItem(self.lines, 0, QTableWidgetItem(name))
+                        self.tableWidget_2.setItem(self.lines, 1, QTableWidgetItem(str(count_lines(path))))
+                        self.tableWidget_2.setItem(self.lines, 2,   QTableWidgetItem(calculate_risk_level(count_lines(path))))
+                        self.lines = self.lines+1
+
     def on_tree_item_clicked(self, index: QModelIndex):
         if not index.isValid():
                 return
