@@ -9,11 +9,16 @@
 from PyQt5.QtCore import QModelIndex
 import os
 import sys
-from PyQt5.QtWidgets import  QFileSystemModel,QTableWidgetItem
+from PyQt5.QtWidgets import QFileSystemModel, QTableWidgetItem, QTreeWidgetItem
 from PyQt5.QtCore import QDir
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 from threading import Thread
+from Tools import RelativePath
+from Tools import Tree
+from FunctionAndVariableDetection.ExtractFunctions import process_c_files
+from FunctionAndVariableDetection.DirectoryTree import directory_tree
+from Tools.DatabaseOperation import SQL
 
 
 def count_lines(file_path):
@@ -1336,6 +1341,22 @@ class Ui_Form(QtWidgets.QWidget):
             # 获取选中的文件夹路径
             self.folderPath = folderDialog
             print(self.folderPath)
+            # 进行函数检测
+            directory_tree1 = directory_tree(folderDialog)
+            # 提取自定义函数和库函数
+            functions = process_c_files(directory_tree1, folderDialog)
+            # print("函数信息:")
+            for function in functions:
+                # print(function)
+                try:
+                    item = QTreeWidgetItem()
+                    item.setText(0, function['function_name'] + ';' + function['parameter'])
+                    item.setText(1, function['return_type'])
+                    #item.setText(1, function['path'])
+                    self.treeWidget_3.addTopLevelItem(item)
+                except Exception as e:
+                    print("发生异常:", str(e))
+
             self.thread1 = Thread(target=self.generate_tree)
             self.thread1.start()
 
@@ -1384,7 +1405,7 @@ class Ui_Form(QtWidgets.QWidget):
                 return
 
         file_path = self.treeView_2.model().filePath(index)
-
+        print(file_path)
         if not file_path:
                 return
 
@@ -1392,6 +1413,20 @@ class Ui_Form(QtWidgets.QWidget):
                 with open(file_path, 'r') as file:
                         file_content = file.read()
                         self.textEdit_3.setPlainText(file_content)
+                mysql = SQL()
+                ss = mysql.select_scan_function(mysql.cursor)
+                for function in ss:
+                    # print(function)
+                    if(function['path']==file_path):
+                        try:
+                            item = QTreeWidgetItem()
+                            item.setText(0, function['function_name'] + ';' + function['parameter'])
+                            item.setText(1, function['return_type'])
+                            # item.setText(1, function['path'])
+                            self.treeWidget_3.addTopLevelItem(item)
+                        except Exception as e:
+                            print("发生异常:", str(e))
+                mysql.close_SQL(mysql.cursor, mysql.cnx)
         except IOError as e:
                 print('无法打开文件:', e)
 

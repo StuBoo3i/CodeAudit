@@ -1,7 +1,6 @@
 from Tools import RelativePath
 from Tools import Tree
 from FunctionAndVariableDetection.ExtractFunctions import process_c_files
-from InvalidFunctionDetection.FunctionInvalidDetection import functionInvalidDetection
 from FunctionAndVariableDetection.DirectoryTree import directory_tree
 from Tools.DatabaseOperation import SQL
 

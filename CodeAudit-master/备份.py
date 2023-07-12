@@ -9,12 +9,15 @@
 from PyQt5.QtCore import QModelIndex
 import os
 import sys
-from PyQt5.QtWidgets import  QFileSystemModel,QTableWidgetItem
+from PyQt5.QtWidgets import QFileSystemModel, QTableWidgetItem, QTreeWidgetItem
 from PyQt5.QtCore import QDir
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 from threading import Thread
-
+from Tools import RelativePath
+from Tools import Tree
+from FunctionAndVariableDetection.ExtractFunctions import process_c_files
+from FunctionAndVariableDetection.DirectoryTree import directory_tree
 
 def count_lines(file_path):
     line_count = 0
@@ -1336,6 +1339,24 @@ class Ui_Form(QtWidgets.QWidget):
             # 获取选中的文件夹路径
             self.folderPath = folderDialog
             print(self.folderPath)
+            # 进行函数检测
+            directory_tree1 = directory_tree(folderDialog)
+            # 提取自定义函数和库函数
+            functions = process_c_files(directory_tree1, folderDialog)
+            # print("函数信息:")
+            lines_3=0
+            for function in functions:
+                # print(function)
+                try:
+                    item = QTreeWidgetItem()
+                    item.setText(0, function['function_name'] + ';' + function['parameter'])
+                    item.setText(1, function['return_type'])
+                    self.treeWidget_3.addTopLevelItem(item)
+                    lines_3 += 1
+                except Exception as e:
+                    print("发生异常:", str(e))
+                    # 在此处添加适当的异常处理代码
+
             self.thread1 = Thread(target=self.generate_tree)
             self.thread1.start()
 
@@ -1384,7 +1405,7 @@ class Ui_Form(QtWidgets.QWidget):
                 return
 
         file_path = self.treeView_2.model().filePath(index)
-
+        print(file_path)
         if not file_path:
                 return
 
