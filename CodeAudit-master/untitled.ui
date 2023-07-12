@@ -1,0 +1,2469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1305</width>
+    <height>693</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>0</y>
+     <width>1311</width>
+     <height>691</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>4</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>主界面</string>
+    </attribute>
+    <widget class="QSplitter" name="splitter_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1232</width>
+       <height>677</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QTreeView" name="treeView_2"/>
+     <widget class="QSplitter" name="splitter_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QTabWidget" name="tabWidget_4">
+       <property name="tabsClosable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QTabWidget" name="tabWidget_5">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab_8">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <attribute name="title">
+         <string>输出</string>
+        </attribute>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTreeWidget" name="treeWidget_2">
+           <property name="styleSheet">
+            <string notr="true">QTreeView::branch:closed:has-children
+{
+    image: url(./resource/icon/expand-positive.png);/*图标*/
+    border-image: none;
+}
+
+QTreeView::branch:open:has-children
+{
+    image: url(./resource/icon/shrink-positive.png);/*图标*/
+    border-image: none;
+}</string>
+           </property>
+           <column>
+            <property name="text">
+             <string>文件名</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>行数</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>名称</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>风险水平</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>解决方式</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_9">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <attribute name="title">
+         <string>终端</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTextEdit" name="textEdit_3">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_2"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QTreeWidget" name="treeWidget_3">
+      <property name="styleSheet">
+       <string notr="true">QTreeView::branch:closed:has-children
+{
+    image: url(./resource/icon/expand-positive.png);/*图标*/
+    border-image: none;
+}
+
+QTreeView::branch:open:has-children
+{
+    image: url(./resource/icon/shrink-positive.png);/*图标*/
+    border-image: none;
+}</string>
+      </property>
+      <attribute name="headerMinimumSectionSize">
+       <number>30</number>
+      </attribute>
+      <attribute name="headerDefaultSectionSize">
+       <number>110</number>
+      </attribute>
+      <attribute name="headerHighlightSections">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>函数和变量</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>类型</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>1230</x>
+       <y>2</y>
+       <width>75</width>
+       <height>681</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>打开项目</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>搜索</string>
+    </attribute>
+    <widget class="QCheckBox" name="checkBox_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>使用循环查找</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>10</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>查找</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>使用正则表达式</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>70</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>替换</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>400</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>替换语句</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>130</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>替换所有</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>130</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>400</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>查找语句</string>
+     </property>
+    </widget>
+    <widget class="QTreeView" name="treeView_3">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>0</y>
+       <width>561</width>
+       <height>191</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTreeWidget" name="treeWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>1201</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTreeView::branch:closed:has-children
+{
+    image: url(./resource/icon/expand-positive.png);/*图标*/
+    border-image: none;
+}
+
+QTreeView::branch:open:has-children
+{
+    image: url(./resource/icon/shrink-positive.png);/*图标*/
+    border-image: none;
+}</string>
+     </property>
+     <attribute name="headerMinimumSectionSize">
+      <number>30</number>
+     </attribute>
+     <attribute name="headerDefaultSectionSize">
+      <number>110</number>
+     </attribute>
+     <attribute name="headerHighlightSections">
+      <bool>false</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>函数和变量</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>类型</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>风险函数管理</string>
+    </attribute>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>30</y>
+       <width>150</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>函数危险等级</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_5">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>110</y>
+       <width>300</width>
+       <height>30</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>110</y>
+       <width>150</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">min-height:30px</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <item>
+      <property name="text">
+       <string>低危险</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>中等危险</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>危险</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>很危险（或稍小，取决于实现）</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>很危险</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>最危险</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>1060</x>
+       <y>40</y>
+       <width>121</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>添加</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>40</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>函数名</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>1060</x>
+       <y>110</y>
+       <width>121</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>删除</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_6">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>110</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>180</y>
+       <width>1161</width>
+       <height>451</height>
+      </rect>
+     </property>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>函数名</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>函数危险等级</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>建议解决方法</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>40</y>
+       <width>150</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>建议解决方法</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_5">
+    <attribute name="title">
+     <string>风险函数报告</string>
+    </attribute>
+    <widget class="QTreeView" name="treeView_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>1181</width>
+       <height>411</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>460</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>生成报告</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Dashboard</string>
+    </attribute>
+    <widget class="QFrame" name="frame_Vulnerabilities">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>270</y>
+       <width>1221</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="lbl_Vulnerabilities">
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+
+		font-size:25px;
+	border:0px;
+
+}</string>
+        </property>
+        <property name="text">
+         <string>Vulnerabilities</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lbl_VulnerabilitiesDesc">
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+        </property>
+        <property name="text">
+         <string>Last Scanned</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="tableWidget_Vulnerabilities">
+        <property name="styleSheet">
+         <string notr="true">QTableWidget {	
+	background-color: #fff;
+	padding: 10px;
+	gridline-color: rgb(44, 49, 60);
+	border-bottom: 1px solid rgb(204, 207, 211);
+	color:#000;
+}
+QTableWidget::item{
+	border-color: rgb(44, 49, 60);
+	padding-left: 5px;
+	padding-right: 5px;
+	gridline-color: rgb(44, 49, 60);
+}
+QTableWidget::item:selected{
+	background-color: #e5faf8;
+	color:#000;
+}
+QScrollBar:horizontal {
+    border: none;
+    background: rgb(52, 59, 72);
+    height: 14px;
+    margin: 0px 21px 0 21px;
+	border-radius: 0px;
+}
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(52, 59, 72);
+    width: 14px;
+    margin: 21px 0 21px 0;
+	border-radius: 0px;
+ }
+QHeaderView{
+   background-color:#04c9b7;
+	border: 1px solid rgb(204, 207, 211);
+	border-style: none;
+    border-bottom: 1px solid rgb(204, 207, 211);
+    border-right: 1px solid rgb(204, 207, 211);
+    color:#fff;
+	font-size:15px;
+    border-radius: 0px;
+}
+</string>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustIgnored</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::DotLine</enum>
+        </property>
+        <attribute name="horizontalHeaderHighlightSections">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderHighlightSections">
+         <bool>true</bool>
+        </attribute>
+        <row>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>7</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>8</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>9</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>10</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>11</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>10</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>12</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>Target</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Port</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Severity</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Description</string>
+         </property>
+        </column>
+        <item row="0" column="0">
+         <property name="text">
+          <string>192.168.0.1</string>
+         </property>
+        </item>
+        <item row="0" column="1">
+         <property name="text">
+          <string>445</string>
+         </property>
+        </item>
+        <item row="0" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="0" column="3">
+         <property name="text">
+          <string>Checks for SBM Ports</string>
+         </property>
+        </item>
+        <item row="1" column="0">
+         <property name="text">
+          <string>192.168.0.55</string>
+         </property>
+        </item>
+        <item row="1" column="1">
+         <property name="text">
+          <string>22</string>
+         </property>
+        </item>
+        <item row="1" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="background">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>238</red>
+            <green>238</green>
+            <blue>236</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="1" column="3">
+         <property name="text">
+          <string>Checks if SSH password authentication is supported</string>
+         </property>
+        </item>
+        <item row="2" column="0">
+         <property name="text">
+          <string>192.168.0.1</string>
+         </property>
+        </item>
+        <item row="2" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="2" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="2" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="3" column="0">
+         <property name="text">
+          <string>192.168.0.140</string>
+         </property>
+        </item>
+        <item row="3" column="1">
+         <property name="text">
+          <string>139</string>
+         </property>
+        </item>
+        <item row="3" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="3" column="3">
+         <property name="text">
+          <string>Checks for Remote Management Ports</string>
+         </property>
+        </item>
+        <item row="4" column="0">
+         <property name="text">
+          <string>192.168.0.11</string>
+         </property>
+        </item>
+        <item row="4" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="4" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="4" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="5" column="0">
+         <property name="text">
+          <string>192.168.0.54</string>
+         </property>
+        </item>
+        <item row="5" column="1">
+         <property name="text">
+          <string>22</string>
+         </property>
+        </item>
+        <item row="5" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="5" column="3">
+         <property name="text">
+          <string>Checks if SSH password authentication is supported</string>
+         </property>
+        </item>
+        <item row="6" column="0">
+         <property name="text">
+          <string>200.10.0.10</string>
+         </property>
+        </item>
+        <item row="6" column="1">
+         <property name="text">
+          <string>445</string>
+         </property>
+        </item>
+        <item row="6" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="6" column="3">
+         <property name="text">
+          <string>Checks for SBM Ports</string>
+         </property>
+        </item>
+        <item row="7" column="0">
+         <property name="text">
+          <string>200.10.0.15</string>
+         </property>
+        </item>
+        <item row="7" column="1">
+         <property name="text">
+          <string>8080</string>
+         </property>
+        </item>
+        <item row="7" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="7" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="8" column="0">
+         <property name="text">
+          <string>200.10.0.5</string>
+         </property>
+        </item>
+        <item row="8" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="8" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="8" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="9" column="0">
+         <property name="text">
+          <string>200.10.0.113</string>
+         </property>
+        </item>
+        <item row="9" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="9" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="9" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="10" column="0">
+         <property name="text">
+          <string>200.10.0.29</string>
+         </property>
+        </item>
+        <item row="10" column="1">
+         <property name="text">
+          <string>139</string>
+         </property>
+        </item>
+        <item row="10" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="10" column="3">
+         <property name="text">
+          <string>Checks for Remote Management Ports</string>
+         </property>
+        </item>
+        <item row="11" column="0">
+         <property name="text">
+          <string>200.10.0.201</string>
+         </property>
+        </item>
+        <item row="11" column="1">
+         <property name="text">
+          <string>22</string>
+         </property>
+        </item>
+        <item row="11" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="11" column="3">
+         <property name="text">
+          <string>Checks if SSH password authentication is supported</string>
+         </property>
+        </item>
+        <item row="12" column="0">
+         <property name="text">
+          <string>200.10.0.92</string>
+         </property>
+        </item>
+        <item row="12" column="1">
+         <property name="text">
+          <string>445</string>
+         </property>
+        </item>
+        <item row="12" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="12" column="3">
+         <property name="text">
+          <string>Checks for SBM Ports</string>
+         </property>
+        </item>
+        <item row="13" column="0">
+         <property name="text">
+          <string>216.58.202.14</string>
+         </property>
+        </item>
+        <item row="13" column="1">
+         <property name="text">
+          <string>22</string>
+         </property>
+        </item>
+        <item row="13" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="13" column="3">
+         <property name="text">
+          <string>Checks if SSH password authentication is supported</string>
+         </property>
+        </item>
+        <item row="14" column="0">
+         <property name="text">
+          <string>216.58.202.14</string>
+         </property>
+        </item>
+        <item row="14" column="1">
+         <property name="text">
+          <string>22</string>
+         </property>
+        </item>
+        <item row="14" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="14" column="3">
+         <property name="text">
+          <string>Checks if SSH password authentication is supported</string>
+         </property>
+        </item>
+        <item row="15" column="0">
+         <property name="text">
+          <string>216.58.202.200</string>
+         </property>
+        </item>
+        <item row="15" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="15" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="15" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="16" column="0">
+         <property name="text">
+          <string>216.58.202.101</string>
+         </property>
+        </item>
+        <item row="16" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="16" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="16" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="17" column="0">
+         <property name="text">
+          <string>216.58.202.128</string>
+         </property>
+        </item>
+        <item row="17" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="17" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="17" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="18" column="0">
+         <property name="text">
+          <string>216.58.202.129</string>
+         </property>
+        </item>
+        <item row="18" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="18" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="18" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="19" column="0">
+         <property name="text">
+          <string>216.58.202.135</string>
+         </property>
+        </item>
+        <item row="19" column="1">
+         <property name="text">
+          <string>80</string>
+         </property>
+        </item>
+        <item row="19" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="19" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="20" column="0">
+         <property name="text">
+          <string>216.58.202.137</string>
+         </property>
+        </item>
+        <item row="20" column="1">
+         <property name="text">
+          <string>139</string>
+         </property>
+        </item>
+        <item row="20" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="20" column="3">
+         <property name="text">
+          <string>Checks for Remote Management Ports</string>
+         </property>
+        </item>
+        <item row="21" column="0">
+         <property name="text">
+          <string>216.58.202.138</string>
+         </property>
+        </item>
+        <item row="21" column="1">
+         <property name="text">
+          <string>8080</string>
+         </property>
+        </item>
+        <item row="21" column="2">
+         <property name="text">
+          <string>Informational</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>32</red>
+            <green>74</green>
+            <blue>135</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="21" column="3">
+         <property name="text">
+          <string>Checks if Security Headers exist</string>
+         </property>
+        </item>
+        <item row="22" column="0">
+         <property name="text">
+          <string>216.58.202.139</string>
+         </property>
+        </item>
+        <item row="22" column="1">
+         <property name="text">
+          <string>445</string>
+         </property>
+        </item>
+        <item row="22" column="2">
+         <property name="text">
+          <string>High</string>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>150</red>
+            <green>24</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+        <item row="22" column="3">
+         <property name="text">
+          <string>Checks for SBM Ports</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="frame_TopBar">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1231</width>
+       <height>55</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>55</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>55</height>
+      </size>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+background-color: #ffffff;
+border:1px solid #edf2fa;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_PerfilName">
+        <property name="maximumSize">
+         <size>
+          <width>110</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color:rgb(204, 207, 211);
+	font-size:15px;
+	border:0px;
+
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>MrCl0wnLab</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Perfil">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+          <normaloff>:/icons/user-3.png</normaloff>:/icons/user-3.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Notifications">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+        </property>
+        <property name="text">
+         <string>25</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+          <normaloff>:/icons/alarm.png</normaloff>:/icons/alarm.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_TopBarSpace">
+        <property name="styleSheet">
+         <string notr="true">QFrame{border:0px;}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_LastAccess">
+        <property name="minimumSize">
+         <size>
+          <width>160</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>250</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color:rgb(204, 207, 211);
+	font-size:15px;
+	border:0px;
+
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Last access: 30-09-2020 05:01</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_LastAccess">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+          <normaloff>:/icons/clock-1.png</normaloff>:/icons/clock-1.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_IpInfo">
+        <property name="minimumSize">
+         <size>
+          <width>160</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>250</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color:rgb(204, 207, 211);
+	font-size:15px;
+	border:0px;
+
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>185.88.181.4  | Amsterdam | NL</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_InfoIo">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+          <normaloff>:/icons/placeholder.png</normaloff>:/icons/placeholder.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="frame_CentralTop">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>1231</width>
+       <height>220</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>220</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>220</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QFrame" name="frame_DashHostDiscovered_2">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+text-align:center;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_23">
+         <item>
+          <widget class="QLabel" name="label_DashHostDiscovered_2">
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+
+	font-size:20px;
+	border:0px;
+
+}</string>
+           </property>
+           <property name="text">
+            <string>风险函数</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_12">
+           <property name="styleSheet">
+            <string notr="true">QFrame{border:0px;}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_20">
+            <item>
+             <widget class="QPushButton" name="pushButton_DashHostDiscovered_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+background-color:#04c9b7;
+border:0px;
+border-radius:10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+                <normaloff>:/icons/star-1.png</normaloff>:/icons/star-1.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>55</width>
+                <height>55</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_CountDashHostDiscovered_2">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+
+	font-size:30px;
+	border:0px;
+	font-weight: bold;
+
+}</string>
+              </property>
+              <property name="text">
+               <string>1506</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_Line_2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+border:0px;
+background-color:#edf2fa;
+border-radius:0px;
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_DescDashHostDiscovered_2">
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+           </property>
+           <property name="text">
+            <string>Since Last Assessment</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_CentralSpace1_2">
+        <property name="maximumSize">
+         <size>
+          <width>10</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_DashScanExecuted_2">
+        <property name="styleSheet">
+         <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_24">
+         <item>
+          <widget class="QLabel" name="label_DashScanExecuted_2">
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+
+	font-size:20px;
+	border:0px;
+
+}</string>
+           </property>
+           <property name="text">
+            <string>风险变量</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_13">
+           <property name="styleSheet">
+            <string notr="true">QFrame{border:0px;}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_21">
+            <item>
+             <widget class="QPushButton" name="pushButton_DashScanExecuted_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+background-color:#04c9b7;
+border:0px;
+border-radius:10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+                <normaloff>:/icons/search-1.png</normaloff>:/icons/search-1.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>55</width>
+                <height>55</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_CountDashScanExecuted_2">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+
+	font-size:30px;
+	border:0px;
+	font-weight: bold;
+
+}</string>
+              </property>
+              <property name="text">
+               <string>3</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_Line_4">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+border:0px;
+background-color:#edf2fa;
+border-radius:0px;
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_DescDashScanExecuted_2">
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+           </property>
+           <property name="text">
+            <string>Since Last System Reset</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_CentralSpace2_2">
+        <property name="maximumSize">
+         <size>
+          <width>10</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_CentralSpace3_2">
+        <property name="maximumSize">
+         <size>
+          <width>10</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_DashTotalVuln_2">
+        <property name="styleSheet">
+         <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_26">
+         <item>
+          <widget class="QLabel" name="label_DashHostDiscovered_9">
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+
+	font-size:20px;
+	border:0px;
+
+}</string>
+           </property>
+           <property name="text">
+            <string>Total Vulnerabilities</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_15">
+           <property name="styleSheet">
+            <string notr="true">QFrame{border:0px;}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_23">
+            <item>
+             <widget class="QPushButton" name="pushButton_DashTotalVuln_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+background-color:#04c9b7;
+border:0px;
+border-radius:10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+                <normaloff>:/icons/unlocked.png</normaloff>:/icons/unlocked.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>55</width>
+                <height>55</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_CountDashTotalVuln_2">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+
+	font-size:30px;
+	border:0px;
+	font-weight: bold;
+
+}</string>
+              </property>
+              <property name="text">
+               <string>658</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_Line_9">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QFrame{
+border:0px;
+background-color:#edf2fa;
+border-radius:0px;
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_DescDashTotalVuln_2">
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+           </property>
+           <property name="text">
+            <string>Since Last Assessment</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QSplitter" name="splitter_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>60</y>
+     <width>0</width>
+     <height>677</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <widget class="QSplitter" name="splitter">
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_7</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>opendirectory()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1292</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1215</x>
+     <y>-9</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>find_content()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>532</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>661</x>
+     <y>-11</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>replace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>543</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>609</x>
+     <y>-6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>replace_all()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>542</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>441</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>add()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1164</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1068</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>delete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1134</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>908</x>
+     <y>-4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>generate_report()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>601</x>
+     <y>500</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>-11</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>opendirectory()</slot>
+  <slot>find_content()</slot>
+  <slot>replace()</slot>
+  <slot>replace_all()</slot>
+  <slot>add()</slot>
+  <slot>delete()</slot>
+  <slot>generate_report()</slot>
+ </slots>
+</ui>
