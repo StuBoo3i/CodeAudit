@@ -17,6 +17,7 @@ from threading import Thread
 
 
 class Ui_Form(QtWidgets.QWidget):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1305, 693)
@@ -49,20 +50,17 @@ class Ui_Form(QtWidgets.QWidget):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.treeWidget_2 = QtWidgets.QTreeWidget(self.tab_8)
-        self.treeWidget_2.setStyleSheet("QTreeView::branch:closed:has-children\n"
-                                        "{\n"
-                                        "    image: url(./resource/icon/expand-positive.png);/*图标*/\n"
-                                        "    border-image: none;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QTreeView::branch:open:has-children\n"
-                                        "{\n"
-                                        "    image: url(./resource/icon/shrink-positive.png);/*图标*/\n"
-                                        "    border-image: none;\n"
-                                        "}")
-        self.treeWidget_2.setObjectName("treeWidget_2")
-        self.horizontalLayout_2.addWidget(self.treeWidget_2)
+        self.tableWidget_2 = QtWidgets.QTableWidget(self.tab_8)
+        self.tableWidget_2.setObjectName("tableWidget_2")
+        self.tableWidget_2.setColumnCount(3)
+        self.tableWidget_2.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(2, item)
+        self.horizontalLayout_2.addWidget(self.tableWidget_2)
         self.tabWidget_5.addTab(self.tab_8, "")
         self.tab_9 = QtWidgets.QWidget()
         font = QtGui.QFont()
@@ -99,7 +97,7 @@ class Ui_Form(QtWidgets.QWidget):
         self.treeWidget_3.header().setHighlightSections(False)
         self.treeWidget_3.header().setMinimumSectionSize(30)
         self.pushButton_7 = QtWidgets.QPushButton(self.tab)
-        self.pushButton_7.setGeometry(QtCore.QRect(1230, 2, 75, 681))
+        self.pushButton_7.setGeometry(QtCore.QRect(1230, -8, 75, 691))
         self.pushButton_7.setObjectName("pushButton_7")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
@@ -1014,11 +1012,12 @@ class Ui_Form(QtWidgets.QWidget):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.treeWidget_2.headerItem().setText(0, _translate("Form", "文件名"))
-        self.treeWidget_2.headerItem().setText(1, _translate("Form", "行数"))
-        self.treeWidget_2.headerItem().setText(2, _translate("Form", "名称"))
-        self.treeWidget_2.headerItem().setText(3, _translate("Form", "风险水平"))
-        self.treeWidget_2.headerItem().setText(4, _translate("Form", "解决方式"))
+        item = self.tableWidget_2.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "文件名"))
+        item = self.tableWidget_2.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "行数"))
+        item = self.tableWidget_2.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "风险"))
         self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_8), _translate("Form", "输出"))
         self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_9), _translate("Form", "终端"))
         self.treeWidget_3.headerItem().setText(0, _translate("Form", "函数和变量"))
@@ -1312,6 +1311,7 @@ class Ui_Form(QtWidgets.QWidget):
         self.label_CountDashTotalVuln_2.setText(_translate("Form", "658"))
         self.label_DescDashTotalVuln_2.setText(_translate("Form", "Since Last Assessment"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("Form", "Dashboard"))
+
 
     def opendirectory(self):
         folderDialog = QFileDialog.getExistingDirectory(self, '打开文件夹')

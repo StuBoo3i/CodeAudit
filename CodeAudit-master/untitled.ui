@@ -82,20 +82,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QTreeWidget" name="treeWidget_2">
-           <property name="styleSheet">
-            <string notr="true">QTreeView::branch:closed:has-children
-{
-    image: url(./resource/icon/expand-positive.png);/*图标*/
-    border-image: none;
-}
-
-QTreeView::branch:open:has-children
-{
-    image: url(./resource/icon/shrink-positive.png);/*图标*/
-    border-image: none;
-}</string>
-           </property>
+          <widget class="QTableWidget" name="tableWidget_2">
            <column>
             <property name="text">
              <string>文件名</string>
@@ -108,17 +95,7 @@ QTreeView::branch:open:has-children
            </column>
            <column>
             <property name="text">
-             <string>名称</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>风险水平</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>解决方式</string>
+             <string>风险</string>
             </property>
            </column>
           </widget>
@@ -204,9 +181,9 @@ QTreeView::branch:open:has-children
      <property name="geometry">
       <rect>
        <x>1230</x>
-       <y>2</y>
+       <y>-8</y>
        <width>75</width>
-       <height>681</height>
+       <height>691</height>
       </rect>
      </property>
      <property name="text">
