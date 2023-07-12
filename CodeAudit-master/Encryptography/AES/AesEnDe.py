@@ -56,13 +56,10 @@ def encrypt_string(key, plaintext):
 
     # 创建 AES 加密器，并使用密钥和 IV 进行初始化
     cipher = AES.new(key, AES.MODE_CBC, iv)
-
     # 对明文进行填充，并进行加密
     ciphertext = cipher.encrypt(pad(plaintext.encode('utf-8'), AES.block_size))
-
     # 将 IV 和密文进行合并，并进行 Base64 编码
     encrypted_data = base64.b64encode(iv + ciphertext).decode('utf-8')
-
     return encrypted_data
 
 def decrypt_string(key, encrypted_data):
