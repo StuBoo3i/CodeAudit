@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -2456,6 +2456,22 @@ color:rgb(204, 207, 211);
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>treeView_2</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>Form</receiver>
+   <slot>on_tree_item_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>243</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>-4</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>opendirectory()</slot>
@@ -2465,5 +2481,6 @@ color:rgb(204, 207, 211);
   <slot>add()</slot>
   <slot>delete()</slot>
   <slot>generate_report()</slot>
+  <slot>on_tree_item_clicked()</slot>
  </slots>
 </ui>
