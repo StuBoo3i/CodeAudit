@@ -1,10 +1,11 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="31">
+          <list size="33">
             <item index="0" class="java.lang.String" itemvalue="absl-py" />
             <item index="1" class="java.lang.String" itemvalue="protobuf" />
             <item index="2" class="java.lang.String" itemvalue="PyYAML" />
@@ -36,16 +37,10 @@
             <item index="28" class="java.lang.String" itemvalue="Keras" />
             <item index="29" class="java.lang.String" itemvalue="pytz" />
             <item index="30" class="java.lang.String" itemvalue="idna" />
+            <item index="31" class="java.lang.String" itemvalue="beautifulsoup4" />
+            <item index="32" class="java.lang.String" itemvalue="colorama" />
           </list>
         </value>
-      </option>
-    </inspection_tool>
-    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ignoredIdentifiers">
-        <list>
-          <option value="暴力破解.*" />
-          <option value="burteforce.验证码绕过" />
-        </list>
       </option>
     </inspection_tool>
   </profile>
