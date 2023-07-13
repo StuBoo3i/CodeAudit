@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1242</width>
+    <width>1294</width>
     <height>710</height>
    </rect>
   </property>
@@ -25,27 +25,35 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>0</x>
       <y>0</y>
-      <width>791</width>
-      <height>411</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTreeWidget" name="treeWidget_1">
-    <property name="geometry">
-     <rect>
-      <x>990</x>
-      <y>0</y>
-      <width>251</width>
+      <width>351</width>
       <height>681</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QTreeView::branch:closed:has-children
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTreeView" name="treeView"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>0</y>
+      <width>401</width>
+      <height>681</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget_1">
+       <property name="styleSheet">
+        <string notr="true">QTreeView::branch:closed:has-children
 {
     image: url(./resource/icon/expand-positive.png);/*图标*/
     border-image: none;
@@ -56,154 +64,85 @@ QTreeView::branch:open:has-children
     image: url(./resource/icon/shrink-positive.png);/*图标*/
     border-image: none;
 }</string>
-    </property>
-    <attribute name="headerMinimumSectionSize">
-     <number>30</number>
-    </attribute>
-    <attribute name="headerDefaultSectionSize">
-     <number>110</number>
-    </attribute>
-    <attribute name="headerHighlightSections">
-     <bool>false</bool>
-    </attribute>
-    <column>
-     <property name="text">
-      <string>函数ID</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>函数和变量</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>类型</string>
-     </property>
-    </column>
+       </property>
+       <attribute name="headerMinimumSectionSize">
+        <number>30</number>
+       </attribute>
+       <attribute name="headerDefaultSectionSize">
+        <number>110</number>
+       </attribute>
+       <attribute name="headerHighlightSections">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>函数ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>函数和变量</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>类型</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QTreeView" name="treeView">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>350</x>
       <y>0</y>
-      <width>191</width>
-      <height>681</height>
+      <width>551</width>
+      <height>501</height>
      </rect>
     </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QTextBrowser" name="textBrowser"/>
+     </item>
+    </layout>
    </widget>
-   <widget class="QSplitter" name="splitter">
+   <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>410</y>
-      <width>781</width>
-      <height>261</height>
+      <x>349</x>
+      <y>499</y>
+      <width>551</width>
+      <height>181</height>
      </rect>
     </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="tabsClosable">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QTabWidget" name="tabWidget_2">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="tab">
-      <property name="font">
-       <font>
-        <family>Microsoft YaHei UI</family>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <attribute name="title">
-       <string>输出</string>
-      </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QTableWidget" name="tableWidget">
-         <column>
-          <property name="text">
-           <string>文件名</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>行数</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>风险等级</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>解决方法</string>
-          </property>
-         </column>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <property name="font">
-       <font>
-        <family>Microsoft YaHei UI</family>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <attribute name="title">
-       <string>终端</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QTextEdit" name="textEdit_2">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <column>
+        <property name="text">
+         <string>文件名</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>行数</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>风险等级</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>解决方法</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -211,7 +150,7 @@ QTreeView::branch:open:has-children
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1242</width>
+     <width>1294</width>
      <height>23</height>
     </rect>
    </property>
@@ -467,7 +406,7 @@ QTreeView::branch:open:has-children
     </hint>
     <hint type="destinationlabel">
      <x>332</x>
-     <y>-11</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
@@ -478,11 +417,11 @@ QTreeView::branch:open:has-children
    <slot>on_tree_item_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>103</x>
-     <y>124</y>
+     <x>205</x>
+     <y>145</y>
     </hint>
     <hint type="destinationlabel">
-     <x>439</x>
+     <x>516</x>
      <y>-5</y>
     </hint>
    </hints>
@@ -494,12 +433,12 @@ QTreeView::branch:open:has-children
    <slot>variable_choose()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1128</x>
-     <y>173</y>
+     <x>1036</x>
+     <y>179</y>
     </hint>
     <hint type="destinationlabel">
-     <x>944</x>
-     <y>-5</y>
+     <x>896</x>
+     <y>-2</y>
     </hint>
    </hints>
   </connection>
