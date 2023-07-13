@@ -68,6 +68,11 @@ QTreeView::branch:open:has-children
     </attribute>
     <column>
      <property name="text">
+      <string>函数ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
       <string>函数和变量</string>
      </property>
     </column>
@@ -482,9 +487,26 @@ QTreeView::branch:open:has-children
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>treeWidget_1</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>variable_choose()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1128</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>944</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>open_directory()</slot>
   <slot>on_tree_item_clicked()</slot>
+  <slot>variable_choose()</slot>
  </slots>
 </ui>

@@ -62,16 +62,16 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.treeWidget_1 = QtWidgets.QTreeWidget(self.centralwidget)
         self.treeWidget_1.setGeometry(QtCore.QRect(990, 0, 251, 681))
         self.treeWidget_1.setStyleSheet("QTreeView::branch:closed:has-children\n"
-"{\n"
-"    image: url(./resource/icon/expand-positive.png);/*图标*/\n"
-"    border-image: none;\n"
-"}\n"
-"\n"
-"QTreeView::branch:open:has-children\n"
-"{\n"
-"    image: url(./resource/icon/shrink-positive.png);/*图标*/\n"
-"    border-image: none;\n"
-"}")
+                                        "{\n"
+                                        "    image: url(./resource/icon/expand-positive.png);/*图标*/\n"
+                                        "    border-image: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QTreeView::branch:open:has-children\n"
+                                        "{\n"
+                                        "    image: url(./resource/icon/shrink-positive.png);/*图标*/\n"
+                                        "    border-image: none;\n"
+                                        "}")
         self.treeWidget_1.setObjectName("treeWidget_1")
         self.treeWidget_1.header().setDefaultSectionSize(110)
         self.treeWidget_1.header().setHighlightSections(False)
@@ -251,15 +251,17 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
         self.retranslateUi(MainWindow)
         self.tabWidget_2.setCurrentIndex(0)
-        self.menubar.triggered['QAction*'].connect(self.open_directory) # type: ignore
-        self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked) # type: ignore
+        self.menubar.triggered['QAction*'].connect(self.open_directory)  # type: ignore
+        self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
+        self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.treeWidget_1.headerItem().setText(0, _translate("MainWindow", "函数和变量"))
-        self.treeWidget_1.headerItem().setText(1, _translate("MainWindow", "类型"))
+        self.treeWidget_1.headerItem().setText(0, _translate("MainWindow", "函数ID"))
+        self.treeWidget_1.headerItem().setText(1, _translate("MainWindow", "函数和变量"))
+        self.treeWidget_1.headerItem().setText(2, _translate("MainWindow", "类型"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "文件名"))
         item = self.tableWidget.horizontalHeaderItem(1)
@@ -322,7 +324,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                     item.setText(0, function['function_name'] + ';' + function['parameter'])
                     item.setText(1, function['return_type'])
                     #item.setText(1, function['path'])
-                    self.treeWidget_3.addTopLevelItem(item)
+                    self.treeWidget_1.addTopLevelItem(item)
                 except Exception as e:
                     print("发生异常:", str(e))
             try:
@@ -384,7 +386,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 ss = mysql.select_scan_function(mysql.cursor)
                 self.treeWidget_1.clear()  # 清空所有元素
                 for function in ss:
-                    # print(function)
+                    print(function['belong_file'])
                     if(function['belong_file']==file_path):
                         try:
                             item = QTreeWidgetItem()
@@ -397,3 +399,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 mysql.close_SQL(mysql.cursor, mysql.cnx)
         except IOError as e:
                 print('无法打开文件:', e)
+    def variable_choose(self,item):
+        clicked_item = self.treeWidget_1.itemFromIndex(item)
+        print("单击了条目:", clicked_item.text(0), clicked_item.text(1))
+
+
