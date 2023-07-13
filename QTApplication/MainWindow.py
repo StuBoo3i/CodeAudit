@@ -299,21 +299,20 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             directory_tree1 = directory_tree(folderDialog)
             # 提取自定义函数和库函数
             functions = process_c_files(directory_tree1, folderDialog)
-            # print("函数信息:")
+            mysql = SQL()
+            ss = mysql.select_scan_function(mysql.cursor)
             self.treeWidget_1.clear()  # 清空所有元素
-            id = 1
-            for function in functions:
-                # print(function)
+            for function in ss:
                 try:
                     item = QTreeWidgetItem()
-                    item.setText(0, str(id))
-                    item.setText(1, function['function_name'] + ';' + function['parameter'])
+                    item.setText(0, str(function['id']))
+                    item.setText(1, function['function'] + ';' + function['parameter'])
                     item.setText(2, function['return_type'])
-                    id +=1
-                    #item.setText(1, function['path'])
+                    # item.setText(1, function['path'])
                     self.treeWidget_1.addTopLevelItem(item)
                 except Exception as e:
                     print("发生异常:", str(e))
+            mysql.close_SQL(mysql.cursor, mysql.cnx)
             try:
                 self.thread1 = Thread(target=self.generate_tree)
                 self.thread1.start()
