@@ -105,24 +105,27 @@ def func_tree_construct():
 
 def return_preandsub():
     """
-    生成前驱函数表与后驱函数表
+    生成前驱函数表与后驱函数表，并将前驱与后继填入数据库
     :return:predecessors,前驱函数表，以函数ID为键，前驱函数ID列表为值
     :return:successors,后继函数表，以函数ID为键，前驱函数ID列表为值
     """
     successors = func_tree_construct()
     predecessors = generate_predecessors(successors)
-
-    print("后继函数表：")
-    for function_id, successors_list in successors.items():
-        print(f"函数名: {function_id}")
-        print(f"后继函数: {successors_list}")
-        print()
-
-    print("前驱函数表：")
+    mysql=SQL()
+    length_id=len(successors)
+    function_lists=[]
     for function_id, predecessors_list in predecessors.items():
-        print(f"函数名: {function_id}")
-        print(f"前驱函数: {predecessors_list}")
-        print()
+
+        appendlist = [str(function_id), ','.join(str(x) for x in predecessors_list)]
+        for function_id_sub, successors_list in successors.items():
+            if function_id==function_id_sub:
+                appendlist.append(','.join(str(x) for x in successors_list))
+                function_lists.append(appendlist)
+                # print(appendlist)
+                # 将关系树填入数据库
+                mysql.insert_function_tree(mysql.cnx,mysql.cursor,appendlist)
+                break
+
     return predecessors, successors
 
 
