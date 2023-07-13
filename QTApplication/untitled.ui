@@ -18,12 +18,12 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1241</width>
+     <width>1301</width>
      <height>691</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -34,7 +34,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>1232</width>
+       <width>1301</width>
        <height>677</height>
       </rect>
      </property>
@@ -53,7 +53,7 @@
       </widget>
       <widget class="QTabWidget" name="tabWidget_5">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab_8">
         <property name="font">
@@ -82,20 +82,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QTreeWidget" name="treeWidget_2">
-           <property name="styleSheet">
-            <string notr="true">QTreeView::branch:closed:has-children
-{
-    image: url(./resource/icon/expand-positive.png);/*图标*/
-    border-image: none;
-}
-
-QTreeView::branch:open:has-children
-{
-    image: url(./resource/icon/shrink-positive.png);/*图标*/
-    border-image: none;
-}</string>
-           </property>
+          <widget class="QTableWidget" name="tableWidget_2">
            <column>
             <property name="text">
              <string>文件名</string>
@@ -108,17 +95,7 @@ QTreeView::branch:open:has-children
            </column>
            <column>
             <property name="text">
-             <string>名称</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>风险水平</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>解决方式</string>
+             <string>风险</string>
             </property>
            </column>
           </widget>
@@ -198,6 +175,11 @@ QTreeView::branch:open:has-children
         <string>类型</string>
        </property>
       </column>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
      </widget>
     </widget>
    </widget>
@@ -1600,7 +1582,7 @@ border-radius:10px;
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+         <iconset>
           <normaloff>:/icons/user-3.png</normaloff>:/icons/user-3.png</iconset>
         </property>
         <property name="iconSize">
@@ -1639,7 +1621,7 @@ border-radius:10px;
          <string>25</string>
         </property>
         <property name="icon">
-         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+         <iconset>
           <normaloff>:/icons/alarm.png</normaloff>:/icons/alarm.png</iconset>
         </property>
         <property name="iconSize">
@@ -1720,7 +1702,7 @@ border-radius:10px;
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+         <iconset>
           <normaloff>:/icons/clock-1.png</normaloff>:/icons/clock-1.png</iconset>
         </property>
         <property name="iconSize">
@@ -1788,7 +1770,7 @@ border-radius:10px;
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+         <iconset>
           <normaloff>:/icons/placeholder.png</normaloff>:/icons/placeholder.png</iconset>
         </property>
         <property name="iconSize">
@@ -1901,7 +1883,7 @@ border-radius:10px;
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+               <iconset>
                 <normaloff>:/icons/star-1.png</normaloff>:/icons/star-1.png</iconset>
               </property>
               <property name="iconSize">
@@ -2057,7 +2039,7 @@ border-radius:10px;
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+               <iconset>
                 <normaloff>:/icons/search-1.png</normaloff>:/icons/search-1.png</iconset>
               </property>
               <property name="iconSize">
@@ -2229,7 +2211,7 @@ border-radius:10px;
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+               <iconset>
                 <normaloff>:/icons/unlocked.png</normaloff>:/icons/unlocked.png</iconset>
               </property>
               <property name="iconSize">
@@ -2327,8 +2309,43 @@ color:rgb(204, 207, 211);
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc"/>
- </resources>
- <connections/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>treeView_2</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>Form</receiver>
+   <slot>on_tree_item_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>547</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_7</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>opendirectory()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1212</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1073</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_tree_item_clicked()</slot>
+  <slot>opendirectory()</slot>
+ </slots>
 </ui>
