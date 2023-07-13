@@ -1346,6 +1346,7 @@ class Ui_Form(QtWidgets.QWidget):
             # 提取自定义函数和库函数
             functions = process_c_files(directory_tree1, folderDialog)
             # print("函数信息:")
+            self.treeWidget_3.clear()  # 清空所有元素
             for function in functions:
                 # print(function)
                 try:
@@ -1356,9 +1357,13 @@ class Ui_Form(QtWidgets.QWidget):
                     self.treeWidget_3.addTopLevelItem(item)
                 except Exception as e:
                     print("发生异常:", str(e))
+            try:
+                self.thread1 = Thread(target=self.generate_tree)
+                self.thread1.start()
+            except Exception as e:
+                print("发生异常:", str(e))
 
-            self.thread1 = Thread(target=self.generate_tree)
-            self.thread1.start()
+
 
     def generate_tree(self):
         model = QFileSystemModel()
@@ -1398,23 +1403,28 @@ class Ui_Form(QtWidgets.QWidget):
                         self.lines = self.lines+1
 
     def on_tree_item_clicked(self, index: QModelIndex):
+        print('1')
         if not index.isValid():
+                print('3')
                 return
 
         if index.column() != 0:
+                print('4')
                 return
-
+        print('2')
         file_path = self.treeView_2.model().filePath(index)
         print(file_path)
         if not file_path:
                 return
 
         try:
+                print('2')
                 with open(file_path, 'r') as file:
                         file_content = file.read()
                         self.textEdit_3.setPlainText(file_content)
                 mysql = SQL()
                 ss = mysql.select_scan_function(mysql.cursor)
+                self.treeWidget_3.clear()  # 清空所有元素
                 for function in ss:
                     # print(function)
                     if(function['path']==file_path):
