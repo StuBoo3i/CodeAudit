@@ -1,7 +1,0 @@
-Checking E:\Data\PyCharm\CodeAudit\File\test.c ...
-E:\Data\PyCharm\CodeAudit\File\test.c:1:0: information: Include file: <stdio.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
-#include <stdio.h>
-^
-E:\Data\PyCharm\CodeAudit\File\test.c:3:0: style: The function 'add' is never used. [unusedFunction]
-int add(int a, int b) {
-^
