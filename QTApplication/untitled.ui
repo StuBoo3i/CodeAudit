@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -2343,111 +2343,9 @@ color:rgb(204, 207, 211);
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>find_content()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>553</x>
-     <y>45</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>937</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>replace()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>528</x>
-     <y>94</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>821</x>
-     <y>-5</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_4</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>replace_all()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>551</x>
-     <y>155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1103</x>
-     <y>-6</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>add()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1122</x>
-     <y>84</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>910</x>
-     <y>-13</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_5</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>delete()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1090</x>
-     <y>135</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>950</x>
-     <y>-17</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_6</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>generate_report()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>583</x>
-     <y>500</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>741</x>
-     <y>-11</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>on_tree_item_clicked()</slot>
   <slot>opendirectory()</slot>
-  <slot>find_content()</slot>
-  <slot>replace()</slot>
-  <slot>replace_all()</slot>
-  <slot>add()</slot>
-  <slot>delete()</slot>
-  <slot>generate_report()</slot>
  </slots>
 </ui>

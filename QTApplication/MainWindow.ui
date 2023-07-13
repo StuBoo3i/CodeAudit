@@ -25,183 +25,181 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="leftMargin">
-     <number>5</number>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>0</y>
+      <width>791</width>
+      <height>411</height>
+     </rect>
     </property>
-    <property name="topMargin">
-     <number>5</number>
+   </widget>
+   <widget class="QTreeWidget" name="treeWidget_1">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>0</y>
+      <width>251</width>
+      <height>681</height>
+     </rect>
     </property>
-    <property name="rightMargin">
-     <number>5</number>
+    <property name="styleSheet">
+     <string notr="true">QTreeView::branch:closed:has-children
+{
+    image: url(./resource/icon/expand-positive.png);/*图标*/
+    border-image: none;
+}
+
+QTreeView::branch:open:has-children
+{
+    image: url(./resource/icon/shrink-positive.png);/*图标*/
+    border-image: none;
+}</string>
     </property>
-    <property name="bottomMargin">
-     <number>5</number>
+    <attribute name="headerMinimumSectionSize">
+     <number>30</number>
+    </attribute>
+    <attribute name="headerDefaultSectionSize">
+     <number>110</number>
+    </attribute>
+    <attribute name="headerHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>函数和变量</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>类型</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTreeView" name="treeView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>191</width>
+      <height>681</height>
+     </rect>
     </property>
-    <item>
-     <widget class="QSplitter" name="splitter_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+   </widget>
+   <widget class="QSplitter" name="splitter">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>410</y>
+      <width>781</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="tabsClosable">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QTabWidget" name="tabWidget_2">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
       </property>
-      <widget class="QTreeView" name="treeView"/>
-      <widget class="QSplitter" name="splitter">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+      <attribute name="title">
+       <string>输出</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
        </property>
-       <widget class="QTabWidget" name="tabWidget">
-        <property name="tabsClosable">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QTabWidget" name="tabWidget_2">
-        <property name="currentIndex">
-         <number>1</number>
-        </property>
-        <widget class="QWidget" name="tab">
-         <property name="font">
-          <font>
-           <family>Microsoft YaHei UI</family>
-          </font>
-         </property>
-         <attribute name="title">
-          <string>输出</string>
-         </attribute>
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QTreeWidget" name="treeWidget">
-            <property name="styleSheet">
-             <string notr="true">QTreeView::branch:closed:has-children
-{
-    image: url(./resource/icon/expand-positive.png);/*图标*/
-    border-image: none;
-}
-
-QTreeView::branch:open:has-children
-{
-    image: url(./resource/icon/shrink-positive.png);/*图标*/
-    border-image: none;
-}</string>
-            </property>
-            <column>
-             <property name="text">
-              <string>文件名</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>行数</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>名称</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>风险水平</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>解决方式</string>
-             </property>
-            </column>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="tab_2">
-         <property name="font">
-          <font>
-           <family>Microsoft YaHei UI</family>
-          </font>
-         </property>
-         <attribute name="title">
-          <string>终端</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QTextEdit" name="textEdit_2">
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit"/>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </widget>
-      <widget class="QTreeWidget" name="treeWidget_1">
-       <property name="styleSheet">
-        <string notr="true">QTreeView::branch:closed:has-children
-{
-    image: url(./resource/icon/expand-positive.png);/*图标*/
-    border-image: none;
-}
-
-QTreeView::branch:open:has-children
-{
-    image: url(./resource/icon/shrink-positive.png);/*图标*/
-    border-image: none;
-}</string>
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-       <attribute name="headerDefaultSectionSize">
-        <number>110</number>
-       </attribute>
-       <attribute name="headerHighlightSections">
-        <bool>false</bool>
-       </attribute>
-       <attribute name="headerMinimumSectionSize">
-        <number>30</number>
-       </attribute>
-       <column>
-        <property name="text">
-         <string>函数和变量</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>类型</string>
-        </property>
-       </column>
-      </widget>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <column>
+          <property name="text">
+           <string>文件名</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>行数</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>风险等级</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>解决方法</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
      </widget>
-    </item>
-   </layout>
+     <widget class="QWidget" name="tab_2">
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <attribute name="title">
+       <string>终端</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTextEdit" name="textEdit_2">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -209,7 +207,7 @@ QTreeView::branch:open:has-children
      <x>0</x>
      <y>0</y>
      <width>1242</width>
-     <height>25</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="File">
@@ -451,5 +449,42 @@ QTreeView::branch:open:has-children
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>menubar</sender>
+   <signal>triggered(QAction*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_directory()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>279</x>
+     <y>14</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>332</x>
+     <y>-11</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeView</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_tree_item_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>439</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>open_directory()</slot>
+  <slot>on_tree_item_clicked()</slot>
+ </slots>
 </ui>

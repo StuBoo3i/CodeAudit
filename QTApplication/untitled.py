@@ -1403,6 +1403,7 @@ class Ui_Form(QtWidgets.QWidget):
 
     def on_tree_item_clicked(self, index: QModelIndex):
         file_path = self.treeView_2.model().filePath(index)
+        print(file_path)
         if not file_path:
                 return
 

@@ -322,7 +322,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                     item.setText(0, function['function_name'] + ';' + function['parameter'])
                     item.setText(1, function['return_type'])
                     #item.setText(1, function['path'])
-                    self.treeWidget_1.addTopLevelItem(item)
+                    self.treeWidget_3.addTopLevelItem(item)
                 except Exception as e:
                     print("发生异常:", str(e))
             try:
