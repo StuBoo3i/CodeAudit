@@ -17,6 +17,7 @@ from PyQt5.QtWidgets import QFileDialog
 from threading import Thread
 from FunctionAndVariableDetection.ExtractFunctions import process_c_files
 from FunctionAndVariableDetection.DirectoryTree import directory_tree
+from FunctionAndVariableDetection.FunctionTree import return_preandsub
 from Tools.DatabaseOperation import SQL
 from PyQt5.QtCore import Qt, QRegExp
 from PyQt5.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
@@ -329,9 +330,19 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         if folderDialog:
             # 获取选中的文件夹路径
             self.folderPath = folderDialog
+            #清空function_tree和scan_function表
+
             # 进行函数检测
             directory_tree1 = directory_tree(folderDialog)
             mysql = SQL()
+            # functions=process_c_files(directory_tree1,folderDialog)
+            # #扫描函数，并填入scan_function表
+            # for function in functions:
+            #     print(mysql.insert_scan_function(mysql.cnx, mysql.cursor, function))
+            # mysql.close_SQL(mysql.cursor, mysql.cnx)
+            # #构建函数关系树，填入function_tree
+            # return_preandsub()
+            # mysql = SQL()
             ss = mysql.select_scan_function(mysql.cursor)
             self.treeWidget_1.clear()  # 清空所有元素
             for function in ss:
