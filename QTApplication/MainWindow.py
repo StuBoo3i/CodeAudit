@@ -268,8 +268,10 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.retranslateUi(MainWindow)
         self.tabWidget_2.setCurrentIndex(1)
         self.Open.triggered.connect(self.open_directory)  # type: ignore
-        self.Find.triggered.connect(self.find)
-        self.Function.triggered.connect(self.function)
+        self.Find.triggered.connect(self.find_qa)
+        self.Function.triggered.connect(self.function_qa)
+        self.Pie.triggered.connect(self.pie_qa)
+        self.CMD.triggered.connect(self.cmd_qa)
         self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
         self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
         self.pushButton.clicked.connect(self.run_cmd)  # type: ignore
@@ -468,14 +470,19 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         result = CMD.run_cmd(command)
         self.textEdit_2.append(result)
 
-    def function(self):
+    def function_qa(self):
         print('Function')
         pass
 
-    def find(self):
+    def find_qa(self):
         print('Find')
         pass
 
+    def cmd_qa(self):
+        print('CMD')
+        pass
 
-
+    def pie_qa(self):
+        print('Pie')
+        pass
 
