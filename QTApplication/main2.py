@@ -1,8 +1,11 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5 import QtCore
 from MainWindow import Ui_MainWindow
 
 if __name__ == "__main__":
+    QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
+
     app = QApplication(sys.argv)
 
     # Create the main window
