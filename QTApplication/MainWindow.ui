@@ -112,34 +112,107 @@ QTreeView::branch:open:has-children
     <property name="geometry">
      <rect>
       <x>349</x>
-      <y>499</y>
+      <y>449</y>
       <width>551</width>
-      <height>181</height>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
-      <widget class="QTableWidget" name="tableWidget">
-       <column>
-        <property name="text">
-         <string>文件名</string>
+      <widget class="QTabWidget" name="tabWidget_2">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI</family>
+          <pointsize>9</pointsize>
+         </font>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>行数</string>
+        <attribute name="title">
+         <string>输出</string>
+        </attribute>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTableWidget" name="tableWidget">
+           <column>
+            <property name="text">
+             <string>文件名</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>行数</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>风险等级</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>解决方法</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI</family>
+          <pointsize>9</pointsize>
+         </font>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>风险等级</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>解决方法</string>
-        </property>
-       </column>
+        <attribute name="title">
+         <string>终端</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTextEdit" name="textEdit_2">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit"/>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -151,7 +224,7 @@ QTreeView::branch:open:has-children
      <x>0</x>
      <y>0</y>
      <width>1294</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="File">
@@ -215,10 +288,7 @@ QTreeView::branch:open:has-children
     <string>打开文件</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -229,10 +299,7 @@ QTreeView::branch:open:has-children
     <string>打开文件夹</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+O</string>
@@ -243,10 +310,7 @@ QTreeView::branch:open:has-children
     <string>保存</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -257,10 +321,7 @@ QTreeView::branch:open:has-children
     <string>另存为</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
@@ -271,10 +332,7 @@ QTreeView::branch:open:has-children
     <string>撤销</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+Z</string>
@@ -285,10 +343,7 @@ QTreeView::branch:open:has-children
     <string>复制</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -299,10 +354,7 @@ QTreeView::branch:open:has-children
     <string>剪切</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
@@ -313,10 +365,7 @@ QTreeView::branch:open:has-children
     <string>粘贴</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+V</string>
@@ -327,10 +376,7 @@ QTreeView::branch:open:has-children
     <string>风险函数管理</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="Find">
@@ -338,9 +384,7 @@ QTreeView::branch:open:has-children
     <string>查找和替换</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-    </font>
+    <font/>
    </property>
    <property name="shortcut">
     <string>Ctrl+F</string>
@@ -351,9 +395,7 @@ QTreeView::branch:open:has-children
     <string>转到定义</string>
    </property>
    <property name="font">
-    <font>
-     <family>Microsoft YaHei UI</family>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="Close">
