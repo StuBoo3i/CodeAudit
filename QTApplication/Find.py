@@ -79,7 +79,7 @@ class Ui_Dialog(QtWidgets.QDialog):
         self.thread.start()
 
     def search(self):
-        folderPath = "E:\Data\PyCharm\CodeAudit\File"
+        folderPath = "G:\桌面\CodeAudit\File"
         result = search.search_keywords_in_folder(folderPath, self.keyword)
         total_count = sum(len(matches) for matches in result.values())
         lines = 0
@@ -97,7 +97,7 @@ class Ui_Dialog(QtWidgets.QDialog):
         self.thread3.start()
 
     def replace(self):
-        folderPath = "E:\Data\PyCharm\CodeAudit\File"
+        folderPath = "G:\桌面\CodeAudit\File"
         self.keyword = self.lineEdit.text()
         self.relace = self.lineEdit_2.text()
         replace.replace_keywords_in_project(folderPath,self.keyword,self.relace)
