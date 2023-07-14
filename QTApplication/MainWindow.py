@@ -267,7 +267,9 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
         self.retranslateUi(MainWindow)
         self.tabWidget_2.setCurrentIndex(1)
-        self.menubar.triggered['QAction*'].connect(self.open_directory)  # type: ignore
+        self.Open.triggered.connect(self.open_directory)  # type: ignore
+        self.Find.triggered.connect(self.find)
+        self.Function.triggered.connect(self.function)
         self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
         self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
         self.pushButton.clicked.connect(self.run_cmd)  # type: ignore
@@ -466,7 +468,13 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         result = CMD.run_cmd(command)
         self.textEdit_2.append(result)
 
+    def function(self):
+        print('Function')
+        pass
 
+    def find(self):
+        print('Find')
+        pass
 
 
 
