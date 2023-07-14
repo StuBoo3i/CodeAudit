@@ -1,9 +1,7 @@
 import sys
 import qdarkstyle
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5 import QtCore, QtWidgets
-from qdarkstyle.light.palette import LightPalette
-from qt_material import apply_stylesheet
+from PyQt5 import QtCore
 from MainWindow import Ui_MainWindow
 
 if __name__ == "__main__":
