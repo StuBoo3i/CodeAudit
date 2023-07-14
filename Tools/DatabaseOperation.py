@@ -1,3 +1,5 @@
+import ast
+
 import mysql.connector
 import re
 
@@ -83,7 +85,12 @@ class SQL:
             cursor.execute(query)
 
             # 获取结果
-            return cursor.fetchall()
+            datas = cursor.fetchall()
+            lists = []
+            for data in datas:
+                list = [data[1], ast.literal_eval(data[2])]
+                lists.append(list)
+            return lists
         except Exception as e:
             print("不是主人不可以看得啦喵（气急败坏）")
             return e
