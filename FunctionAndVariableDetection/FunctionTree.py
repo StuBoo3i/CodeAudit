@@ -125,7 +125,7 @@ def return_preandsub():
                 # 将关系树填入数据库
                 mysql.insert_function_tree(mysql.cnx,mysql.cursor,appendlist)
                 break
-
+    mysql.close_SQL(mysql.cursor, mysql.cnx)
     return predecessors, successors
 
 
