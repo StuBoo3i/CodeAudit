@@ -20,7 +20,7 @@ from FunctionAndVariableDetection.DirectoryTree import directory_tree
 from Tools.DatabaseOperation import SQL
 from PyQt5.QtCore import Qt, QRegExp
 from PyQt5.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
-
+from Extension import CMD
 def count_lines(file_path):
     line_count = 0
     with open(file_path, 'r') as file:
@@ -160,11 +160,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.lineEdit = QtWidgets.QLineEdit(self.tab_2)
         self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout_2.addWidget(self.lineEdit)
+        self.pushButton = QtWidgets.QPushButton(self.tab_2)
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayout_2.addWidget(self.pushButton)
         self.tabWidget_2.addTab(self.tab_2, "")
         self.verticalLayout_4.addWidget(self.tabWidget_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1294, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1294, 23))
         self.menubar.setObjectName("menubar")
         self.File = QtWidgets.QMenu(self.menubar)
         font = QtGui.QFont()
@@ -262,10 +265,11 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.menubar.addAction(self.menu.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(1)
         self.menubar.triggered['QAction*'].connect(self.open_directory)  # type: ignore
         self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
         self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
+        self.pushButton.clicked.connect(self.run_cmd)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -283,6 +287,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "解决方法"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab), _translate("MainWindow", "输出"))
+        self.pushButton.setText(_translate("MainWindow", "执行"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_2), _translate("MainWindow", "终端"))
         self.File.setTitle(_translate("MainWindow", "文件"))
         self.Edit.setTitle(_translate("MainWindow", "编辑"))
@@ -443,6 +448,12 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
     def format_line(self, line, format):
         return f"<span style='color:{format.foreground().color().name()};background-color:{format.background().color().name()}'>{line}</span>"
+
+
+    def run_cmd(self):
+        command = self.lineEdit.text()
+        result = CMD.run_cmd(command)
+        self.textEdit_2.append(result)
 
 
 
