@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QFileSystemModel, QTableWidgetItem, QTreeWidgetItem
+
 
 class Ui_Dialog(QtWidgets.QDialog):
     def setupUi(self, Dialog):
@@ -136,14 +136,8 @@ class Ui_Dialog(QtWidgets.QDialog):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("Dialog", "风险函数报告"))
 
     def add_function(self):
-        fun_name = self.lineEdit.text()
-        rank = self.comboBox.currentText()
-        suggestation = self.lineEdit_2.text()
-        row_count = self.tableWidget.rowCount()
-        self.tableWidget.insertRow(row_count)
-        self.tableWidget.setItem(row_count,0,QTableWidgetItem(fun_name))
-        self.tableWidget.setItem(row_count,1,QTableWidgetItem(rank))
-        self.tableWidget.setItem(row_count,2,QTableWidgetItem(suggestation))
+        pass
+
     def machine_scan(self):
         pass
 
