@@ -318,7 +318,6 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.Run.setText(_translate("MainWindow", "运行"))
         self.CMD.setText(_translate("MainWindow", "终端"))
 
-
     def open_directory(self):
         folderDialog = QFileDialog.getExistingDirectory(self, '打开文件夹')
         self.lines = 0
