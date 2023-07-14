@@ -54,6 +54,41 @@ class SQL:
             return e
 
     @staticmethod
+    def insert_value_of_function(cnx, cursor, data_list):
+        """
+        按照数据库格式插入：list第一项是function的id，第二项是变量的list序列化形式
+        :param cnx:
+        :param cursor:
+        :param data_list: list
+        :return: 无
+        """
+        # 插入
+        try:
+            insert_query = "INSERT INTO value_of_function ( function_id, `values`) VALUES " \
+                           "(%s, %s)"
+            data = (data_list[0], data_list[1])
+            cursor.execute(insert_query, data)
+            # 提交
+            cnx.commit()
+        except Exception as e:
+            print(str(e))
+            print("怎么想都插不进去吧喵（哭泣）")
+            return e
+
+    @staticmethod
+    def select_value_of_function(cursor):
+        try:
+            # 执行查询语句
+            query = "SELECT DISTINCT * FROM value_of_function"
+            cursor.execute(query)
+
+            # 获取结果
+            return cursor.fetchall()
+        except Exception as e:
+            print("不是主人不可以看得啦喵（气急败坏）")
+            return e
+
+    @staticmethod
     def insert_function_tree(cnx, cursor, data_list):
         """
         按照数据库格式插入：list第一项是function的id，第二项是前置的list序列化形式，第三项是后置的list序列化形式
