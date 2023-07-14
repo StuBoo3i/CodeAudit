@@ -432,20 +432,36 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 mysql = SQL()
                 ss = mysql.select_scan_function(mysql.cursor)
                 self.treeWidget_1.clear()  # 清空所有元素
+                self.treeWidget_1.setColumnWidth(0, 300)
+                file = QTreeWidgetItem(self.treeWidget_1)
+                file.setText(0, "文件名：" + file_path)
+                fun = QTreeWidgetItem(self.treeWidget_1)
+                fun.setText(0, "函数与变量")
                 for function in ss:
                     if(function['belong_file']==file_path):
                         try:
-                            item = QTreeWidgetItem()
-                            item.setText(0, str(function['id'] ))
-                            item.setText(1, function['function'] + ';' + function['parameter'])
-                            item.setText(2, function['return_type'])
-                            # item.setText(1, function['path'])
-                            self.treeWidget_1.addTopLevelItem(item)
+                            func_id=function['id']
+                            child = QTreeWidgetItem(fun)
+                            child.setText(0, function['function'])
+                            child.setText(1, function['return_type'])
+                            mysql.close_SQL(mysql.cursor, mysql.cnx)
+                            mysql = SQL()
+                            vallists = mysql.select_value_of_function(mysql.cursor)
+                            for valitem in vallists:
+                                # print(type(valitem))
+                                # print(valitem)
+                                if int(valitem[0])==int(func_id):
+                                    for val in valitem[1]:
+                                        child1 = QTreeWidgetItem(child)
+                                        child1.setText(0, val[0])
+                                        child1.setText(1, val[1])
                         except Exception as e:
                             print("发生异常:", str(e))
-                mysql.close_SQL(mysql.cursor, mysql.cnx)
+                self.treeWidget_1.expandAll()
+
         except IOError as e:
                 print('无法打开文件:', e)
+
     def variable_choose(self,item):
         clicked_item = self.treeWidget_1.itemFromIndex(item)
         item = clicked_item.text(0)
