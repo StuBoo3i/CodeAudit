@@ -272,6 +272,18 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.Function.triggered.connect(self.function_qa)
         self.Pie.triggered.connect(self.pie_qa)
         self.CMD.triggered.connect(self.cmd_qa)
+        self.Compile.triggered.connect(self.complie_qa)
+        self.Run.triggered.connect(self.run_qa)
+        self.Undo.triggered.connect(self.undo_qa)
+        self.Copy.triggered.connect(self.copy_qa)
+        self.Cut.triggered.connect(self.cut_qa)
+        self.Paste.triggered.connect(self.paste_qa)
+        self.Goto.triggered.connect(self.goto_qa)
+        self.Save.triggered.connect(self.save_qa)
+        self.Saveas.triggered.connect(self.saveas_qa)
+        self.Close.triggered.connect(self.close_qa)
+        self.Closeall.triggered.connect(self.colseall_qa)
+        self.Exit.triggered.connect(self.exit_qa)
         self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
         self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
         self.pushButton.clicked.connect(self.run_cmd)  # type: ignore
@@ -486,3 +498,44 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         print('Pie')
         pass
 
+    def complie_qa(self):
+        print('Compile')
+        pass
+    def run_qa(self):
+        print('Run')
+        pass
+
+    def undo_qa(self):
+        print('Undo')
+        pass
+
+    def copy_qa(self):
+        print('Copy')
+        pass
+
+    def cut_qa(self):
+        print('Cut')
+        pass
+    def paste_qa(self):
+        print('Paste')
+        pass
+
+    def goto_qa(self):
+        print('Goto')
+        pass
+
+    def save_qa(self):
+        print('Save')
+        pass
+    def saveas_qa(self):
+        print('Saveas')
+        pass
+    def close_qa(self):
+        print('Close')
+        pass
+    def colseall_qa(self):
+        print('Closeall')
+        pass
+    def exit_qa(self):
+        print('Exit')
+        pass
