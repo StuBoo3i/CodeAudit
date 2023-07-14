@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>667</width>
-    <height>502</height>
+    <width>671</width>
+    <height>506</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>30</y>
+     <x>50</x>
+     <y>60</y>
      <width>400</width>
      <height>30</height>
     </rect>
@@ -26,37 +26,11 @@
     <string>查找语句</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>110</y>
-     <width>200</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>使用正则表达式</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="checkBox_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>150</y>
-     <width>200</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>使用循环查找</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>30</y>
+     <x>510</x>
+     <y>60</y>
      <width>100</width>
      <height>30</height>
     </rect>
@@ -68,8 +42,8 @@
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>90</y>
+     <x>510</x>
+     <y>120</y>
      <width>100</width>
      <height>30</height>
     </rect>
@@ -81,8 +55,8 @@
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>70</y>
+     <x>50</x>
+     <y>100</y>
      <width>400</width>
      <height>30</height>
     </rect>
@@ -94,8 +68,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>150</y>
+     <x>200</x>
+     <y>160</y>
      <width>200</width>
      <height>30</height>
     </rect>
@@ -118,7 +92,7 @@
      <widget class="QTableWidget" name="tableWidget">
       <column>
        <property name="text">
-        <string>函数名</string>
+        <string>文件名</string>
        </property>
       </column>
       <column>
@@ -128,7 +102,12 @@
       </column>
       <column>
        <property name="text">
-        <string>数量</string>
+        <string>关键字个数</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>查找当前行信息</string>
        </property>
       </column>
      </widget>

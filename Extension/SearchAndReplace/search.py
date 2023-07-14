@@ -31,7 +31,7 @@ if __name__ =="__main__":
 
     result = search_keywords_in_folder(folder_path, keyword)
     total_count = sum(len(matches) for matches in result.values())
-
+    print(len(result))
     print(f"Total keyword count: {total_count}")
     for file_path, matches in result.items():
         print(f"File: {file_path}")
