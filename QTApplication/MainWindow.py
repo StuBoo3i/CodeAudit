@@ -469,7 +469,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         highlighted_lines = []
         for i, line in enumerate(lines, start=1):
             if begin <= i <= end:
-                highlighted_lines.append(f"<span class='highlight' style='background-color: yellow;'>{line}</span>")
+                highlighted_lines.append(f"<span class='highlight' style='background-color: black;'>{line}</span>")
             else:
                 highlighted_lines.append(f"<span class='normal'>{line}</span>")
         highlighted_content = "<pre>" + "\n".join(highlighted_lines) + "</pre>"
