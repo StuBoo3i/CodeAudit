@@ -233,6 +233,23 @@ class SQL:
             return e
 
     @staticmethod
+    def select_start_by_id(cursor, id):
+        try:
+            # 执行查询语句
+            query = "SELECT `start` FROM scan_function WHERE id = %s"
+            value = (id,)
+            cursor.execute(query, value)
+
+            # 获取查询结果并存入列表
+            result = []
+            for row in cursor:
+                result.append(row)
+            return result
+        except Exception as e:
+            print("不是主人不可以看得啦喵（气急败坏）")
+            return e
+
+    @staticmethod
     def update_leak_by_id(cnx, cursor, id):
         try:
             # 执行更新操作
