@@ -2,8 +2,17 @@ import sys
 from functools import partial
 from PyQt5 import QtCore,  QtWidgets
 import qdarkstyle
-
-
+import sys
+import qdarkstyle
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5 import QtCore
+from MainWindow import Ui_MainWindow
+from Tools.DatabaseOperation import SQL
+from PyQt5 import  uic
+class UI(Ui_MainWindow):
+    def __init__(self):
+        super(UI, self).__init__()
+        uic.loadUi('MainWindow.ui', self)
 class Model:
     def __init__(self):
         self.username = ""
@@ -52,10 +61,10 @@ class View(QtWidgets.QWidget):
         self.passwordInput.clear()
 
     def showMessage(self):
-        messageBox = QtWidgets.QMessageBox(self)
-        messageBox.setText("Your credentials are valid. Welcome!")
-        messageBox.exec_()
-        self.close()
+        self.mainwin = UI()
+        self.mainwin.show()
+
+
 
     def showError(self):
         messageBox = QtWidgets.QMessageBox(self)
@@ -78,7 +87,9 @@ class Controller:
         self._model.username = self._view.username
         self._model.password = self._view.password
         self._view.clear()
-        if self._model.verify_password():
+        mysql = SQL()
+        flag = mysql.SQL_Login(mysql.cursor,self._model.username,self._model.password)
+        if flag:
             self._view.showMessage()
         else:
             self._view.showError()

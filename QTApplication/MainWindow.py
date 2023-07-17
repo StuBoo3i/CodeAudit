@@ -437,7 +437,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             return
         selected_item = self.treeWidget_1.itemFromIndex(index)
 
-        if selected_item.parent() is not None :
+        if selected_item.parent() is not None or selected_item.childCount() > 0 :
             # 选中的是子条目
             var_id = int(selected_item.text(0)) - 1
             mysql = SQL()
@@ -461,6 +461,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                         highlighted_content = self.highlight_str(current_text, row, column, len_var)
                         self.textBrowser.setText(highlighted_content)
             mysql.close_SQL(mysql.cursor, mysql.cnx)
+        else:
+            return
 
 
     def highlight_str(self, content, row, column, length):

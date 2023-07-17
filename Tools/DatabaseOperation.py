@@ -2,7 +2,7 @@ import ast
 
 import mysql.connector
 import re
-
+from Extension.HashFunction import SHA
 
 class SQL:
     """
@@ -17,7 +17,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="100221",
+            password="123456789",
             database="code_audit"
         )
         return cnx
@@ -116,6 +116,18 @@ class SQL:
             print("怎么想都插不进去吧喵（哭泣）")
             return e
 
+    @staticmethod
+    def SQL_Login(cursor, username, password):
+        query = "SELECT user_password FROM user WHERE user_name = %s"
+        cursor.execute(query, (username,))
+
+        result = cursor.fetchall()
+        for re in result:
+            if SHA.generate_sha_digest(password) == re[0]:
+
+                return True
+            else:
+                return False
     @staticmethod
     def select_function_tree(cursor):
         """
