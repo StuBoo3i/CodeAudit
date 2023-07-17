@@ -453,7 +453,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                     for pos in item[2]:
                         pos_split = pos.split("-")
                         num = mysql.select_start_by_id(mysql.cursor, ss[var_id][0])[0]
-                        f_place = int(num[0])
+                        f_place = int(num[0])-1
                         row = int(pos_split[0])
                         row += f_place
                         column = int(pos_split[1])
