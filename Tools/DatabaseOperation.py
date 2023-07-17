@@ -3,7 +3,7 @@ import ast
 import mysql.connector
 import re
 from Extension.HashFunction import SHA
-
+from Extension.AES import AesEnDe
 class SQL:
     """
     创建示例后记得关闭游标，调用close_SQL实现
@@ -145,6 +145,42 @@ class SQL:
         except Exception as e:
             print("不是主人不可以看得啦喵（气急败坏）")
             return e
+
+    @staticmethod
+    def encrypt_message(cursor, password):
+        password = SHA.generate_sha_digest(password)[:16]
+        query = "SELECT * FROM scan_function"
+        cursor.execute(query)
+        result = cursor.fetchall()
+        for ret1 in result:
+            ret = list(ret1)
+            for i in range(1, 11):
+                ret[i] = AesEnDe.encrypt_string(password.encode(), str(ret[i]))
+            record = {
+                'id': ret[0],
+                'function': ret[1],
+                'function_text': ret[2],
+                'return_type': ret[3],
+                'parameter': ret[4],
+                'parameters': ret[5],
+                'function_type': ret[6],
+                'belong_file': ret[7],
+                'start': ret[8],
+                'end': ret[9],
+                'risk': ret[10]
+            }
+            record_id = record['id']
+            function = record['function']
+            function_text = record['function_text']
+            return_type = record['return_type']
+            parameter = record['parameter']
+            belong_file = record['belong_file']
+            update = "UPDATE scan_function SET function = %s, function_text = %s, return_type = %s, parameter = %s, belong_file = %s WHERE id = %s"
+            cursor.execute(update, (
+                function, function_text, return_type, parameter, belong_file, record_id))
+
+
+
 
     @staticmethod
     def select_scan_function(cursor):
