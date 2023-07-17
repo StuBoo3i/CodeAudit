@@ -18,7 +18,9 @@ from FunctionAndVariableDetection.DirectoryTree import directory_tree
 from Tools.DatabaseOperation import SQL
 from PyQt5.QtCore import  QRegExp
 from PyQt5.QtGui import  QFont, QSyntaxHighlighter
-from Extension import CMD
+from FunctionManagement import CMD
+
+from PyQt5.QtGui import QTextCharFormat, QColor
 
 class UI(Ui_Dialog):
     def __init__(self):
@@ -275,7 +277,23 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
         self.retranslateUi(MainWindow)
         self.tabWidget_2.setCurrentIndex(1)
-        self.menubar.triggered['QAction*'].connect(self.open_directory)  # type: ignore
+        self.Open.triggered.connect(self.open_directory)  # type: ignore
+        self.Find.triggered.connect(self.find_qa)
+        self.Function.triggered.connect(self.function_qa)
+        self.Pie.triggered.connect(self.pie_qa)
+        self.CMD.triggered.connect(self.cmd_qa)
+        self.Compile.triggered.connect(self.complie_qa)
+        self.Run.triggered.connect(self.run_qa)
+        self.Undo.triggered.connect(self.undo_qa)
+        self.Copy.triggered.connect(self.copy_qa)
+        self.Cut.triggered.connect(self.cut_qa)
+        self.Paste.triggered.connect(self.paste_qa)
+        self.Goto.triggered.connect(self.goto_qa)
+        self.Save.triggered.connect(self.save_qa)
+        self.Saveas.triggered.connect(self.saveas_qa)
+        self.Close.triggered.connect(self.close_qa)
+        self.Closeall.triggered.connect(self.colseall_qa)
+        self.Exit.triggered.connect(self.exit_qa)
         self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
         self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
         self.pushButton.clicked.connect(self.run_cmd)  # type: ignore
@@ -414,19 +432,55 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                         self.tableWidget.setItem(self.lines, 2,   QTableWidgetItem(calculate_risk_level(count_lines(path))))
                         self.lines = self.lines+1
 
-    def right_tree_clicked(self,index: QModelIndex):
+    def right_tree_clicked(self, index: QModelIndex):
         if self.file_choosed_flag == False:
             return
-        selected_items = self.treeWidget_1.selectedItems()
-        print(index.row())
-        selected_item = selected_items[index.row()]
-        selected_id = int(selected_item.text(0))
-        selected_fuction_name = selected_item.text(1)
-        selected_classification = selected_item.text(2)
-        mysql = SQL()
-        ss = mysql.select_value_of_function(mysql.cursor)
-        print(ss[selected_id-1])
+        selected_item = self.treeWidget_1.itemFromIndex(index)
 
+        if selected_item.parent() is not None or selected_item.childCount()>0:
+            # 选中的是子条目
+            var_id = int(selected_item.text(0)) - 1
+            mysql = SQL()
+            ss = mysql.select_value_of_function(mysql.cursor)
+            # ss2 = mysql.select_scan_function(mysql.cursor)
+            # function_id = ss[var_id][0]
+            format = QTextCharFormat()
+            format.setForeground(QColor("red"))
+            current_text = self.textBrowser.toPlainText()
+            highlighted_content = current_text
+            #self.textBrowser.clear()
+            for item in ss[var_id][1]:
+                if selected_item.text(1) == item[0]:
+                    for pos in item[2]:
+                        pos_split = pos.split("-")
+                        n = ss[var_id][0]
+                        num = mysql.select_start_by_id(mysql.cursor, ss[var_id][0])[0]
+                        f_place = int(num[0])-1
+                        row = int(pos_split[0])
+                        row += f_place
+                        column = int(pos_split[1])
+                        len_var = len(item[0])
+                        highlighted_content = self.highlight_str(highlighted_content, row, column, len_var)
+                    self.textBrowser.setText(highlighted_content)
+            mysql.close_SQL(mysql.cursor, mysql.cnx)
+
+
+    def highlight_str(self, content, row, column, length):
+        lines = content.split('\n')
+        highlighted_lines = []
+        for i, line in enumerate(lines, start=1):
+            if i == row:
+                highlighted_line = ""
+                for j, char in enumerate(line, start=1):
+                    if column <= j < column + length:
+                        highlighted_line += f"<span class='highlight' style='background-color: red;'>{char}</span>"
+                    else:
+                        highlighted_line += char
+                highlighted_lines.append(highlighted_line)
+            else:
+                highlighted_lines.append(line)
+        highlighted_content = "<pre>" + "\n".join(highlighted_lines) + "</pre>"
+        return highlighted_content
 
     def on_tree_item_clicked(self, index: QModelIndex):
         self.file_choosed_flag = True
@@ -499,7 +553,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         highlighted_lines = []
         for i, line in enumerate(lines, start=1):
             if begin <= i <= end:
-                highlighted_lines.append(f"<span class='highlight' style='background-color: black;'>{line}</span>")
+                highlighted_lines.append(f"<span class='highlight' style='background-color: red;'>{line}</span>")
             else:
                 highlighted_lines.append(f"<span class='normal'>{line}</span>")
         highlighted_content = "<pre>" + "\n".join(highlighted_lines) + "</pre>"

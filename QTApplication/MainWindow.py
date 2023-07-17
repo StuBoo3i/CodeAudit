@@ -444,12 +444,16 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             ss = mysql.select_value_of_function(mysql.cursor)
             # ss2 = mysql.select_scan_function(mysql.cursor)
             # function_id = ss[var_id][0]
+            print(len(ss),var_id)
+            if len(ss) <= var_id:
+                return
             format = QTextCharFormat()
             format.setForeground(QColor("red"))
             current_text = self.textBrowser.toPlainText()
             highlighted_content = current_text
             #self.textBrowser.clear()
             for item in ss[var_id][1]:
+                print(ss[var_id][1])
                 if selected_item.text(1) == item[0]:
                     for pos in item[2]:
                         pos_split = pos.split("-")
