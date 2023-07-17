@@ -400,6 +400,9 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         parent_path = model.filePath(root_index)
         for name in os.listdir(parent_path):
             path = os.path.join(parent_path, name)
+            after_name = path.split(".",path.count("."))[-1]
+            if after_name != "c":
+                continue
             index = model.index(path)
             if os.path.isdir(path):
                 self.file_system_model = model
