@@ -67,7 +67,7 @@ class Highlighter(QSyntaxHighlighter):
 
 class Ui_MainWindow(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
+        MainWindow.setObjectName("Code_Audit")
         MainWindow.resize(1294, 710)
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -275,26 +275,11 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
         self.retranslateUi(MainWindow)
         self.tabWidget_2.setCurrentIndex(1)
-        self.Open.triggered.connect(self.open_directory)  # type: ignore
-        self.Find.triggered.connect(self.find_qa)
-        self.Function.triggered.connect(self.function_qa)
-        self.Pie.triggered.connect(self.pie_qa)
-        self.CMD.triggered.connect(self.cmd_qa)
-        self.Compile.triggered.connect(self.complie_qa)
-        self.Run.triggered.connect(self.run_qa)
-        self.Undo.triggered.connect(self.undo_qa)
-        self.Copy.triggered.connect(self.copy_qa)
-        self.Cut.triggered.connect(self.cut_qa)
-        self.Paste.triggered.connect(self.paste_qa)
-        self.Goto.triggered.connect(self.goto_qa)
-        self.Save.triggered.connect(self.save_qa)
-        self.Saveas.triggered.connect(self.saveas_qa)
-        self.Close.triggered.connect(self.close_qa)
-        self.Closeall.triggered.connect(self.colseall_qa)
-        self.Exit.triggered.connect(self.exit_qa)
+        self.menubar.triggered['QAction*'].connect(self.open_directory)  # type: ignore
         self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
         self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
         self.pushButton.clicked.connect(self.run_cmd)  # type: ignore
+        self.treeWidget_1.clicked['QModelIndex'].connect(self.right_tree_clicked)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -349,6 +334,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.CMD.setText(_translate("MainWindow", "终端"))
 
     def open_directory(self):
+        self.file_choosed_flag = False
         folderDialog = QFileDialog.getExistingDirectory(self, '打开文件夹')
         self.lines = 0
         if folderDialog:
@@ -427,8 +413,11 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                         self.tableWidget.setItem(self.lines, 1, QTableWidgetItem(str(count_lines(path))))
                         self.tableWidget.setItem(self.lines, 2,   QTableWidgetItem(calculate_risk_level(count_lines(path))))
                         self.lines = self.lines+1
-
+    def right_tree_clicked(self,index: QModelIndex):
+        print(index.row(),index.column())
+        print(index.data())
     def on_tree_item_clicked(self, index: QModelIndex):
+        self.file_choosed_flag = True
         file_path = self.treeView.model().filePath(index)
         if not file_path:
                 return
@@ -445,14 +434,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 file = QTreeWidgetItem(self.treeWidget_1)
                 file.setText(0, "文件名：" + file_path)
                 fun = QTreeWidgetItem(self.treeWidget_1)
-                fun.setText(0, "函数与变量")
                 for function in ss:
                     if(function['belong_file']==file_path):
                         try:
                             func_id=function['id']
                             child = QTreeWidgetItem(fun)
-                            child.setText(0, function['function'])
-                            child.setText(1, function['return_type'])
+                            child.setText(0,str(func_id))
+                            child.setText(1, function['function'])
+                            child.setText(2, function['return_type'])
                             mysql.close_SQL(mysql.cursor, mysql.cnx)
                             mysql = SQL()
                             vallists = mysql.select_value_of_function(mysql.cursor)
@@ -462,8 +451,9 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                                 if int(valitem[0])==int(func_id):
                                     for val in valitem[1]:
                                         child1 = QTreeWidgetItem(child)
-                                        child1.setText(0, val[0])
-                                        child1.setText(1, val[1])
+                                        child1.setText(0,str(func_id))
+                                        child1.setText(1, val[0])
+                                        child1.setText(2, val[1])
                         except Exception as e:
                             print("发生异常:", str(e))
                 self.treeWidget_1.expandAll()
@@ -472,8 +462,11 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 print('无法打开文件:', e)
 
     def variable_choose(self,item):
+        if self.file_choosed_flag == True:
+            return
         clicked_item = self.treeWidget_1.itemFromIndex(item)
         item = clicked_item.text(0)
+        print(item)
         mysql = SQL()
         ss = mysql.select_scan_function(mysql.cursor)
         for function in ss:

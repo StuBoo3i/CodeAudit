@@ -507,11 +507,28 @@ QTreeView::branch:open:has-children
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>treeWidget_1</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>right_tree_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1132</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>953</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>open_directory()</slot>
   <slot>on_tree_item_clicked()</slot>
   <slot>variable_choose()</slot>
   <slot>run_cmd()</slot>
+  <slot>right_tree_clicked()</slot>
  </slots>
 </ui>
