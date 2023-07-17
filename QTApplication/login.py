@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore
 from MainWindow import Ui_MainWindow
 from Tools.DatabaseOperation import SQL
-from PyQt5 import  uic
+from PyQt5 import uic
 class UI(Ui_MainWindow):
     def __init__(self):
         super(UI, self).__init__()
@@ -61,6 +61,7 @@ class View(QtWidgets.QWidget):
         self.passwordInput.clear()
 
     def showMessage(self):
+        QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
         self.mainwin = UI()
         self.mainwin.show()
 

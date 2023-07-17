@@ -19,7 +19,7 @@ def process_node(node, usages):
         variable_name = node.name
         start_line = node.coord.line
         start_col = node.coord.column
-        place = str(node.coord.line) + "-" + str(node.coord.column)
+        place = str(node.coord.line) + "-" + str(node.coord.column + 2)
         usages.append((variable_name, start_line, start_col, place))
     elif isinstance(node, c_ast.FuncCall):
         # 跳过函数调用节点
@@ -65,14 +65,14 @@ def process_function_ast(function_node):
             variable_type = child_node.type.type.names[0]
             start_line = child_node.coord.line
             start_col = child_node.coord.column
-            place = str(child_node.coord.line) + "-" + str(child_node.coord.column)
+            place = str(child_node.coord.line) + "-" + str(child_node.coord.column + 2)
             declarations.append((variable_name, variable_type, start_line, start_col, place))
         elif isinstance(child_node, c_ast.Decl) and isinstance(child_node.type, c_ast.PtrDecl):
             variable_name = child_node.name
             variable_type = child_node.type.type.type.names[0] + '*'
             start_line = child_node.coord.line
             start_col = child_node.coord.column
-            place = str(child_node.coord.line) + "-" + str(child_node.coord.column)
+            place = str(child_node.coord.line) + "-" + str(child_node.coord.column + 2)
             declarations.append((variable_name, variable_type, start_line, start_col, place))
 
         # 处理变量使用

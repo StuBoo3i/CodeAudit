@@ -17,7 +17,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="123456789",
+            password="100221",
             database="code_audit"
         )
         return cnx

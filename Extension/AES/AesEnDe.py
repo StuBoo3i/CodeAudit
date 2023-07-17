@@ -3,6 +3,7 @@ from Crypto.Random import get_random_bytes
 from Crypto.Util.Padding import pad, unpad
 import base64
 import os
+
 def encrypt_file(key, input_file, output_file):
     # 生成一个随机的初始化向量（IV）
     iv = get_random_bytes(AES.block_size)

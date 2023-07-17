@@ -52,11 +52,17 @@ def extract_functions(content, path):
         # print("+++:" + body_text)
         start_line, end_line = find_func_body_lines(content, body_text)
         body_id += 1
+        lines = body.split('\n')
+        indented_lines = []
+        for indented_line in lines:
+            indented_lines.append(''+indented_line)
+        # 将每一行重新组合成一个新的字符串，并用换行符连接起来
+        indented_body = '\n'.join(indented_lines)
         function_info = {
             'return_type': return_type.strip(),
             'function_name': function_name.strip(),
             'parameter': params.strip(),
-            'body': body.strip(),
+            'body': "\t" + indented_body.strip(),
             'path': path,
             'start': start_line,
             'end': end_line
