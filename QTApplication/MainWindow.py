@@ -413,9 +413,21 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                         self.tableWidget.setItem(self.lines, 1, QTableWidgetItem(str(count_lines(path))))
                         self.tableWidget.setItem(self.lines, 2,   QTableWidgetItem(calculate_risk_level(count_lines(path))))
                         self.lines = self.lines+1
+
     def right_tree_clicked(self,index: QModelIndex):
-        print(index.row(),index.column())
-        print(index.data())
+        if self.file_choosed_flag == False:
+            return
+        selected_items = self.treeWidget_1.selectedItems()
+        print(index.row())
+        selected_item = selected_items[index.row()]
+        selected_id = int(selected_item.text(0))
+        selected_fuction_name = selected_item.text(1)
+        selected_classification = selected_item.text(2)
+        mysql = SQL()
+        ss = mysql.select_value_of_function(mysql.cursor)
+        print(ss[selected_id-1])
+
+
     def on_tree_item_clicked(self, index: QModelIndex):
         self.file_choosed_flag = True
         file_path = self.treeView.model().filePath(index)
