@@ -275,7 +275,23 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
         self.retranslateUi(MainWindow)
         self.tabWidget_2.setCurrentIndex(1)
-        self.menubar.triggered['QAction*'].connect(self.open_directory)  # type: ignore
+        self.Open.triggered.connect(self.open_directory)  # type: ignore
+        self.Find.triggered.connect(self.find_qa)
+        self.Function.triggered.connect(self.function_qa)
+        self.Pie.triggered.connect(self.pie_qa)
+        self.CMD.triggered.connect(self.cmd_qa)
+        self.Compile.triggered.connect(self.complie_qa)
+        self.Run.triggered.connect(self.run_qa)
+        self.Undo.triggered.connect(self.undo_qa)
+        self.Copy.triggered.connect(self.copy_qa)
+        self.Cut.triggered.connect(self.cut_qa)
+        self.Paste.triggered.connect(self.paste_qa)
+        self.Goto.triggered.connect(self.goto_qa)
+        self.Save.triggered.connect(self.save_qa)
+        self.Saveas.triggered.connect(self.saveas_qa)
+        self.Close.triggered.connect(self.close_qa)
+        self.Closeall.triggered.connect(self.colseall_qa)
+        self.Exit.triggered.connect(self.exit_qa)
         self.treeView.clicked['QModelIndex'].connect(self.on_tree_item_clicked)  # type: ignore
         self.treeWidget_1.clicked['QModelIndex'].connect(self.variable_choose)  # type: ignore
         self.pushButton.clicked.connect(self.run_cmd)  # type: ignore
