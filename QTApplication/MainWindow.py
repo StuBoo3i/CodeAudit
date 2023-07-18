@@ -17,7 +17,7 @@ from threading import Thread
 from FunctionAndVariableDetection.DirectoryTree import directory_tree
 from Tools.DatabaseOperation import SQL
 from PyQt5.QtCore import QRegExp
-from PyQt5.QtGui import QFont, QSyntaxHighlighter
+from PyQt5.QtGui import QFont, QSyntaxHighlighter, QIcon
 from FunctionManagement import CMD
 from Interfaces.InvokeGCC import compile_code
 from Interfaces.InvokeDrmemory import invoke_drmemory
@@ -388,6 +388,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                     item.setText(0, str(function['id']))
                     item.setText(1, function['function'] + ';' + function['parameter'])
                     item.setText(2, function['return_type'])
+                    item.setIcon(0, QIcon("C:/Users/MZS/PycharmProjects/CodeAudit/resource"
+                                                                "/node_function.png"))
                     # item.setText(1, function['path'])
                     self.treeWidget_1.addTopLevelItem(item)
                 except Exception as e:

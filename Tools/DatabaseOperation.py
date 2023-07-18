@@ -4,6 +4,8 @@ import mysql.connector
 import re
 from Extension.HashFunction import SHA
 from Extension.AES import AesEnDe
+
+
 class SQL:
     """
     创建示例后记得关闭游标，调用close_SQL实现
@@ -17,7 +19,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="123456",
+            password="123456789",
             database="code_audit"
         )
         return cnx
@@ -128,6 +130,7 @@ class SQL:
                 return True
             else:
                 return False
+
     @staticmethod
     def select_function_tree(cursor):
         """
@@ -147,7 +150,7 @@ class SQL:
             return e
 
     @staticmethod
-    def encrypt_message(cursor,cnx, password):
+    def encrypt_message(cursor, cnx, password):
         password = SHA.generate_sha_digest(password)[:16]
         query = "SELECT * FROM scan_function"
         cursor.execute(query)
@@ -180,10 +183,15 @@ class SQL:
                 function, function_text, return_type, parameter, belong_file, record_id))
             cnx.commit()
 
-
+    @staticmethod
+    def risk_function_find(cursor, risk_id):
+        query = "SELECT * FROM c_function WHERE id = %s"
+        cursor.execute(query, (risk_id,))
+        result = cursor.fetchall()
+        return result
 
     @staticmethod
-    def select_scan_function(cursor):
+    def select_scan_function(cursor, password="mypasswprd"):
         try:
             # 执行SQL查询
             query = "SELECT * FROM scan_function"
@@ -194,7 +202,14 @@ class SQL:
 
             result = cursor.fetchall()
 
-            for ret in result:
+            for ret1 in result:
+                ret = list(ret1)
+                password = SHA.generate_sha_digest(password)[:16]
+                ret[1] = AesEnDe.decrypt_string(ret[1], password)
+                ret[2] = AesEnDe.decrypt_string(ret[2], password)
+                ret[3] = AesEnDe.decrypt_string(ret[3], password)
+                ret[4] = AesEnDe.decrypt_string(ret[4], password)
+                ret[7] = AesEnDe.decrypt_string(ret[7], password)
                 func_info = {
                     'id': ret[0],
                     'function': ret[1],
@@ -208,7 +223,6 @@ class SQL:
                     'end': ret[9],
                     'risk': ret[10]
                 }
-
                 func_infos.append(func_info)
             # 遍历结果并输出
             return func_infos
