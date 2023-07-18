@@ -175,7 +175,7 @@ class SQL:
             return_type = record['return_type']
             parameter = record['parameter']
             belong_file = record['belong_file']
-            update = "UPDATE scan_function SET function = %s, function_text = %s, return_type = %s, parameter = %s, belong_file = %s WHERE id = %s"
+            update = f"UPDATE scan_function SET {function} = %s, {function_text} = %s, {return_type} = %s, {parameter} = %s, {belong_file} = %s WHERE {id} = %s"
             cursor.execute(update, (
                 function, function_text, return_type, parameter, belong_file, record_id))
             cursor.commit()
@@ -189,7 +189,7 @@ class SQL:
 
 
     @staticmethod
-    def select_scan_function(cursor):
+    def select_scan_function(cursor,password="mypasswprd"):
         try:
             # 执行SQL查询
             query = "SELECT * FROM scan_function"
@@ -200,7 +200,14 @@ class SQL:
 
             result = cursor.fetchall()
 
-            for ret in result:
+            for ret1 in result:
+                ret = list(ret1)
+                password = SHA.generate_sha_digest(password)[:16]
+                ret[1] = AesEnDe.decrypt_string(ret[1],password)
+                ret[2] = AesEnDe.decrypt_string(ret[2],password)
+                ret[3] = AesEnDe.decrypt_string(ret[3],password)
+                ret[4] = AesEnDe.decrypt_string(ret[4],password)
+                ret[7] = AesEnDe.decrypt_string(ret[7],password)
                 func_info = {
                     'id': ret[0],
                     'function': ret[1],
@@ -214,7 +221,6 @@ class SQL:
                     'end': ret[9],
                     'risk': ret[10]
                 }
-
                 func_infos.append(func_info)
             # 遍历结果并输出
             return func_infos
