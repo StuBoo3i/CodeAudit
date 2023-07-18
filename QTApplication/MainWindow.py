@@ -17,7 +17,7 @@ from threading import Thread
 from FunctionAndVariableDetection.DirectoryTree import directory_tree
 from Tools.DatabaseOperation import SQL
 from PyQt5.QtCore import  QRegExp
-from PyQt5.QtGui import  QFont, QSyntaxHighlighter
+from PyQt5.QtGui import QFont, QSyntaxHighlighter, QIcon
 from FunctionManagement import CMD
 
 from PyQt5.QtGui import QTextCharFormat, QColor
@@ -379,6 +379,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                     item.setText(0, str(function['id']))
                     item.setText(1, function['function'] + ';' + function['parameter'])
                     item.setText(2, function['return_type'])
+                    item.setIcon(0, QIcon("C:/Users/MZS/PycharmProjects/CodeAudit/resource"
+                                                                "/node_function.png"))
                     # item.setText(1, function['path'])
                     self.treeWidget_1.addTopLevelItem(item)
                 except Exception as e:
@@ -512,6 +514,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                             child.setText(0,str(func_id))
                             child.setText(1, function['function'])
                             child.setText(2, function['return_type'])
+                            child.setIcon(0, QIcon("C:/Users/MZS/PycharmProjects/CodeAudit/resource"
+                                                                "/node_function.png"))
                             mysql.close_SQL(mysql.cursor, mysql.cnx)
                             mysql = SQL()
                             vallists = mysql.select_value_of_function(mysql.cursor)
@@ -524,6 +528,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                                         child1.setText(0,str(func_id))
                                         child1.setText(1, val[0])
                                         child1.setText(2, val[1])
+                                        child1.setIcon(0, QIcon("C:/Users/MZS/PycharmProjects/CodeAudit/resource"
+                                                                "/node_variable.png"))
                         except Exception as e:
                             print("发生异常:", str(e))
                 self.treeWidget_1.expandAll()
