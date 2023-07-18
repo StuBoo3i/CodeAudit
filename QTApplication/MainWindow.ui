@@ -231,7 +231,7 @@ QTreeView::branch:open:has-children
      <x>0</x>
      <y>0</y>
      <width>1294</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="File">
@@ -443,22 +443,6 @@ QTreeView::branch:open:has-children
  </widget>
  <resources/>
  <connections>
-  <connection>
-   <sender>menubar</sender>
-   <signal>triggered(QAction*)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>open_directory()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>279</x>
-     <y>14</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>332</x>
-     <y>0</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>treeView</sender>
    <signal>clicked(QModelIndex)</signal>
