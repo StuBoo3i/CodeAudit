@@ -1,7 +1,27 @@
 from Tools.DatabaseOperation import SQL
 from FunctionManagement import RiskFunctionManagement
+import os
 
+# 获取当前文件的目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+from fpdf import FPDF
 
+class PDF(FPDF):
+    def header(self):
+        self.set_font('Arial', 'B', 12)
+        self.cell(0, 10, 'My PDF Report', 0, 1, 'C')
+
+    def footer(self):
+        self.set_y(-15)
+        self.set_font('Arial', 'I', 8)
+        self.cell(0, 10, 'Page %s' % self.page_no(), 0, 0, 'C')
+
+def save_as_pdf(content, file_path):
+    pdf = PDF()
+    pdf.add_page()
+    pdf.set_font('Arial', '', 12)
+    pdf.multi_cell(0, 10, content)
+    pdf.output(file_path)
 def report():
     """
     调用GenerateRiskReport完成报告创建
@@ -26,11 +46,11 @@ def report():
             risk_functions.append(function)
 
     for risk_function in risk_functions:
-        if 32 <= risk_function['risk'] <= 50:
+        if 32-31 <= risk_function['risk'] <= 50-31:
             high_risk_functions.append(risk_function)
-        elif 51 <= risk_function['risk'] <= 54:
+        elif 51-31 <= risk_function['risk'] <= 54-31:
             medium_risk_functions.append(risk_function)
-        elif 55 <= risk_function['risk'] <= 62:
+        elif 55-31 <= risk_function['risk'] <= 62-31:
             low_risk_functions.append(risk_function)
         elif risk_function['risk'] == -1:
             leaks.append(risk_function)
@@ -61,27 +81,28 @@ def report():
     #     print("名称:" + i['function'] + " 位于" + i['belong_file'] + "文件第" + i['start'] + "行")
 
     Report += "统计结果\n"
-    Report += "高等风险函数"+high_risk_functions.__len__() + "个\t中等风险函数" + medium_risk_functions.__len__() + \
-              "个\t低等风险函数" + low_risk_functions.__len__() + "个\t内存泄漏函数" + leaks.__len__() + "个\t未被使用函数"\
-              + invallids.__len__() + "个\n"
+    Report += "高等风险函数"+str(high_risk_functions.__len__()) + "个\t中等风险函数" + str(medium_risk_functions.__len__()) + \
+              "个\t低等风险函数" + str(low_risk_functions.__len__()) + "个\t内存泄漏函数" + str(leaks.__len__()) + "个\t未被使用函数"\
+              + str(invallids.__len__()) + "个\n"
     Report += "高等风险函数\n"
     for high_risk_function in high_risk_functions:
         Report += "函数名:" + high_risk_function['function'] + " 位于" + high_risk_function['belong_file'] + \
-                  "文件第" + high_risk_function['start'] + "行\n"
+                  "文件第" + str(high_risk_function['start']) + "行\n"
     Report += "中等风险函数\n"
     for medium_risk_function in medium_risk_functions:
         Report += "函数名:" + medium_risk_function['function'] + " 位于" + medium_risk_function['belong_file'] + \
-                  "文件第" + medium_risk_function['start'] + "行\n"
+                  "文件第" + str(medium_risk_function['start']) + "行\n"
     Report += "低等风险函数\n"
     for low_risk_function in low_risk_functions:
         Report += "函数名:" + low_risk_function['function'] + " 位于" + low_risk_function['belong_file'] + \
-                  "文件第" + low_risk_function['start'] + "行\n"
+                  "文件第" + str(low_risk_function['start']) + "行\n"
     Report += "内存泄漏函数\n"
     for leak in leaks:
-        Report += "名称:" + leak['function'] + " 位于" + leak['belong_file'] + "文件第" + leak['start'] + "行\n"
+        Report += "名称:" + leak['function'] + " 位于" + leak['belong_file'] + "文件第" + str(leak['start']) + "行\n"
     Report += "未被使用函数\n"
     for i in invallids:
-        Report += "名称:" + i['function'] + " 位于" + i['belong_file'] + "文件第" + i['start'] + "行\n"
+        Report += "名称:" + i['function'] + " 位于" + i['belong_file'] + "文件第" + str(i['start']) + "行\n"
 
     return Report
+
 

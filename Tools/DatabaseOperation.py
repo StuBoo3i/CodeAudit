@@ -17,7 +17,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="100221",
+            password="123456789",
             database="code_audit"
         )
         return cnx
@@ -178,8 +178,14 @@ class SQL:
             update = "UPDATE scan_function SET function = %s, function_text = %s, return_type = %s, parameter = %s, belong_file = %s WHERE id = %s"
             cursor.execute(update, (
                 function, function_text, return_type, parameter, belong_file, record_id))
+            cursor.commit()
 
-
+    @staticmethod
+    def risk_function_find(cursor, risk_id):
+        query = "SELECT * FROM c_function WHERE id = %s"
+        cursor.execute(query, (risk_id,))
+        result = cursor.fetchall()
+        return result
 
 
     @staticmethod
