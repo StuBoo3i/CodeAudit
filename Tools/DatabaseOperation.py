@@ -17,7 +17,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="100221",
+            password="123456",
             database="code_audit"
         )
         return cnx
@@ -147,7 +147,7 @@ class SQL:
             return e
 
     @staticmethod
-    def encrypt_message(cursor, password):
+    def encrypt_message(cursor,cnx, password):
         password = SHA.generate_sha_digest(password)[:16]
         query = "SELECT * FROM scan_function"
         cursor.execute(query)
@@ -175,10 +175,10 @@ class SQL:
             return_type = record['return_type']
             parameter = record['parameter']
             belong_file = record['belong_file']
-            update = "UPDATE scan_function SET function = %s, function_text = %s, return_type = %s, parameter = %s, belong_file = %s WHERE id = %s"
+            update = "UPDATE scan_function SET `function` = %s, function_text = %s, return_type = %s, parameter = %s, belong_file = %s WHERE id = %s"
             cursor.execute(update, (
                 function, function_text, return_type, parameter, belong_file, record_id))
-
+            cnx.commit()
 
 
 
