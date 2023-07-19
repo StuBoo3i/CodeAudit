@@ -199,14 +199,15 @@ class SQL:
             func_infos = []
 
             result = cursor.fetchall()
-            password = SHA.generate_sha_digest(password)[:16]
+
             for ret1 in result:
                 ret = list(ret1)
-                ret[1] = AesEnDe.decrypt_string(password.encode(),str(ret[1]))
-                ret[2] = AesEnDe.decrypt_string(password.encode(),str(ret[2]))
-                ret[3] = AesEnDe.decrypt_string(password.encode(),str(ret[3]))
-                ret[4] = AesEnDe.decrypt_string(password.encode(),str(ret[4]))
-                ret[7] = AesEnDe.decrypt_string(password.encode(),str(ret[7]))
+                password = SHA.generate_sha_digest(password)[:16]
+                ret[1] = AesEnDe.decrypt_string(ret[1],password)
+                ret[2] = AesEnDe.decrypt_string(ret[2],password)
+                ret[3] = AesEnDe.decrypt_string(ret[3],password)
+                ret[4] = AesEnDe.decrypt_string(ret[4],password)
+                ret[7] = AesEnDe.decrypt_string(ret[7],password)
                 func_info = {
                     'id': ret[0],
                     'function': ret[1],
@@ -220,13 +221,11 @@ class SQL:
                     'end': ret[9],
                     'risk': ret[10]
                 }
-                print(func_info)
                 func_infos.append(func_info)
             # 遍历结果并输出
             return func_infos
         except Exception as e:
             print("不是主人不可以看得啦喵（气急败坏）")
-            print(str(e))
             return e
 
     @staticmethod

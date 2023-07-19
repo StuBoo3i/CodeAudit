@@ -40,15 +40,19 @@ class Model:
 
 
 class View(QtWidgets.QWidget):
+    QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     verifySignal = QtCore.pyqtSignal()
 
     def __init__(self):
+        # QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
         super(View, self).__init__()
+
         self.username = ""
         self.password = ""
         self.initUi()
 
     def initUi(self):
+        # QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
         self.setWindowTitle("Login")
         self.setGeometry(300, 300, 640, 320)
 
@@ -113,6 +117,7 @@ class Controller:
             self._view.showError()
 
     def run(self):
+        # QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
         self._view.show()
         self._app.setStyleSheet(qdarkstyle.load_stylesheet())
         return self._app.exec_()

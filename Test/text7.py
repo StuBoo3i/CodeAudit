@@ -1,4 +1,4 @@
-from FunctionAndVariableDetection.ValueScanner import value_scanner,p_value_to_SQL,scan_v_from_f
+from FunctionAndVariableDetection.ValueScanner import value_scanner, p_value_to_SQL, scan_v_from_f
 from Tools.FormatFunctionStatements import replace_comments
 
 
