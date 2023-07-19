@@ -99,7 +99,7 @@ class Ui_Dialog(QtWidgets.QDialog):
         self.thread3.start()
 
     def replace(self):
-        folderPath = "G:\桌面\CodeAudit\File"
+        folderPath = "E:\Data\PyCharm\CodeAudit\File"
         self.keyword = self.lineEdit.text()
         self.relace = self.lineEdit_2.text()
         replace.replace_keywords_in_project(folderPath, self.keyword, self.relace)

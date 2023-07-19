@@ -4,24 +4,7 @@ import os
 
 # 获取当前文件的目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
-from fpdf import FPDF
 
-class PDF(FPDF):
-    def header(self):
-        self.set_font('Arial', 'B', 12)
-        self.cell(0, 10, 'My PDF Report', 0, 1, 'C')
-
-    def footer(self):
-        self.set_y(-15)
-        self.set_font('Arial', 'I', 8)
-        self.cell(0, 10, 'Page %s' % self.page_no(), 0, 0, 'C')
-
-def save_as_pdf(content, file_path):
-    pdf = PDF()
-    pdf.add_page()
-    pdf.set_font('Arial', '', 12)
-    pdf.multi_cell(0, 10, content)
-    pdf.output(file_path)
 def report():
     """
     调用GenerateRiskReport完成报告创建

@@ -19,7 +19,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="123456",
+            password="100221",
             database="code_audit"
         )
         return cnx
@@ -217,7 +217,7 @@ class SQL:
                 #print(ret[3])
                 #print(ret[4])
                 #print(ret[7])
-
+                ret[1] = AesEnDe.decrypt_string(password,ret[1])
                 ret[2] = AesEnDe.decrypt_string(password,ret[2])
                 #print(len(ret[2]))
                 ret[3] = AesEnDe.decrypt_string(password,ret[3])
