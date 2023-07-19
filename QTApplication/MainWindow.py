@@ -315,7 +315,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Code Audit"))
         self.treeWidget_1.headerItem().setText(0, _translate("MainWindow", "函数ID"))
         self.treeWidget_1.headerItem().setText(1, _translate("MainWindow", "函数和变量"))
         self.treeWidget_1.headerItem().setText(2, _translate("MainWindow", "类型"))

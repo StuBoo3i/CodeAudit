@@ -83,6 +83,7 @@ class View(QtWidgets.QWidget):
 
     def showMessage(self):
         QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
+        self.close()
         self.mainwin = UI()
         self.mainwin.show()
 
