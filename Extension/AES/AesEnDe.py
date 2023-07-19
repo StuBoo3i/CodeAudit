@@ -4,6 +4,7 @@ from Crypto.Util.Padding import pad, unpad
 import base64
 import os
 
+
 def encrypt_file(key, input_file, output_file):
     # 生成一个随机的初始化向量（IV）
     iv = get_random_bytes(AES.block_size)
@@ -51,6 +52,8 @@ def decrypt_file(key, input_file, output_file):
 
                 # 写入解密后的数据到输出文件
                 f_out.write(decrypted_chunk)
+
+
 def encrypt_string(key, plaintext):
     # 生成一个随机的初始化向量（IV）
     iv = get_random_bytes(AES.block_size)
@@ -63,12 +66,15 @@ def encrypt_string(key, plaintext):
     encrypted_data = base64.b64encode(iv + ciphertext).decode('utf-8')
     return encrypted_data
 
+
 from Crypto.Cipher import AES
 import base64
+
 
 def unpad(data):
     pad_len = data[-1]
     return data[:-pad_len]
+
 
 def decrypt_string(key, encrypted_data):
     # 对 Base64 编码的数据进行解码
@@ -90,12 +96,12 @@ def decrypt_string(key, encrypted_data):
 
     return plaintext
 
-
+from Extension.HashFunction import SHA
 if __name__ == '__main__':
-    key = b'your_key_16bytes'  # 16 字节的密钥，需要根据实际情况进行替换
-    plaintext = 'Hello, World!'  # 要加密的明文
+    key = SHA.generate_sha_digest("mypasswprd")[:16].encode()  # 16 字节的密钥，需要根据实际情况进行替换
+    encrypted_data = 'XfMyikaEuzn+aKr0Ed5IfOkNb7eShogJjcWyZRO0q8TGmwmWabyeOwg+bRKNsuJjUp7++NW/zEOXtK/HR+t39Ql1ahAQATjVaUnzPe0mZWc='  # 要加密的明文
 
-    encrypted_data = encrypt_string(key, plaintext)
+    #encrypted_data = encrypt_string(key, plaintext)
     print('加密后:', encrypted_data)
 
     decrypted_data = decrypt_string(key, encrypted_data)

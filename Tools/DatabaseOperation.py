@@ -19,7 +19,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="123456789",
+            password="123456",
             database="code_audit"
         )
         return cnx
@@ -191,6 +191,15 @@ class SQL:
         return result
 
     @staticmethod
+    def add_risk_function_manually(cursor,cnx,fun_name,risk,solution):
+        insert_query = "INSERT INTO c_function (`function`, severity, solution) VALUES (%s, %s, %s)"
+        data = (fun_name,risk,solution)
+        cursor.execute(insert_query, data)
+        # 提交
+        cnx.commit()
+        return
+
+    @staticmethod
     def select_scan_function(cursor, password="mypasswprd"):
         try:
             # 执行SQL查询
@@ -201,14 +210,20 @@ class SQL:
             func_infos = []
 
             result = cursor.fetchall()
-
+            password = SHA.generate_sha_digest(password)[:16].encode()
             for ret1 in result:
                 ret = list(ret1)
-                password = SHA.generate_sha_digest(password)[:16]
-                ret[2] = AesEnDe.decrypt_string(password.encode(),ret[2])
-                ret[3] = AesEnDe.decrypt_string(password.encode(),ret[3])
-                ret[4] = AesEnDe.decrypt_string(password.encode(),ret[4])
-                ret[7] = AesEnDe.decrypt_string(password.encode(),ret[7])
+                #print(ret[2])
+                #print(ret[3])
+                #print(ret[4])
+                #print(ret[7])
+
+                ret[2] = AesEnDe.decrypt_string(password,ret[2])
+                #print(len(ret[2]))
+                ret[3] = AesEnDe.decrypt_string(password,ret[3])
+                #print(ret[3])
+                ret[4] = AesEnDe.decrypt_string(password,ret[4])
+                ret[7] = AesEnDe.decrypt_string(password,ret[7])
                 func_info = {
                     'id': ret[0],
                     'function': ret[1],
@@ -222,6 +237,7 @@ class SQL:
                     'end': ret[9],
                     'risk': ret[10]
                 }
+                #print(func_info)
                 func_infos.append(func_info)
             # 遍历结果并输出
             return func_infos

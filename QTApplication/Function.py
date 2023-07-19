@@ -146,21 +146,27 @@ class Ui_Dialog(QtWidgets.QDialog):
         self.tableWidget.setItem(row_count,0,QTableWidgetItem(fun_name))
         self.tableWidget.setItem(row_count,1,QTableWidgetItem(rank))
         self.tableWidget.setItem(row_count,2,QTableWidgetItem(suggestation))
+        mysql = SQL()
+        mysql.add_risk_function_manually(mysql.cursor,mysql.cnx, fun_name, rank,suggestation )
     def machine_scan(self):
         mysql = SQL()
         ss = mysql.select_scan_function(mysql.cursor)
-
+        #print(ss)
         for result in ss:
             risk_id = result['risk']
+            #print(risk_id)
             function_name = result['function']
-            function_text = result['function_text']
+            #function_text = result['function_text']
             result = mysql.risk_function_find(mysql.cursor,risk_id)
+            #print(result)
+            #print(len(result))
             re = list(result[0])
             row_count = self.tableWidget.rowCount()
             self.tableWidget.insertRow(row_count)
             self.tableWidget.setItem(row_count, 0, QTableWidgetItem(function_name))
             self.tableWidget.setItem(row_count, 1, QTableWidgetItem(re[2]))
             self.tableWidget.setItem(row_count, 2, QTableWidgetItem(re[1]+re[3]))
+
 
     def report_view(self):
         self.textBrowser.clear()

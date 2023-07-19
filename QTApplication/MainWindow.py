@@ -38,7 +38,7 @@ class fu_ui(Function.Ui_Dialog):
 
 def count_lines(file_path):
     line_count = 0
-    if not file_path.endswith('exe'):   # 判断过滤
+    if not file_path.endswith('exe'):  # 判断过滤
         with open(file_path, 'r') as file:
             for line in file:
                 line_count += 1
@@ -389,7 +389,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                     item.setText(1, function['function'] + ';' + function['parameter'])
                     item.setText(2, function['return_type'])
                     item.setIcon(0, QIcon("C:/Users/MZS/PycharmProjects/CodeAudit/resource"
-                                                                "/node_function.png"))
+                                          "/node_function.png"))
                     # item.setText(1, function['path'])
                     self.treeWidget_1.addTopLevelItem(item)
                 except Exception as e:
@@ -513,6 +513,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             file.setText(0, "文件名：" + file_path)
             fun = QTreeWidgetItem(self.treeWidget_1)
             for function in ss:
+                # print('检测函数路径'+function['belong_file']+'当前路径'+file_path)
                 if (function['belong_file'] == file_path):
                     try:
                         func_id = function['id']
@@ -520,6 +521,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                         child.setText(0, str(func_id))
                         child.setText(1, function['function'])
                         child.setText(2, function['return_type'])
+                        child.setIcon(0, QIcon("C:/Users/MZS/PycharmProjects/CodeAudit/resource"
+                                               "/node_function.png"))
                         mysql.close_SQL(mysql.cursor, mysql.cnx)
                         mysql = SQL()
                         vallists = mysql.select_value_of_function(mysql.cursor)
@@ -532,6 +535,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                                     child1.setText(0, str(func_id))
                                     child1.setText(1, val[0])
                                     child1.setText(2, val[1])
+                                    child1.setIcon(0, QIcon("C:/Users/MZS/PycharmProjects/CodeAudit/resource"
+                                                            "/node_variable.png"))
                     except Exception as e:
                         print("发生异常:", str(e))
             self.treeWidget_1.expandAll()
@@ -641,7 +646,6 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             out = selected_item
         self.textEdit_2.append(invoke_drmemory(out))
         return
-
 
     def undo_qa(self):
         print('Undo')
