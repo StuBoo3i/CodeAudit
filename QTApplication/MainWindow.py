@@ -22,8 +22,12 @@ from FunctionManagement import CMD
 from Interfaces.InvokeGCC import compile_code
 from Interfaces.InvokeDrmemory import invoke_drmemory
 from PyQt5.QtGui import QTextCharFormat, QColor
+import dashboard
 
-
+class piechart(dashboard.Ui_Form):
+    def __init__(self):
+        super(piechart, self).__init__()
+        uic.loadUi('dashboard.ui', self)
 class UI(Ui_Dialog):
     def __init__(self):
         super(UI, self).__init__()
@@ -596,8 +600,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         pass
 
     def pie_qa(self):
-        print('Pie')
-        pass
+        self.pie_window = piechart()
+        self.pie_window.show()
 
     def complie_qa(self):
         selected_item = ""

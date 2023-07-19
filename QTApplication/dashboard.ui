@@ -1,0 +1,2554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1198</width>
+    <height>739</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QFrame" name="frame_Control">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1198</width>
+     <height>740</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame{
+
+	background-color:#fafbfd;
+   border:0px;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_23">
+    <property name="leftMargin">
+     <number>9</number>
+    </property>
+    <property name="topMargin">
+     <number>9</number>
+    </property>
+    <property name="rightMargin">
+     <number>9</number>
+    </property>
+    <property name="bottomMargin">
+     <number>9</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame_TopBar_2">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>55</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>55</height>
+       </size>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::RightToLeft</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+background-color: #ffffff;
+border:1px solid #edf2fa;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_20">
+       <item>
+        <widget class="QLabel" name="label_PerfilName_2">
+         <property name="maximumSize">
+          <size>
+           <width>110</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+color:rgb(204, 207, 211);
+	font-size:15px;
+	border:0px;
+
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>admin</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Perfil_2">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+           <normaloff>:/icons/user-3.png</normaloff>:/icons/user-3.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Notifications_2">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>25</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+           <normaloff>:/icons/alarm.png</normaloff>:/icons/alarm.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_TopBarSpace_2">
+         <property name="styleSheet">
+          <string notr="true">QFrame{border:0px;}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_LastAccess_2">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+color:rgb(204, 207, 211);
+	font-size:15px;
+	border:0px;
+
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Last access: 30-09-2020 05:01</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_LastAccess_2">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+           <normaloff>:/icons/clock-1.png</normaloff>:/icons/clock-1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_LeftControlBar">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame{
+background-color: #ffffff;
+border:1px solid #edf2fa;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame_Logo">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+	background-color:#fff;
+	border:0px;
+	color:#070000;
+}
+</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="label_LogoNameDesc">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>60</y>
+               <width>191</width>
+               <height>15</height>
+              </rect>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+             </property>
+             <property name="text">
+              <string>Tramontinas tool</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_LogoName">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>20</y>
+               <width>191</width>
+               <height>42</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color:#04c9b7;
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+  text-align:center;
+
+}</string>
+             </property>
+             <property name="text">
+              <string>DashPriv8</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_DashBoard">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#e5faf8;
+	border:0px;
+	color:#0bc9b7;
+    font-weight: bold;
+font-size:15px;
+text-align:left;
+padding-left:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Dashboard</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+              <normaloff>:/icons/stopwatch-3.png</normaloff>:/icons/stopwatch-3.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_QuickStart">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#fff;
+	border:0px;
+	color:#070000;
+font-size:15px;
+text-align:left;
+padding-left:10px;
+}
+
+QPushButton:hover{
+	background-color:#e5faf8;
+	border:0px;
+	color:#070000;
+    font-weight: bold;
+font-size:15px;
+text-align:left;
+}</string>
+            </property>
+            <property name="text">
+             <string>Quick Start</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+              <normaloff>:/icons/target.png</normaloff>:/icons/target.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_Assets">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#fff;
+	border:0px;
+	color:#070000;
+font-size:15px;
+text-align:left;
+padding-left:10px;
+}
+
+QPushButton:hover{
+	background-color:#e5faf8;
+	border:0px;
+	color:#070000;
+    font-weight: bold;
+font-size:15px;
+text-align:left;
+}</string>
+            </property>
+            <property name="text">
+             <string>Assets</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+              <normaloff>:/icons/windows-4.png</normaloff>:/icons/windows-4.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_Report">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#fff;
+	border:0px;
+	color:#070000;
+font-size:15px;
+text-align:left;
+padding-left:10px;
+}
+
+QPushButton:hover{
+	background-color:#e5faf8;
+	border:0px;
+	color:#070000;
+    font-weight: bold;
+font-size:15px;
+text-align:left;
+}</string>
+            </property>
+            <property name="text">
+             <string>Report</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+              <normaloff>:/icons/list.png</normaloff>:/icons/list.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_Config">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#fff;
+	border:0px;
+	color:#070000;
+font-size:15px;
+text-align:left;
+padding-left:10px;
+}
+
+QPushButton:hover{
+	background-color:#e5faf8;
+	border:0px;
+	color:#070000;
+    font-weight: bold;
+font-size:15px;
+text-align:left;
+}</string>
+            </property>
+            <property name="text">
+             <string>Config</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+              <normaloff>:/icons/settings-5.png</normaloff>:/icons/settings-5.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_LeftControlBarSpace">
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+
+border:0px;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QFormLayout" name="formLayout"/>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_About">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#fff;
+	border:0px;
+	color:rgb(186, 189, 182);
+
+font-size:15px;
+}
+
+QPushButton:hover{
+	background-color:#e5faf8;
+	border:0px;
+	color:#070000;
+    font-weight: bold;
+font-size:15px;
+}</string>
+            </property>
+            <property name="text">
+             <string>About</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_IpInfo_2">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+color:rgb(204, 207, 211);
+	font-size:15px;
+	border:0px;
+
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>192.168.100.16  | Amsterdam | NL</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_InfoIo_2">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color:#e5faf8;
+border:0px;
+border-radius:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+           <normaloff>:/icons/placeholder.png</normaloff>:/icons/placeholder.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget_Control_2">
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+
+
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page_DashBoard_2">
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+	background-color:#fafbfd;
+    border:0px;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_24">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_CentralControl_7">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+
+	background-color:#fafbfd;
+   border:0px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_25">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_7">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_21">
+              <item>
+               <widget class="QLabel" name="label_Hello_2">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>&gt; Hello Mr. admin</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_CentralTop_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>220</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>220</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_22">
+              <item>
+               <widget class="QFrame" name="frame_DashHostDiscovered_2">
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+text-align:center;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_26">
+                 <item>
+                  <widget class="QLabel" name="label_DashHostDiscovered_2">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:20px;
+	border:0px;
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>文件</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_12">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{border:0px;}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_23">
+                    <item>
+                     <widget class="QPushButton" name="pushButton_DashHostDiscovered_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>65</height>
+                       </size>
+                      </property>
+                      <property name="layoutDirection">
+                       <enum>Qt::LeftToRight</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color:#04c9b7;
+border:0px;
+border-radius:10px;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+                        <normaloff>:/icons/star-1.png</normaloff>:/icons/star-1.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>55</width>
+                        <height>55</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_CountDashHostDiscovered_2">
+                      <property name="styleSheet">
+                       <string notr="true">QLabel{
+
+	font-size:30px;
+	border:0px;
+	font-weight: bold;
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>0</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_Line_2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>1</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{
+border:0px;
+background-color:#edf2fa;
+border-radius:0px;
+}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_DescDashHostDiscovered_2">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_CentralSpace1_2">
+                <property name="maximumSize">
+                 <size>
+                  <width>10</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_DashScanExecuted_2">
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_27">
+                 <item>
+                  <widget class="QLabel" name="label_DashScanExecuted_2">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:20px;
+	border:0px;
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>函数</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_13">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{border:0px;}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_24">
+                    <item>
+                     <widget class="QPushButton" name="pushButton_DashScanExecuted_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>65</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color:#04c9b7;
+border:0px;
+border-radius:10px;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+                        <normaloff>:/icons/search-1.png</normaloff>:/icons/search-1.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>55</width>
+                        <height>55</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_CountDashScanExecuted_2">
+                      <property name="styleSheet">
+                       <string notr="true">QLabel{
+
+	font-size:30px;
+	border:0px;
+	font-weight: bold;
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>0</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_Line_4">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>1</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{
+border:0px;
+background-color:#edf2fa;
+border-radius:0px;
+}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_DescDashScanExecuted_2">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_CentralSpace2_2">
+                <property name="maximumSize">
+                 <size>
+                  <width>10</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_DashDomains_2">
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_28">
+                 <item>
+                  <widget class="QLabel" name="label_DashDomains_2">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:20px;
+	border:0px;
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>变量</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_14">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{border:0px;}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_25">
+                    <item>
+                     <widget class="QPushButton" name="pushButton_DashDomains_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>65</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color:#04c9b7;
+border:0px;
+border-radius:10px;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+                        <normaloff>:/icons/cloud-computing-4.png</normaloff>:/icons/cloud-computing-4.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>55</width>
+                        <height>55</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_CountDashDomains_2">
+                      <property name="styleSheet">
+                       <string notr="true">QLabel{
+
+	font-size:30px;
+	border:0px;
+	font-weight: bold;
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>0</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_Line_8">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>1</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{
+border:0px;
+background-color:#edf2fa;
+border-radius:0px;
+}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_DescDashDomains_2">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_CentralSpace3_2">
+                <property name="maximumSize">
+                 <size>
+                  <width>10</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_DashTotalVuln_2">
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_29">
+                 <item>
+                  <widget class="QLabel" name="label_DashHostDiscovered_9">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:20px;
+	border:0px;
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>风险函数</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_15">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{border:0px;}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_26">
+                    <item>
+                     <widget class="QPushButton" name="pushButton_DashTotalVuln_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>65</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color:#04c9b7;
+border:0px;
+border-radius:10px;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc">
+                        <normaloff>:/icons/unlocked.png</normaloff>:/icons/unlocked.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>55</width>
+                        <height>55</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_CountDashTotalVuln_2">
+                      <property name="styleSheet">
+                       <string notr="true">QLabel{
+
+	font-size:30px;
+	border:0px;
+	font-weight: bold;
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>0</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_Line_9">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>1</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{
+border:0px;
+background-color:#edf2fa;
+border-radius:0px;
+}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_DescDashTotalVuln_2">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_CentralBottom_7">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_27">
+              <item>
+               <widget class="QFrame" name="frame_CentralLeft_2">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_30">
+                 <item>
+                  <widget class="QFrame" name="frame_Vulnerabilities_2">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{
+border:1px solid #edf2fa;
+background-color:#fff;
+border-radius:10px;
+}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_31">
+                    <item>
+                     <widget class="QLabel" name="lbl_Vulnerabilities_2">
+                      <property name="styleSheet">
+                       <string notr="true">QLabel{
+
+		font-size:25px;
+	border:0px;
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>风险函数一览</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="lbl_VulnerabilitiesDesc_2">
+                      <property name="styleSheet">
+                       <string notr="true">QLabel{
+
+	font-size:16px;
+	border:0px;
+color:rgb(204, 207, 211);
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QTableWidget" name="tableWidget_Vulnerabilities_2">
+                      <property name="styleSheet">
+                       <string notr="true">QTableWidget {	
+	background-color: #fff;
+	padding: 10px;
+	gridline-color: rgb(44, 49, 60);
+	border-bottom: 1px solid rgb(204, 207, 211);
+	color:#000;
+}
+QTableWidget::item{
+	border-color: rgb(44, 49, 60);
+	padding-left: 5px;
+	padding-right: 5px;
+	gridline-color: rgb(44, 49, 60);
+}
+QTableWidget::item:selected{
+	background-color: #e5faf8;
+	color:#000;
+}
+QScrollBar:horizontal {
+    border: none;
+    background: rgb(52, 59, 72);
+    height: 14px;
+    margin: 0px 21px 0 21px;
+	border-radius: 0px;
+}
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(52, 59, 72);
+    width: 14px;
+    margin: 21px 0 21px 0;
+	border-radius: 0px;
+ }
+QHeaderView{
+   background-color:#04c9b7;
+	border: 1px solid rgb(204, 207, 211);
+	border-style: none;
+    border-bottom: 1px solid rgb(204, 207, 211);
+    border-right: 1px solid rgb(204, 207, 211);
+    color:#fff;
+	font-size:15px;
+    border-radius: 0px;
+}
+</string>
+                      </property>
+                      <property name="verticalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAlwaysOff</enum>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAlwaysOff</enum>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      </property>
+                      <property name="showGrid">
+                       <bool>true</bool>
+                      </property>
+                      <property name="gridStyle">
+                       <enum>Qt::DotLine</enum>
+                      </property>
+                      <attribute name="horizontalHeaderHighlightSections">
+                       <bool>true</bool>
+                      </attribute>
+                      <attribute name="horizontalHeaderStretchLastSection">
+                       <bool>true</bool>
+                      </attribute>
+                      <attribute name="verticalHeaderVisible">
+                       <bool>false</bool>
+                      </attribute>
+                      <attribute name="verticalHeaderHighlightSections">
+                       <bool>true</bool>
+                      </attribute>
+                      <row>
+                       <property name="text">
+                        <string>1</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>2</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>3</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>4</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>5</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>6</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>7</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>8</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>9</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>10</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>11</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>10</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>12</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>New Row</string>
+                       </property>
+                      </row>
+                      <column>
+                       <property name="text">
+                        <string>函数名</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>危险等级</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>解决方法</string>
+                       </property>
+                      </column>
+                      <item row="0" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="0" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="0" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="1" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="1" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="1" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="2" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="2" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="2" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="3" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="3" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="3" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="4" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="4" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="4" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="5" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="5" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="5" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="6" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="6" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="6" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="7" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="7" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="7" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="8" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="8" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="8" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="9" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="9" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="9" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="10" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="10" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="10" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="11" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="11" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="11" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="12" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="12" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="12" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="13" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="13" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="13" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="14" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="14" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="14" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="15" column="0">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="15" column="1">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="15" column="2">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item row="16" column="0">
+                       <property name="text">
+                        <string>216.58.202.101</string>
+                       </property>
+                      </item>
+                      <item row="16" column="1">
+                       <property name="text">
+                        <string>80</string>
+                       </property>
+                      </item>
+                      <item row="16" column="2">
+                       <property name="text">
+                        <string>Checks if Security Headers exist</string>
+                       </property>
+                      </item>
+                      <item row="17" column="0">
+                       <property name="text">
+                        <string>216.58.202.128</string>
+                       </property>
+                      </item>
+                      <item row="17" column="1">
+                       <property name="text">
+                        <string>80</string>
+                       </property>
+                      </item>
+                      <item row="17" column="2">
+                       <property name="text">
+                        <string>Checks if Security Headers exist</string>
+                       </property>
+                      </item>
+                      <item row="18" column="0">
+                       <property name="text">
+                        <string>216.58.202.129</string>
+                       </property>
+                      </item>
+                      <item row="18" column="1">
+                       <property name="text">
+                        <string>80</string>
+                       </property>
+                      </item>
+                      <item row="18" column="2">
+                       <property name="text">
+                        <string>Checks if Security Headers exist</string>
+                       </property>
+                      </item>
+                      <item row="19" column="0">
+                       <property name="text">
+                        <string>216.58.202.135</string>
+                       </property>
+                      </item>
+                      <item row="19" column="1">
+                       <property name="text">
+                        <string>80</string>
+                       </property>
+                      </item>
+                      <item row="19" column="2">
+                       <property name="text">
+                        <string>Checks if Security Headers exist</string>
+                       </property>
+                      </item>
+                      <item row="20" column="0">
+                       <property name="text">
+                        <string>216.58.202.137</string>
+                       </property>
+                      </item>
+                      <item row="20" column="1">
+                       <property name="text">
+                        <string>139</string>
+                       </property>
+                      </item>
+                      <item row="20" column="2">
+                       <property name="text">
+                        <string>Checks for Remote Management Ports</string>
+                       </property>
+                      </item>
+                      <item row="21" column="0">
+                       <property name="text">
+                        <string>216.58.202.138</string>
+                       </property>
+                      </item>
+                      <item row="21" column="1">
+                       <property name="text">
+                        <string>8080</string>
+                       </property>
+                      </item>
+                      <item row="21" column="2">
+                       <property name="text">
+                        <string>Checks if Security Headers exist</string>
+                       </property>
+                      </item>
+                      <item row="22" column="0">
+                       <property name="text">
+                        <string>216.58.202.139</string>
+                       </property>
+                      </item>
+                      <item row="22" column="1">
+                       <property name="text">
+                        <string>445</string>
+                       </property>
+                      </item>
+                      <item row="22" column="2">
+                       <property name="text">
+                        <string>Checks for SBM Ports</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_QuickStart_2">
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+	background-color:#fafbfd;
+    border:0px;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_34">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_CentralControl_8">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+
+	background-color:#fafbfd;
+   border:0px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_35">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_16">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_28">
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>QUICK START</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_CentralBottom_8">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_29"/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_Assets_2">
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+	background-color:#fafbfd;
+    border:0px;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_36">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_CentralControl_9">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+
+	background-color:#fafbfd;
+   border:0px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_37">
+           <item>
+            <widget class="QFrame" name="frame_17">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_30">
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>ASSETS</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_CentralBottom_9">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_31"/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_Report_2">
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+	background-color:#fafbfd;
+    border:0px;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_38">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_CentralControl_10">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+
+	background-color:#fafbfd;
+   border:0px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_39">
+           <item>
+            <widget class="QFrame" name="frame_18">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_32">
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>REPORT</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_CentralBottom_10">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_33"/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_Config_2">
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+	background-color:#fafbfd;
+    border:0px;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_40">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_CentralControl_11">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+
+	background-color:#fafbfd;
+   border:0px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_41">
+           <item>
+            <widget class="QFrame" name="frame_19">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_34">
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>CONFIG</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_CentralBottom_11">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_35"/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_About_2">
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+	background-color:#fafbfd;
+    border:0px;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_42">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_CentralControl_12">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+
+	background-color:#fafbfd;
+   border:0px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_43">
+           <item>
+            <widget class="QFrame" name="frame_20">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_36">
+              <item>
+               <widget class="QLabel" name="label_12">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+
+		font-size:30px;
+	    border:0px;
+	font-weight: bold;
+
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>ABOUT</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_CentralBottom_12">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_37"/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../Python_PySide2_DashInfosecGreen-main/Python_PySide2_DashInfosecGreen-main/assets/files.qrc"/>
+ </resources>
+ <connections/>
+</ui>

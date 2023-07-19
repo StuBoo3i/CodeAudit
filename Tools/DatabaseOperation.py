@@ -19,7 +19,7 @@ class SQL:
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="100221",
+            password="123456789",
             database="code_audit"
         )
         return cnx
@@ -182,6 +182,13 @@ class SQL:
             cursor.execute(update, (
                 function, function_text, return_type, parameter, belong_file, record_id))
             cnx.commit()
+
+    @staticmethod
+    def find_all_risk_function(cursor):
+        query ="SELECT * FROM c_function "
+        cursor.execute(query)
+        result = cursor.fetchall()
+        return result
 
     @staticmethod
     def risk_function_find(cursor, risk_id):
