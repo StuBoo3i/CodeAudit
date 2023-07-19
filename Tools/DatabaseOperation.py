@@ -4,6 +4,8 @@ import mysql.connector
 import re
 from Extension.HashFunction import SHA
 from Extension.AES import AesEnDe
+
+
 class SQL:
     """
     创建示例后记得关闭游标，调用close_SQL实现
@@ -128,6 +130,7 @@ class SQL:
                 return True
             else:
                 return False
+
     @staticmethod
     def select_function_tree(cursor):
         """
@@ -147,7 +150,7 @@ class SQL:
             return e
 
     @staticmethod
-    def encrypt_message(cursor, password):
+    def encrypt_message(cursor, cnx, password):
         password = SHA.generate_sha_digest(password)[:16]
         query = "SELECT * FROM scan_function"
         cursor.execute(query)
@@ -175,10 +178,10 @@ class SQL:
             return_type = record['return_type']
             parameter = record['parameter']
             belong_file = record['belong_file']
-            update = f"UPDATE scan_function SET {function} = %s, {function_text} = %s, {return_type} = %s, {parameter} = %s, {belong_file} = %s WHERE {id} = %s"
+            update = "UPDATE scan_function SET `function` = %s, function_text = %s, return_type = %s, parameter = %s, belong_file = %s WHERE id = %s"
             cursor.execute(update, (
                 function, function_text, return_type, parameter, belong_file, record_id))
-            cursor.commit()
+            cnx.commit()
 
     @staticmethod
     def risk_function_find(cursor, risk_id):
@@ -187,9 +190,8 @@ class SQL:
         result = cursor.fetchall()
         return result
 
-
     @staticmethod
-    def select_scan_function(cursor,password="mypasswprd"):
+    def select_scan_function(cursor, password="mypasswprd"):
         try:
             # 执行SQL查询
             query = "SELECT * FROM scan_function"
@@ -203,11 +205,10 @@ class SQL:
             for ret1 in result:
                 ret = list(ret1)
                 password = SHA.generate_sha_digest(password)[:16]
-                ret[1] = AesEnDe.decrypt_string(ret[1],password)
-                ret[2] = AesEnDe.decrypt_string(ret[2],password)
-                ret[3] = AesEnDe.decrypt_string(ret[3],password)
-                ret[4] = AesEnDe.decrypt_string(ret[4],password)
-                ret[7] = AesEnDe.decrypt_string(ret[7],password)
+                ret[2] = AesEnDe.decrypt_string(password.encode(),ret[2])
+                ret[3] = AesEnDe.decrypt_string(password.encode(),ret[3])
+                ret[4] = AesEnDe.decrypt_string(password.encode(),ret[4])
+                ret[7] = AesEnDe.decrypt_string(password.encode(),ret[7])
                 func_info = {
                     'id': ret[0],
                     'function': ret[1],
@@ -226,6 +227,10 @@ class SQL:
             return func_infos
         except Exception as e:
             print("不是主人不可以看得啦喵（气急败坏）")
+            print("An error occurred:")
+            print("Error message:", str(e))
+            print("Failed code:", e.__traceback__.tb_frame.f_globals["__file__"])
+            print("Failed line:", e.__traceback__.tb_lineno)
             return e
 
     @staticmethod

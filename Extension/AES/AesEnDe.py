@@ -63,31 +63,39 @@ def encrypt_string(key, plaintext):
     encrypted_data = base64.b64encode(iv + ciphertext).decode('utf-8')
     return encrypted_data
 
+from Crypto.Cipher import AES
+import base64
+
+def unpad(data):
+    pad_len = data[-1]
+    return data[:-pad_len]
 
 def decrypt_string(key, encrypted_data):
-    # 对 Base64 编码的密文进行解码
-    encrypted_data = base64.b64decode(encrypted_data.encode('utf-8'))
+    # 对 Base64 编码的数据进行解码
+    decoded_data = base64.b64decode(encrypted_data)
 
     # 提取 IV 和密文
-    iv = encrypted_data[:AES.block_size]
-    ciphertext = encrypted_data[AES.block_size:]
+    iv = decoded_data[:AES.block_size]
+    ciphertext = decoded_data[AES.block_size:]
 
     # 创建 AES 解密器，并使用密钥和 IV 进行初始化
     cipher = AES.new(key, AES.MODE_CBC, iv)
 
-    # 进行解密，并去除填充
-    decrypted_data = unpad(cipher.decrypt(ciphertext), AES.block_size)
+    # 进行解密，并移除填充
+    decrypted_data = cipher.decrypt(ciphertext)
+    plaintext = unpad(decrypted_data)
 
-    # 返回解密后的明文
-    plaintext = decrypted_data.decode('utf-8')
+    # 解码为字符串
+    plaintext = plaintext.decode('latin-1')
+
     return plaintext
 
+
 if __name__ == '__main__':
-    key = b'b7f97c7bae92cb66'  # 16 字节的密钥，需要根据实际情况进行替换
-    plaintext = 'func'  # 要加密的明文
+    key = b'your_key_16bytes'  # 16 字节的密钥，需要根据实际情况进行替换
+    plaintext = 'Hello, World!'  # 要加密的明文
 
     encrypted_data = encrypt_string(key, plaintext)
-    print(type(encrypted_data))
     print('加密后:', encrypted_data)
 
     decrypted_data = decrypt_string(key, encrypted_data)
