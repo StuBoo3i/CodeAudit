@@ -1422,7 +1422,7 @@ class Ui_Form(QtWidgets.QWidget):
         mysql = SQL()
         result = mysql.find_all_risk_function(mysql.cursor)
         lines = 0
-        self.tableWidget_Vulnerabilities_2.setRowCount(33)
+        self.tableWidget_Vulnerabilities_2.setRowCount(1)
         self.label_CountDashTotalVuln_2.setText(str(33))
         self.label_CountDashDomains_2.setText(str(6))
         self.label_CountDashScanExecuted_2.setText(str(7))
@@ -1433,6 +1433,7 @@ class Ui_Form(QtWidgets.QWidget):
                 self.tableWidget_Vulnerabilities_2.setItem(lines, 1, QTableWidgetItem(re[2]))
                 self.tableWidget_Vulnerabilities_2.setItem(lines, 2, QTableWidgetItem(re[3]))
                 lines = lines +1
+                self.tableWidget_Vulnerabilities_2.setRowCount(lines)
 
 
 
