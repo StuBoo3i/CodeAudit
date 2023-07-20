@@ -21,13 +21,17 @@ from PyQt5.QtGui import QFont, QSyntaxHighlighter, QIcon
 from FunctionManagement import CMD
 from Interfaces.InvokeGCC import compile_code
 from Interfaces.InvokeDrmemory import invoke_drmemory
+from Extension.fuzz.Fuzz import fuzz
 from PyQt5.QtGui import QTextCharFormat, QColor
 import dashboard
+
 
 class piechart(dashboard.Ui_Form):
     def __init__(self):
         super(piechart, self).__init__()
         uic.loadUi('dashboard.ui', self)
+
+
 class UI(Ui_Dialog):
     def __init__(self):
         super(UI, self).__init__()
@@ -80,6 +84,7 @@ class Highlighter(QSyntaxHighlighter):
 
 
 class Ui_MainWindow(QtWidgets.QMainWindow):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("Code_Audit")
         MainWindow.resize(1294, 710)
@@ -263,6 +268,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.Compile.setObjectName("Compile")
         self.Run = QtWidgets.QAction(MainWindow)
         self.Run.setObjectName("Run")
+        self.Fuzz = QtWidgets.QAction(MainWindow)
+        self.Fuzz.setObjectName("Fuzz")
         self.CMD = QtWidgets.QAction(MainWindow)
         self.CMD.setObjectName("CMD")
         self.File.addAction(self.Open)
@@ -283,6 +290,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.Window.addAction(self.CMD)
         self.menu.addAction(self.Compile)
         self.menu.addAction(self.Run)
+        self.menu.addAction(self.Fuzz)
         self.menubar.addAction(self.File.menuAction())
         self.menubar.addAction(self.Edit.menuAction())
         self.menubar.addAction(self.Window.menuAction())
@@ -296,6 +304,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.Pie.triggered.connect(self.pie_qa)
         self.CMD.triggered.connect(self.cmd_qa)
         self.Compile.triggered.connect(self.complie_qa)
+        self.Fuzz.triggered.connect(self.on_action_triggered)
         self.Run.triggered.connect(self.run_qa)
         self.Undo.triggered.connect(self.undo_qa)
         self.Copy.triggered.connect(self.copy_qa)
@@ -361,6 +370,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.Exit.setText(_translate("MainWindow", "退出"))
         self.Pie.setText(_translate("MainWindow", "生成饼状图"))
         self.Compile.setText(_translate("MainWindow", "编译"))
+        self.Fuzz.setText(_translate("MainWindow", "Fuzz测试及字符库生成"))
         self.Run.setText(_translate("MainWindow", "运行"))
         self.CMD.setText(_translate("MainWindow", "终端"))
 
@@ -649,6 +659,21 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         else:
             out = selected_item
         self.textEdit_2.append(invoke_drmemory(out))
+        return
+
+    def on_action_triggered(self):
+        selected_item = ""
+        selected_indexes = self.treeView.selectedIndexes()
+        if not selected_indexes:
+            # 没有选中项
+            QMessageBox.warning(self, "警告", "未选中任何文件")
+            return
+
+        for index in selected_indexes:
+            # 获取选中项的文件路径
+            selected_item = self.treeView.model().filePath(index)
+
+        self.textEdit_2.append(fuzz(selected_item))
         return
 
     def undo_qa(self):

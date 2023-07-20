@@ -137,4 +137,4 @@ def fuzz(filename):
 
 
 if __name__ == "__main__":
-    fuzz('calculator.c')
+    fuzz('../../File/calculator.c')
