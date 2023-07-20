@@ -83,6 +83,19 @@ class Highlighter(QSyntaxHighlighter):
         self.setCurrentBlockState(0)
 
 
+class FuzzThread(QtCore.QThread):
+    fuzz_done = QtCore.pyqtSignal(str)
+
+    def __init__(self, selected_item):
+        super().__init__()
+        self.selected_item = selected_item
+
+    def run(self):
+        # 此处运行您的fuzz函数
+        # 注意：由于在后台线程运行，避免直接与UI进行交互，可以通过信号传递结果
+        result = fuzz(self.selected_item)
+        self.fuzz_done.emit(result)
+
 class Ui_MainWindow(QtWidgets.QMainWindow):
 
     def setupUi(self, MainWindow):
@@ -673,8 +686,18 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             # 获取选中项的文件路径
             selected_item = self.treeView.model().filePath(index)
 
-        self.textEdit_2.append(fuzz(selected_item))
+        # 使用线程执行fuzz函数
+        fuzz_thread = FuzzThread(selected_item)
+        fuzz_thread.fuzz_done.connect(self.fuzz_finished)
+        fuzz_thread.start()
         return
+
+    def fuzz_finished(self, result):
+        # fuzz函数运行结束后，处理结果
+        import time
+        time.sleep(5)
+        # 这里可以更新UI或进行其他操作
+        self.textEdit_2.append(result)
 
     def undo_qa(self):
         print('Undo')

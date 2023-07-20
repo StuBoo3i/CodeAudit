@@ -110,7 +110,8 @@ def run_program(input_data, file):
 
 
 def fuzz(filename):
-    NUM_TESTS = 500
+    NUM_TESTS = 10
+    crash_found = False
 
     # 检查是否在循环的复合语句中
     with open(filename, 'r') as file:
@@ -133,7 +134,15 @@ def fuzz(filename):
 
             if is_crash(stdout, input_data) or is_crash(stderr, input_data):
                 print("Crash detected!")
+                crash_found = True
                 break
+
+    if crash_found:
+        with open("fuzz_string.txt", "r") as file:
+            content = file.read()
+            if content:
+                return content
+    return "当前模糊测试没有发现异常字符串"
 
 
 if __name__ == "__main__":
